@@ -1,3 +1,11 @@
+:root {
+  --blue: #47B5FF;
+  --black: #26282B;
+  --grey: #353941;
+  --yellow: #FFC107;
+  --white: #FFFFFF;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -7,20 +15,30 @@ p {
     margin: 0;
     padding: 0;
 }
+
+.video-container {
+  width: 100%;
+  background-color: var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+iframe {
+  width: 1000px;
+  height: 500px;
+}
   
-  .container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
+.container {
+    width: 100%;
+    background-color: var(--black);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+}
   
-  h1 {
+h1 {
     margin-top: 0;
-  }
+}
   
-  p {
+p {
     margin-bottom: 10px;
-  }
+}

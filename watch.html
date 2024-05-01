@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MovieTime</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="movie-container"> 
+    <div class="video-container">
+      <iframe id="movie-video" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="movie-detail">
+
+      <div class="left-detail">
+        <img id="movie-poster">
+        <div class="rating-section">
+          <div class="stars">
+            <img src="Assets/Icon/star.png" alt="" data-value="1">
+            <img src="Assets/Icon/star.png" alt="" data-value="2">
+            <img src="Assets/Icon/star.png" alt="" data-value="3">
+            <img src="Assets/Icon/star.png" alt="" data-value="4">
+            <img src="Assets/Icon/star.png" alt="" data-value="5">
+          </div>
+          <p class="lexend">How do you rate this film?</p>
+        </div>
+      </div>
+
+      <div class="right-detail">
+        <div class="top-detail">
+          <p id="movie-title" class="lexend"></p>
+          <div class="add-button" id="add-button">
+            <img src="Assets/Icon/bookmark.png" alt="">
+            <p class="lexend">Add to Watchlist</p>
+          </div>
+        </div>
+        
+        <div class="small-detail">
+
+          <div class="rating">
+            <img src="Assets/Icon/star (3).png" alt="">
+            <p id="movie-rating" class="lexend"></p>
+          </div>
+
+          <p id="movie-year" class="lexend"></p>
+          <p id="movie-duration" class="lexend"></p>
+
+        </div>
+
+        <p id="movie-synopsis" class="lexend"></p>
+
+        <div class="other-detail">
+          <div class="detail-name">
+            <p class="lexend">Type</p>
+            <p class="lexend">Genre</p>
+            <p class="lexend">Release</p>
+            <p class="lexend">Production</p>
+            <p class="lexend">Director</span></p>
+            <p class="lexend">Cast</p>
+          </div>
+          <div class="detail-description">
+            <p class="lexend">: <span id="movie-type" class="lexend"></span></p>
+            <p class="lexend">: <span id="movie-genre" class="lexend"></span></p>
+            <p class="lexend">: <span id="movie-date" class="lexend"></span></p>
+            <p class="lexend">: <span id="movie-production" class="lexend"></span></p>
+            <p class="lexend">: <span id="movie-director" class="lexend"></span></p>
+            <p class="lexend">: <span id="movie-cast" class="lexend"></span></p>
+          </div>
+          
+
+        </div>
+      </div>
+    </div>
+
+    <div class="trailer-section">
+      <p class="lexend">Trailer</p>
+      <iframe id="movie-trailer" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <div class="more-section">
+      <p class="lexend">More Like This</p>
+      <!-- Movie Cards -->
+    </div>
+
+    <div class="comment-section">
+      <p class="lexend">Comments</p>
+    </div>
+  </div>
+  
+  <script src="main.js"></script>
+</body>
+</html>

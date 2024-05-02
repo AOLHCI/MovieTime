@@ -26,6 +26,10 @@ p {
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
   
+/* HOME PAGE */
+
+/* WATCH PAGE */
+
 .movie-container {
     width: 100%;
     background-color: var(--black);
@@ -228,4 +232,42 @@ p {
   font-size: 25px;
   margin-bottom: 10px;
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* CATEGORY PAGE */
+
+/* HISTORY PAGE */
+
+/* WATCHLIST PAGE */
+
+/* COMMUNITY PAGE */
+
+/* MOBILE */
+@media screen and (max-width: 767px) {
+  /* HOME PAGE */
+
+  /* WATCH PAGE */
+
+  /* CATEGORY PAGE */
+
+  /* HISTORY PAGE */
+
+  /* WATCHLIST PAGE */
+
+  /* COMMUNITY PAGE */
+}
+
+/* TABLET */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  /* HOME PAGE */
+
+  /* WATCH PAGE */
+
+  /* CATEGORY PAGE */
+
+  /* HISTORY PAGE */
+
+  /* WATCHLIST PAGE */
+
+  /* COMMUNITY PAGE */
 }

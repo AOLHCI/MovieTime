@@ -28,16 +28,98 @@ p {
   
 /* HOME PAGE */
 
+.movie-list {
+  background-color: var(--black);
+}
+
+.movie-card-container {
+  padding: 10px;
+  border-radius: 15px;
+  /* border: 1px solid red; */
+  width: 272px;
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+.movie-card-container:hover {
+  background-color: var(--grey);
+}
+
+.movie-card-poster {
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.movie-card-rating-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--yellow);
+  width: 50px;
+  padding: 2px 3px;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 10;
+  top: 150px;
+  right: 18px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.movie-card-rating-section img {
+  width: 15px;
+  margin-right: 5px;
+}
+
+.movie-card-title {
+  color: var(--white);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.movie-card-button {
+  display: flex;
+  flex-direction: row;
+  margin: 0px 55px;
+  /* border: 1px solid red; */
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--white);
+}
+
+.movie-card-button p {
+  font-size: 15px;
+}
+
+.movie-card-button img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.movie-card-button.clicked p {
+  color: var(--blue);
+  transition: all 0.5s ease;
+}
+
+.movie-card-button:hover {
+  color: var(--blue);
+}
+
+.movie-card-button:hover img {
+  content: url('Assets/Icon/bookmark\ \(2\).png');
+}
+
 /* WATCH PAGE */
 
 .movie-container {
     width: 100%;
     background-color: var(--black);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-  
-.movie-container p {
-  color: var(--white);  
 }
 
 .video-container {
@@ -59,6 +141,10 @@ p {
   display: flex;
   flex-direction: row;
   font-size: 16px;
+}
+
+.movie-detail p {
+  color: var(--white);
 }
 
 .rating {
@@ -227,12 +313,232 @@ p {
   margin-top: 50px;
 }
 
-.comment-section p {
+.comment-title {
   color: var(--blue);
   font-size: 25px;
   margin-bottom: 10px;
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
+
+.comment-count {
+  color: var(--white);
+  font-size: 17px;
+  margin-bottom: 5px;
+}
+
+.comment-section hr {
+  width: 100%;
+  background-color: var(--blue);
+  border: none;
+  height: 1px;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  /* border: 1px solid red; */
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-comment-section {
+  margin: 0px 100px;
+  margin-top: 30px;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+
+.create-comment-section img {
+  width: 50px;
+  height: 50px;
+  filter: drop-shadow(0px 0px 10px #1f1f1f);
+}
+
+.create-comment-section textarea {
+  margin-left: 15px;
+  width: 100%;
+  background-color: var(--grey);
+  font-size: 16px;
+  color: var(--white);
+  border: none;
+  outline: 0;
+  padding: 18px 20px;
+  margin-top: 0px;
+  min-height: 80px;
+  resize: none;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.create-comment-section textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.create-comment-section textarea::placeholder {
+  position: absolute;
+  top: 18px;
+  color: var(--white);
+  opacity: 1;
+}
+
+.create-comment-section button {
+  width: 80px;
+  font-size: 18px;
+  padding: 5px 20px;
+  border-radius: 8px;
+  border: 0;
+  background-color: var(--blue);
+  color: var(--black);
+  margin-left: 882px;
+  margin-top: 12px;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.create-comment-section button:hover {
+  background-color: var(--grey);
+  color: var(--blue);
+}
+
+.before-comment {
+  margin-bottom: 30px;
+}
+
+.comment-1 {
+  margin-bottom: 10px;
+  /* border: 1px solid red; */
+}
+
+.posted-comment-section {
+  padding: 15px;
+  margin: 0px 80px; 
+  /* margin-top: 30px; */
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  background-color: var(--grey);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+
+.posted-reply-section {
+  padding: 15px;
+  margin: 0px 80px 0px 180px; 
+  /* margin-top: 30px; */
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  background-color: var(--grey);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+
+/* Initially hide all posted-reply-sections */
+.posted-reply-section {
+  display: none;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+/* Show the replies when the 'show' class is added */
+.posted-reply-section.show {
+  display: block;
+  opacity: 1;
+}
+
+.posted-comment-section img, .posted-reply-section img {
+  width: 45px;
+  height: 45px;
+  filter: drop-shadow(0px 0px 5px var(--black));
+}
+
+.comment-description {
+  font-size: 16px;
+  color: var(--white);
+  padding: 0px 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.replying-to {
+  color: var(--blue);
+}
+
+.comment-author {
+  font-size: 16px;
+  color: var(--white);
+  padding: 0px 20px;
+  margin-bottom: 5px;
+  margin-top: 1px;
+}
+
+.comment-date {
+  padding: 0px 20px;
+  color: var(--white);
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  opacity: 0.4;
+  font-size: 15px;
+}
+
+.comment-details img {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+}
+
+.comment-details {
+  margin-left: 65px;
+  align-items: center;
+  gap: 50px;
+}
+
+.comment-like-count, .comment-reply-count, .reply-comment {
+  color: var(--white);
+  opacity: 1;
+  font-size: 15px;
+}
+
+.reply-comment {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reply-comment:hover {
+  color: var(--blue);
+}
+
+.comment-like-section, .comment-reply-section {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /* border: 1px solid red; */
+}
+
+.comment-like-section:hover .comment-like-icon {
+  content: url('Assets/Icon/like\ \(1\).png');
+}
+
+.comment-like-section:hover p {
+  color: var(--blue);
+}
+
+.comment-reply-section:hover .comment-reply-icon {
+  content: url('Assets/Icon/comment\ \(1\).png');
+}
+
+.comment-reply-section:hover p {
+  color: var(--blue);
+}
+
 
 /* CATEGORY PAGE */
 

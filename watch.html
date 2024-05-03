@@ -84,7 +84,89 @@
     </div>
 
     <div class="comment-section">
-      <p class="lexend">Comments</p>
+      <p class="lexend comment-title">Comments</p>
+      
+      <hr>
+      <div class="create-comment-section">
+        <div class="flex-row">
+          <img src="Assets/Icon/profilepicture.png" alt="">
+          <textarea id="autoresizing" name="" placeholder="Type something..." class="lexend comment-text" oninput="toggleButton()"></textarea>
+        </div>
+        <button id="post-button" class="lexend" onclick="postComment()" disabled>Post</button>
+      </div>
+      <p class="lexend comment-count">3 Comments</p>
+
+      <hr class="before-comment">
+
+      <div id="posted-comments"></div>
+
+      <div class="comment-1">
+        <div class="posted-comment-section">
+          <div class="flex-row">
+            <img src="Assets/Icon/profilepicture.png" alt="">
+            <div class="flex-column">
+              <p class="lexend comment-author">Ferlie Ban Dalam</p>
+              <p class="lexend comment-date">12:29 - 4 May 2024</p>
+              <p class="lexend comment-description">I have a question how do we know this mark is not just the beginning of an evil mark like how do we know this mark is not the one we've been following in season one entirely it just could be ohh evil mark that had a very similar thing happened to them like for example the mark we're following right now being an evil mark it could start where when he killed angstrom he had a psychotic break hence the talking to himself I hope this makes sense I am really tired so it might not make sense at all I hope you got the gist of it</p>
+            </div>
+          </div>
+          <div class="flex-row comment-details">
+            <div class="comment-like-section">
+              <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+              <p class="lexend comment-like-count">3</p>
+            </div>
+            <div class="comment-reply-section" onclick="toggleReplies()">
+              <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+              <p class="lexend comment-reply-count">2</p>
+            </div>
+            <p class="reply-comment lexend">Reply</p>
+          </div>
+        </div>
+  
+        <div class="posted-reply-section">
+          <div class="flex-row">
+            <img src="Assets/Icon/profilepicture.png" alt="">
+            <div class="flex-column">
+              <p class="lexend comment-author">Marvin Kopling Samping</p>
+              <p class="lexend comment-date">07:24 - 6 May 2024</p>
+              <p class="lexend comment-description"><span class="replying-to">@Ferlie Ban Dalam</span> The "Invincible" title says it all slowly breaking each episode when he had small good changes. Notice how the title didn't come out in episode 8 because he didn't change.</p>
+            </div>
+          </div>
+          <div class="flex-row comment-details">
+            <div class="comment-like-section">
+              <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+              <p class="lexend comment-like-count">0</p>
+            </div>
+            <div class="comment-reply-section">
+              <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+              <p class="lexend comment-reply-count">0</p>
+            </div>
+            <p class="reply-comment lexend">Reply</p>
+          </div>
+        </div>
+
+        <div class="posted-reply-section">
+          <div class="flex-row">
+            <img src="Assets/Icon/profilepicture.png" alt="">
+            <div class="flex-column">
+              <p class="lexend comment-author">Zaki Jagoan Neon</p>
+              <p class="lexend comment-date">09:41 - 6 May 2024</p>
+              <p class="lexend comment-description"><span class="replying-to">@Ferlie Ban Dalam</span> So you're saying the title slowly breaking was a good thing I always thought it was a bad thing it represented his mind breaking place by plece cause usually things breaking apart is not a good thing.</p>
+            </div>
+          </div>
+          <div class="flex-row comment-details">
+            <div class="comment-like-section">
+              <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+              <p class="lexend comment-like-count">0</p>
+            </div>
+            <div class="comment-reply-section">
+              <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+              <p class="lexend comment-reply-count">0</p>
+            </div>
+            <p class="reply-comment lexend">Reply</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   

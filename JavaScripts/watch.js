@@ -993,7 +993,7 @@ function postComment() {
     const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
     ];
-    var formattedDate = currentDate.getHours() + ":" + currentDate.getMinutes().toString().padStart(2, '0') + " - " + currentDate.getDate() + " " + monthNames[currentDate.getMonth()] + " " + currentDate.getFullYear();
+    var formattedDate = currentDate.getHours().toString().padStart(2, '0') + ":" + currentDate.getMinutes().toString().padStart(2, '0') + " - " + currentDate.getDate() + " " + monthNames[currentDate.getMonth()] + " " + currentDate.getFullYear();
 
     var newCommentSection = document.createElement("div");
     newCommentSection.classList.add("comment-1");

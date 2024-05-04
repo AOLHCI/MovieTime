@@ -1,3 +1,65 @@
+let slideIndex = 0;
+
+function showSlides() {
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = 'none';
+  }
+
+  slideIndex++;
+
+  if (slideIndex > slides.length) {
+    slideIndex = 1;
+  }
+
+  if(slideIndex < 1){
+    slideIndex = slides.length;
+  }
+
+  for (let i = 0; i < dots.length; i++) {
+    dots[i].classList.remove('active');
+  }
+
+  slides[slideIndex - 1].style.display = 'block';
+  dots[slideIndex - 1].classList.add('active');
+}
+
+function plusSlides(n) {
+  if(slideIndex + n-1 < -1){
+    showSlides(slides.length);
+  }
+  showSlides(slideIndex += n-1);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  showSlides();
+  setInterval(showSlides, 5000);
+
+  const dots = document.querySelectorAll('.dot');
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      currentSlide(index);
+    });
+  });
+
+  const leftArrow = document.querySelector('.left-arrow');
+  const rightArrow = document.querySelector('.right-arrow');
+
+  leftArrow.addEventListener('click', () => {
+    plusSlides(-1);
+  });
+
+  rightArrow.addEventListener('click', () => {
+    plusSlides(1);
+  });
+});
+
 function addIconChangingListeners(){
     const movieCardButtons = document.querySelectorAll('.movie-card-button');
 

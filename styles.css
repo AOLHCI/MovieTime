@@ -28,6 +28,100 @@ p {
   
 /* HOME PAGE */
 
+.slider-container {
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.95);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 100%;
+}
+
+.slide {
+  flex: 0 0 100%;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  /* width: 100%; */
+}
+
+.slide img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.5s ease;
+}
+
+.slide.active img {
+  transform: scale(1.1);
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--white);
+  font-size: 48px;
+  user-select: none;
+  transition: all 0.2s ease;
+  filter: drop-shadow(0px 0px 10px #1f1f1f);
+}
+
+.arrow:hover {
+  color: var(--blue);
+}
+
+.left-arrow {
+  left: 50px;
+}
+
+.right-arrow {
+  right: 50px;
+}
+
+.dots-container {
+  text-align: center;
+  transition: opacity 0.3s ease;
+  background-color: var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 30px;
+}
+
+.dot {
+  display: inline-block;
+  width: 55px;
+  height: 5px;
+  margin: 0 5px;
+  background-color: var(--white);
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  position: relative;
+  top: -50px;
+}
+
+.dot:hover {
+  background-color: var(--blue);
+}
+
+.dot.active {
+  background-color: var(--blue);
+}
+
 .all-movies-section {
   background-color: var(--black);
 }
@@ -48,7 +142,7 @@ p {
 .movie-category-container {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 5px;
   overflow-x: auto;
   padding-bottom: 20px;
   scrollbar-width: none; /* Firefox */
@@ -126,6 +220,7 @@ p {
   /* border: 1px solid red; */
   max-width: 272px;
   overflow: hidden;
+  margin-top: 3px;
   white-space: nowrap;
   text-overflow: ellipsis;
 }

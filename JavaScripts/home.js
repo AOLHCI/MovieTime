@@ -1,11 +1,64 @@
-// Fungsi untuk mengarahkan ke halaman detail film dengan judul film sebagai parameter
-function goToMovieDetail(title) {
-    window.location.href = 'watch.html?title=' + encodeURIComponent(title);
+function addIconChangingListeners(){
+    const movieCardButtons = document.querySelectorAll('.movie-card-button');
+
+    movieCardButtons.forEach(function(movieCardButton) {
+
+        let isAdded = false;
+
+        movieCardButton.addEventListener('click', function() {
+            const cardImg = this.querySelector('img');
+            const cardDesc = this.querySelector('p');
+            
+            if (isAdded) {
+                cardImg.src = 'Assets/Icon/bookmark.png';
+                cardDesc.textContent = "Add to Watchlist";
+                this.classList.remove('clicked');
+                isAdded = false;
+            } else {
+                cardImg.src = 'Assets/Icon/bookmark (1).png'; // Adjusted for file name
+                cardDesc.textContent = "Added to Watchlist";
+                this.classList.add('clicked');
+                isAdded = true;
+            }
+        });
+    });
 }
 
-// Data film
+function addDraggableListeners() {
+    var containers = document.querySelectorAll('.movie-category-container');
+
+    containers.forEach(function(container) {
+        var isDown = false;
+        var startX;
+        var scrollLeft;
+
+        container.addEventListener('mousedown', function(event) {
+            isDown = true;
+            startX = event.pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+        });
+
+        container.addEventListener('mouseleave', function() {
+            isDown = false;
+        });
+
+        container.addEventListener('mouseup', function() {
+            isDown = false;
+        });
+
+        container.addEventListener('mousemove', function(event) {
+            if (!isDown) return;
+            event.preventDefault();
+            var x = event.pageX - container.offsetLeft;
+            var walk = (x - startX) * 1; // Adjust scrolling speed
+            container.scrollLeft = scrollLeft - walk;
+        });
+    });
+}
+
 var movies = [
     {
+      mainPoster: "https://i.ebayimg.com/images/g/wo0AAOSwM71eN1Zg/s-l1200.jpg",
       posterURL: "https://upload.wikimedia.org/wikipedia/id/a/ae/1917_film_poster.jpg",
       title: "1917", 
       rating: 8.5,
@@ -40,7 +93,7 @@ var movies = [
     {
     posterURL: "https://upload.wikimedia.org/wikipedia/en/8/8a/The_Avengers_%282012_film%29_poster.jpg",
       title: "The Avengers",
-      rating: 8.0,
+      rating: "8.0",
       year: 2012,
       duration: "2h 23m",
       synopsis: "When Thor's evil brother, Loki (Tom Hiddleston), gains access to the unlimited power of the energy cube called the Tesseract, Nick Fury (Samuel L. Jackson), director of S.H.I.E.L.D., initiates a superhero recruitment effort to defeat the unprecedented threat to Earth. Joining Fury's dream team are Iron Man (Robert Downey Jr.), Captain America (Chris Evans), the Hulk (Mark Ruffalo), Thor (Chris Hemsworth), the Black Widow (Scarlett Johansson) and Hawkeye (Jeremy Renner).",
@@ -56,7 +109,7 @@ var movies = [
     {
     posterURL: "https://upload.wikimedia.org/wikipedia/en/1/1c/The_Dark_Knight_%282008_film%29.jpg",
       title: "The Dark Knight",
-      rating: 9.0,
+      rating: "9.0",
       year: 2008,
       duration: "2h 32m",
       synopsis: "With the help of allies Lt. Jim Gordon (Gary Oldman) and DA Harvey Dent (Aaron Eckhart), Batman (Christian Bale) has been able to keep a tight lid on crime in Gotham City. But when a vile young criminal calling himself the Joker (Heath Ledger) suddenly throws the town into chaos, the caped Crusader begins to tread a fine line between heroism and vigilantism.",
@@ -200,7 +253,7 @@ var movies = [
     {
     posterURL: "https://upload.wikimedia.org/wikipedia/en/2/26/Tillu_Square_Teaser.jpeg",
       title: "Tillu Square",
-      rating: 7,
+      rating: "7.0",
       year: 2024,
       duration: "2h 3m",
       synopsis: "One year after a love affair bound him up in a murder case, a foolish DJ has a one-night encounter that leads to even bigger kerfuffles related to his past.",
@@ -278,7 +331,7 @@ var movies = [
       category: "New"
     },
     {
-    posterURL: "https://www.imdb.com/title/tt15845610/mediaviewer/rm748124417/?ref_=tt_ov_i",
+    posterURL: "https://d32qys9a6wm9no.cloudfront.net/images/tvs/poster/d5/e1e3db58fbea6f2dd7c0c7a9bb8d8da4_300x442.jpg?t=1713294776",
       title: "A Man in Full",
       rating: 4.6,
       year: 2024,
@@ -552,7 +605,7 @@ var movies = [
     {
     posterURL: "https://upload.wikimedia.org/wikipedia/en/9/90/Wonka_2023_film_poster.jpg",
       title: "Wonka",
-      rating: 7.0,
+      rating: "7.0",
       year: 2023,
       duration: "1h 56m",
       synopsis: "Armed with nothing but a hatful of dreams, young chocolatier Willy Wonka manages to change the world, one delectable bite at a time.",
@@ -647,7 +700,7 @@ var movies = [
     },
     {
     posterURL: "https://upload.wikimedia.org/wikipedia/en/d/d6/Five_Nights_At_Freddy%27s_poster.jpeg",
-      title: "Five Nights at Freddy's",
+      title: "Five Nights at Freddys",
       rating: 5.5,
       year: 2023,
       duration: "1h 49m",
@@ -807,210 +860,59 @@ var movies = [
     },
   ];
 
-  // Fungsi untuk menampilkan detail film berdasarkan judul yang diterima dari parameter
-function showMovieDetailByTitle(title) {
-    var movie = movies.find(movie => movie.title === title);
-
-    document.getElementById('movie-video').src = movie.trailerURL;
-    document.getElementById('movie-poster').src = movie.posterURL;
-    document.getElementById('movie-title').textContent = movie.title;
-    document.getElementById('movie-rating').textContent = movie.rating + "/10";
-    document.getElementById('movie-year').textContent = movie.year;
-    document.getElementById('movie-duration').textContent = movie.duration;
-    document.getElementById('movie-synopsis').textContent = movie.synopsis;
-    document.getElementById('movie-type').textContent = movie.type;
-    document.getElementById('movie-genre').textContent = movie.genre;
-    document.getElementById('movie-date').textContent = movie.releaseDate;
-    document.getElementById('movie-production').textContent = movie.production;
-    document.getElementById('movie-director').textContent = movie.director;
-    document.getElementById('movie-cast').textContent = movie.cast;
-    document.getElementById('movie-trailer').src = movie.trailerURL;
-    
-}
-
-// Ambil judul film yang dipilih dari URL
-const urlParams = new URLSearchParams(window.location.search);
-const selectedMovieTitle = urlParams.get('title');
-showMovieDetailByTitle(selectedMovieTitle);
-
-const addButton = document.getElementById('add-button');
-let isBookmarked = false;
-
-addButton.addEventListener('click', function() {
-    const img = this.querySelector('img');
-    const desc = this.querySelector('p');
-    if (isBookmarked) {
-        img.src = 'Assets/Icon/bookmark.png';
-        desc.textContent = "Add to Watchlist";
-        this.classList.remove('clicked');
-        isBookmarked = false;
-    } else {
-        img.src = 'Assets/Icon/bookmark\ \(1\).png';
-        desc.textContent = "Added to Watchlist";
-        this.classList.add('clicked');
-        isBookmarked = true;
+var categories = [
+    {
+        category: "Top10",
+        title: "Discover the Top 10 BlockBusters!"
+    },
+    {
+        category: "New",
+        title: "Check Out the Newest Films!"
+    },
+    {
+        category: "TopRatedSeries",
+        title: "Top-Rated TV-Series You Can't Miss!"
+    },
+    {
+        category: "Watchlist",
+        title: "My Watchlist"
+    },
+    {
+        category: "History",
+        title: "Continue Watching"
     }
-});
+];
 
-const stars = document.querySelectorAll('.stars img');
-let previousRating = 0;
+categories.forEach(categoryInfo => {
+    const categoryMovies = movies.filter(movie => movie.category === categoryInfo.category); // Get up to 10 movies for each category
 
-stars.forEach(star => {
-    star.addEventListener('click', function() {
-        const value = parseInt(this.getAttribute('data-value'));
-
-        if (value === previousRating) {
-            stars.forEach(s => {
-                s.classList.remove('rated');
-            });
-            previousRating = 0;
-        } else {
-            stars.forEach((s, index) => {
-                if (index < value) {
-                    s.classList.add('rated');
-                } else {
-                    s.classList.remove('rated');
-                }
-            });
-            previousRating = value;
-        }
-    });
-});
-
-textarea = document.querySelector("#autoresizing");
-textarea.addEventListener('input', autoResize, false);
- 
-function autoResize() {
-    this.style.height = 'auto';
-    this.style.height = this.scrollHeight - 36 + 'px';
-}
-
-// Get all elements with the class 'comment-like-section'
-const commentLikeSections = document.querySelectorAll('.comment-like-section');
-
-// Loop through each comment-like-section element
-commentLikeSections.forEach(commentLikeSection => {
-    let isLiked = false;
-
-    // Add click event listener to toggle like
-    commentLikeSection.addEventListener('click', function(){
-        const commentLikeIcon = this.querySelector('img');
-        const commentLikeCount = this.querySelector('p');
-        if(isLiked) {
-            commentLikeIcon.src = 'Assets/Icon/like.png';
-            commentLikeCount.textContent = parseInt(commentLikeCount.textContent) - 1;
-            commentLikeCount.style.color = "#FFFFFF";
-            isLiked = false;
-        }
-        else {
-            commentLikeIcon.src = 'Assets/Icon/like (1).png';
-            commentLikeCount.textContent = parseInt(commentLikeCount.textContent) + 1;
-            commentLikeCount.style.color = "#47B5FF";
-            isLiked = true;
-        }
-    });
-
-    // Add mouseover event listener to change icon and count color
-    commentLikeSection.addEventListener('mouseover', function() {
-        const commentLikeIcon = this.querySelector('img');
-        const commentLikeCount = this.querySelector('p');
-        if (!isLiked) {
-            commentLikeIcon.src = 'Assets/Icon/like (1).png';
-            commentLikeCount.style.color = "#47B5FF";
-        }
-    });
-
-    // Add mouseout event listener to change icon and count color
-    commentLikeSection.addEventListener('mouseout', function() {
-        const commentLikeIcon = this.querySelector('img');
-        const commentLikeCount = this.querySelector('p');
-        if (!isLiked) {
-            commentLikeIcon.src = 'Assets/Icon/like.png';
-            commentLikeCount.style.color = "#FFFFFF";
-        }
-    });
-});
-
-function toggleButton() {
-    var commentText = document.getElementsByClassName('comment-text')[0].value;
-    var postButton = document.getElementById('post-button');
-
-    if (commentText.trim() === "") {
-        postButton.disabled = true;
-    } else {
-        postButton.disabled = false;
-    }
-}
-
-function postComment() {
-    var commentText = document.getElementsByClassName('comment-text')[0].value;
-    // window.alert(commentText);
-
-    var currentDate = new Date();
-    const monthNames = ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
-    ];
-    var formattedDate = currentDate.getHours() + ":" + currentDate.getMinutes() + " - " + currentDate.getDate() + " " + monthNames[currentDate.getMonth()] + " " + currentDate.getFullYear();
-
-    var newCommentSection = document.createElement("div");
-    newCommentSection.classList.add("comment-1");
-    
-    newCommentSection.innerHTML = `
-        <div class="posted-comment-section">
-            <div class="flex-row">
-                <img src="Assets/Icon/profilepicture.png" alt="">
-                <div class="flex-column">
-                    <p class="lexend comment-author">You</p>
-                    <p class="lexend comment-date">${formattedDate}</p>
-                    <p class="lexend comment-description">${commentText}</p>
-                </div>
+    const movieCardsHTML = categoryMovies.map(movie => `
+        <div class="movie-card-container">
+            <img class="movie-card-poster" src="${movie.posterURL}" alt="${movie.title}" width="272" height="170">
+            <img onclick="goToMovieDetail('${movie.title}')" class="movie-card-play" src="Assets/Icon/PlayButton.png" alt="">
+            <div class="movie-card-rating-section">
+                <img src="Assets/Icon/star (1).png" alt="">
+                <p class="lexend">${movie.rating}</p>
             </div>
-            <div class="flex-row comment-details">
-                <div class="comment-like-section" id="comment-like-section">
-                    <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
-                    <p class="lexend comment-like-count">0</p>
-                </div>
-                <div class="comment-reply-section">
-                    <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
-                    <p class="lexend comment-reply-count">0</p>
-                </div>
-                <p class="reply-comment lexend">Reply</p>
+            <p onclick="goToMovieDetail('${movie.title}')" class="movie-card-title lexend">${movie.title}</p>
+            <div class="movie-card-button">
+                <img src="Assets/Icon/bookmark.png" alt="">
+                <p class="lexend">Add to Watchlist</p>
+            </div>
+        </div>
+    `).join('');
+
+    const allMoviesSection = document.querySelector('.all-movies-section');
+    
+    const categoryHTML = `
+        <div class="all-movie-list">
+            <p class="main-category-title lexend">${categoryInfo.title}</p>
+            <div class="movie-category-container">
+                ${movieCardsHTML}
             </div>
         </div>
     `;
-
-    var postedComments = document.getElementById("posted-comments");
-    postedComments.insertBefore(newCommentSection, postedComments.firstChild);
-
-    document.getElementById("comment-text").value = "";
-    
-    document.getElementById('post-button').disabled = true;
-};
-
-function toggleReplies() {
-    const postedReplySections = document.querySelectorAll('.posted-reply-section');
-    
-    postedReplySections.forEach(postedReplySection => {
-        postedReplySection.classList.toggle('show');
-    });
-}
-
-// const movieCardButton = document.getElementById('movie-card-button');
-// console.log(movieCardButton);
-// let isAdded = false;
-
-// movieCardButton.addEventListener('click', function() {
-//     const cardImg = this.querySelector('img');
-//     const cardDesc = this.querySelector('p');
-//     if (isAdded) {
-//         cardImg.src = 'Assets/Icon/bookmark.png';
-//         cardDesc.textContent = "Add to Watchlist";
-//         this.classList.remove('clicked');
-//         isAdded = false;
-//     } else {
-//         cardImg.src = 'Assets/Icon/bookmark\ \(1\).png';
-//         cardDesc.textContent = "Added to Watchlist";
-//         this.classList.add('clicked');
-//         isAdded = true;
-//     }
-// });
+    allMoviesSection.insertAdjacentHTML('beforeend', categoryHTML);
+    addIconChangingListeners();
+    addDraggableListeners();
+});

@@ -594,6 +594,46 @@ p {
 
 
 /* CATEGORY PAGE */
+.category-title {
+  text-align: center;
+  color: white;
+  text-shadow:0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.category-background {
+  background-color: #1f1f1f;
+}
+
+.category-left {
+  margin-left: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.category-random-button {
+  background-color: var(--blue);
+  width: 7rem;
+  height: 2.5rem;
+  border-radius: 8px;
+  border: #26282B 2px;
+}
+
+.category-random-button:hover {
+  background-color: rgb(18, 103, 194)
+}
+
+.category-row {
+  font-size: 0;
+}
+
+.category-col {
+  display: inline-block;
+  width: calc(50% - 20px/rem);
+  margin-right: calc(10px/rem);
+}
+
+.category-col .movie-card-container {
+  margin: 0 2rem;
+}
 
 /* HISTORY PAGE */
 

@@ -541,6 +541,22 @@ p {
 
 
 /* CATEGORY PAGE */
+.category-title {
+  text-align: center;
+  color: white;
+}
+
+.category-background {
+  background-color: #1f1f1f;
+}
+
+.category-random-button {
+  background-color: var(--blue);
+  width: 7rem;
+  height: 3rem;
+  border-radius: 8px;
+  border: #26282B 2px;
+}
 
 /* HISTORY PAGE */
 

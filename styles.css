@@ -8,6 +8,10 @@
   --white: #FFFFFF;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .lexend {
   font-family: "Lexend", sans-serif;
   font-optical-sizing: auto;
@@ -25,7 +29,11 @@ p {
     padding: 0;
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-  
+
+a {
+  text-decoration: none;
+}
+
 /* HOME PAGE */
 
 .slider-container {
@@ -132,17 +140,39 @@ p {
   /* border: 1px solid red; */
 }
 
+.main-category-title-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  cursor: pointer;
+  /* border: 1px solid red; */
+  width: fit-content;
+}
+
+.main-category-title-container:hover .main-category-more{
+  margin-left: 30px;
+}
+
+.main-category-more {
+  color: var(--blue);
+  font-size: 22px;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0px 0px 10px #1f1f1f);
+}
+
 .main-category-title {
   color: var(--blue);
   font-size: 24px;
   margin-bottom: 10px;
   margin-left: 10px;
+  /* border: 1px solid red; */
+  width: fit-content;
 }
 
 .movie-category-container {
   display: flex;
   flex-direction: row;
-  gap: 5px;
+  gap: 10px;
   overflow-x: auto;
   padding-bottom: 20px;
   scrollbar-width: none; /* Firefox */
@@ -177,6 +207,7 @@ p {
 }
 
 .movie-card-poster {
+  width: 100%;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
@@ -229,7 +260,7 @@ p {
   visibility: hidden;
   display: flex;
   flex-direction: row;
-  margin: 0px 50px;
+  margin: 0px;
   /* border: 1px solid red; */
   justify-content: center;
   align-items: center;
@@ -440,6 +471,11 @@ p {
   box-shadow: 0 0px 15px rgba(0, 0, 0, 0.5);
 }
 
+.more-like-this {
+  background-color: var(--black);
+  /* border: 1px solid red; */
+}
+
 .more-section {
   display: flex;
   flex-direction: column;
@@ -447,7 +483,7 @@ p {
   margin-top: 50px;
 }
 
-.more-section p {
+.more-section-title {
   color: var(--blue);
   font-size: 25px;
   margin-bottom: 10px;
@@ -503,7 +539,7 @@ p {
 
 .create-comment-section img {
   width: 50px;
-  height: 50px;
+  height: 50px; 
   filter: drop-shadow(0px 0px 10px #1f1f1f);
 }
 
@@ -542,11 +578,12 @@ p {
   border: 0;
   background-color: var(--blue);
   color: var(--black);
-  margin-left: 882px;
+  margin-left: calc(100% - 80px);
   margin-top: 12px;
   transition: all 0.2s ease;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+  /* border: 1px solid red; */
 }
 
 .create-comment-section button:hover {

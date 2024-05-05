@@ -807,6 +807,64 @@ var movies = [
     },
   ];
 
+  function addIconChangingListeners(){
+    const movieCardButtons = document.querySelectorAll('.movie-card-button');
+
+    movieCardButtons.forEach(function(movieCardButton) {
+
+        let isAdded = false;
+
+        movieCardButton.addEventListener('click', function() {
+            const cardImg = this.querySelector('img');
+            const cardDesc = this.querySelector('p');
+            
+            if (isAdded) {
+                cardImg.src = 'Assets/Icon/bookmark.png';
+                cardDesc.textContent = "Add to Watchlist";
+                this.classList.remove('clicked');
+                isAdded = false;
+            } else {
+                cardImg.src = 'Assets/Icon/bookmark (1).png'; // Adjusted for file name
+                cardDesc.textContent = "Added to Watchlist";
+                this.classList.add('clicked');
+                isAdded = true;
+            }
+        });
+    });
+}
+
+function addDraggableListeners() {
+    var containers = document.querySelectorAll('.movie-category-container');
+
+    containers.forEach(function(container) {
+        var isDown = false;
+        var startX;
+        var scrollLeft;
+
+        container.addEventListener('mousedown', function(event) {
+            isDown = true;
+            startX = event.pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+        });
+
+        container.addEventListener('mouseleave', function() {
+            isDown = false;
+        });
+
+        container.addEventListener('mouseup', function() {
+            isDown = false;
+        });
+
+        container.addEventListener('mousemove', function(event) {
+            if (!isDown) return;
+            event.preventDefault();
+            var x = event.pageX - container.offsetLeft;
+            var walk = (x - startX) * 1; // Adjust scrolling speed
+            container.scrollLeft = scrollLeft - walk;
+        });
+    });
+}
+
   // Fungsi untuk menampilkan detail film berdasarkan judul yang diterima dari parameter
 function showMovieDetailByTitle(title) {
     var movie = movies.find(movie => movie.title === title);
@@ -825,7 +883,39 @@ function showMovieDetailByTitle(title) {
     document.getElementById('movie-director').textContent = movie.director;
     document.getElementById('movie-cast').textContent = movie.cast;
     document.getElementById('movie-trailer').src = movie.trailerURL;
-    
+
+    var similarMovies = movies.filter(movieSearched => movieSearched.genre === movie.genre);
+    similarMovies = similarMovies.filter(movieSearched => movieSearched.title !== movie.title);
+
+    const movieCardsHTML = similarMovies.map(movie => `
+        <div class="movie-card-container">
+            <img class="movie-card-poster" src="${movie.posterURL}" alt="${movie.title}" width="272px" height="170px">
+            <img onclick="goToMovieDetail('${movie.title}')" class="movie-card-play" src="Assets/Icon/PlayButton.png" alt="">
+            <div class="movie-card-rating-section">
+                <img src="Assets/Icon/star (1).png" alt="">
+                <p class="lexend">${movie.rating}</p>
+            </div>
+            <p onclick="goToMovieDetail('${movie.title}')" class="movie-card-title lexend">${movie.title}</p>
+            <div class="movie-card-button">
+                <img src="Assets/Icon/bookmark.png" alt="">
+                <p class="lexend">Add to Watchlist</p>
+            </div>
+        </div>
+    `).join('');
+
+    const moreLikeThis = document.querySelector('.more-like-this');
+
+    var moreHTML = `
+        <div class="all-movie-list">
+            <div class="movie-category-container">
+                ${movieCardsHTML}
+            </div>
+        </div>
+      `;
+
+      moreLikeThis.insertAdjacentHTML('beforeend', moreHTML);
+      addIconChangingListeners();
+      addDraggableListeners();
 }
 
 // Ambil judul film yang dipilih dari URL

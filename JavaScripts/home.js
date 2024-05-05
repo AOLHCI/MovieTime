@@ -946,11 +946,11 @@ var categories = [
 ];
 
 categories.forEach(categoryInfo => {
-    const categoryMovies = movies.filter(movie => movie.category === categoryInfo.category); // Get up to 10 movies for each category
+    const categoryMovies = movies.filter(movie => movie.category === categoryInfo.category);
 
     const movieCardsHTML = categoryMovies.map(movie => `
         <div class="movie-card-container">
-            <img class="movie-card-poster" src="${movie.posterURL}" alt="${movie.title}" width="272" height="170">
+            <img class="movie-card-poster" src="${movie.posterURL}" alt="${movie.title}" width="272px" height="170px">
             <img onclick="goToMovieDetail('${movie.title}')" class="movie-card-play" src="Assets/Icon/PlayButton.png" alt="">
             <div class="movie-card-rating-section">
                 <img src="Assets/Icon/star (1).png" alt="">
@@ -966,14 +966,46 @@ categories.forEach(categoryInfo => {
 
     const allMoviesSection = document.querySelector('.all-movies-section');
     
-    const categoryHTML = `
+    if(categoryInfo.title === "Continue Watching" || categoryInfo.title === "My Watchlist"){
+      if(categoryInfo.title === "Continue Watching"){
+        var categoryHTML = `
+          <div class="all-movie-list">
+            <a href="history.html" class="main-category-title-container">
+              <p class="main-category-title lexend">${categoryInfo.title}</p>
+              <div class="main-category-more lexend">&#10095;</div>
+            </a>
+              <div class="movie-category-container">
+                  ${movieCardsHTML}
+              </div>
+          </div>
+        `;
+      }
+      else if(categoryInfo.title === "My Watchlist"){
+        var categoryHTML = `
+          <div class="all-movie-list">
+            <a href="watchlist.html" class="main-category-title-container">
+              <p class="main-category-title lexend">${categoryInfo.title}</p>
+              <div class="main-category-more lexend">&#10095;</div>
+            </a>
+              <div class="movie-category-container">
+                  ${movieCardsHTML}
+              </div>
+          </div>
+        `;
+      }
+      
+    }
+    else {
+      var categoryHTML = `
         <div class="all-movie-list">
             <p class="main-category-title lexend">${categoryInfo.title}</p>
             <div class="movie-category-container">
                 ${movieCardsHTML}
             </div>
         </div>
-    `;
+      `;
+    };
+    
     allMoviesSection.insertAdjacentHTML('beforeend', categoryHTML);
     addIconChangingListeners();
     addDraggableListeners();

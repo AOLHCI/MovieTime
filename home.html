@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MovieTime</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="Header.css">
+    <!-- <link rel="stylesheet" href="Header.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel = "stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel = "stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -13,8 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Marko+One&display=swap" rel="stylesheet">
-
-
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -72,8 +70,7 @@
         </div>
 
     </header>
-
-
+    
     <div class="slider-container">
         <div class="slider">
             <div class="slide" onclick="goToMovieDetail('The Dark Knight')">
@@ -106,9 +103,18 @@
     <div class="all-movies-section"></div>
     <!-- All Movie Card generated using JavaScript -->
 
-
-    <!-- <script src="JavaScripts/Header.js"></script> -->
+    
     <script src="JavaScripts/home.js"></script>
     <script src="JavaScripts/watch.js"></script>
+    <script src="JavaScripts/Header.js"></script>
+    <script>
+        function goToMovieDetail(title) {
+        window.location.href = 'watch.html?title=' + encodeURIComponent(title);
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedMovieTitle = urlParams.get('title');
+        showMovieDetailByTitle(selectedMovieTitle);
+    </script>
 </body>
 </html>

@@ -33,7 +33,6 @@ p {
 a {
   text-decoration: none;
 }
-
 /* HOME PAGE */
 
 .slider-container {
@@ -771,7 +770,7 @@ a {
 
 * {
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Poppins', sans-serif; */
 }
 
 @font-face {
@@ -792,7 +791,6 @@ a {
   font-weight: 400;
   font-style: normal;
 }
-
 
 .movielogo h2 {
   font-family: 'Marko One', sans-serif;
@@ -826,7 +824,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color:#222222;
+  background-color: var(--black);
   transition: background-color 0.3s, padding 0.3s;
   z-index: 1000000;
 }
@@ -965,7 +963,7 @@ nav{
 
 .dropdown-profile a:hover {
   border-radius: 10px;
-  background-color:#01afff;
+  background-color: var(--blue);
 }
 
 .show {
@@ -1009,7 +1007,7 @@ nav{
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #363636;
+  background-color: var(--black);
   min-width: 600px;
   width: auto;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);

@@ -186,7 +186,7 @@ var movies = [
     type: "Film",
     genre: "Romance",
     releaseDate: "16 March 2024",
-    production: "Amazon MGM Studios, Somewhere Pictures, Welle Entertainment, I’ll Have Another, Belle Hope Productions",
+    production: "Amazon MGM Studios, Somewhere Pictures, Welle Entertainment, Belle Hope Productions",
     director: "Michael Showalter",
     cast: "Anne Hathaway, Nicholas Galitzine",
     trailerURL: "https://www.youtube.com/embed/V8i6PB0gGOA?si=xbz7e2_wV4rURf6H",
@@ -1157,14 +1157,22 @@ function toggleButton() {
     }
 }
 
+function toggleReplyButton(){
+  var commentText = document.getElementsByClassName('reply-comment-text')[0].value;
+  var replyButton = document.getElementById('reply-button');
+
+  if(commentText.trim() === ""){
+    replyButton.disabled = true;
+  } else {
+    replyButton.disabled = false;
+  }
+}
+
 function addLikeCounter(){
-
     const commentLikeSection = document.querySelector('.comment-like-section');
-
     let isLiked = false;
 
     commentLikeSection.addEventListener('click', function(){
-
         const commentLikeIcon = this.querySelector('img');
         const commentLikeCount = this.querySelector('p');
         if(isLiked) {
@@ -1242,10 +1250,12 @@ function postComment() {
 
     addLikeCounter();
 
-    document.getElementById("comment-text").value = "";
+    document.querySelector(".comment-text").value = "";
     
     document.getElementById('post-button').disabled = true;
 };
+
+var toggleReplyStatus = 0;
 
 function toggleReplies() {
     const postedReplySections = document.querySelectorAll('.posted-reply-section');
@@ -1253,10 +1263,81 @@ function toggleReplies() {
     postedReplySections.forEach(postedReplySection => {
         postedReplySection.classList.toggle('show');
     });
+
+    if(toggleReplyStatus === 0){
+      toggleReplyStatus = 1;
+    }
+    else {
+      toggleReplyStatus = 0;
+    }
 }
 
+const replyParagraph = document.querySelector('.reply-comment');
+const cancelButton = document.querySelector('.cancel-button');
+const replyContainer = document.querySelector('.reply-a-comment-container');
 
+replyContainer.style.display = 'none';
+function toggleReplyContainer() {
+  if (replyContainer.style.display === 'none') {
+    replyContainer.style.display = 'block';
+  } else {
+    replyContainer.style.display = 'none';
+  }
+}
 
+replyParagraph.addEventListener('click', toggleReplyContainer);
+cancelButton.addEventListener('click', toggleReplyContainer);
+
+function replyComment() {
+    if(toggleReplyStatus === 1){
+      toggleReplies();
+    }
+    
+    var commentText = document.getElementsByClassName('reply-comment-text')[0].value;
+    // window.alert(commentText);
+
+    var currentDate = new Date();
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+    ];
+    var formattedDate = currentDate.getHours().toString().padStart(2, '0') + ":" + currentDate.getMinutes().toString().padStart(2, '0') + " - " + currentDate.getDate() + " " + monthNames[currentDate.getMonth()] + " " + currentDate.getFullYear();
+
+    var newPostedReplySection = document.createElement("div");
+    newPostedReplySection.classList.add('posted-reply-section');
+    
+    newPostedReplySection.innerHTML = `
+        <div class="flex-row">
+          <img src="Assets/Icon/profilepicture.png" alt="">
+          <div class="flex-column">
+            <p class="lexend comment-author">You</p>
+            <p class="lexend comment-date">${formattedDate}</p>
+            <p class="lexend comment-description">${commentText}</p>
+          </div>
+        </div>
+        <div class="flex-row comment-details">
+          <div class="comment-like-section">
+            <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+            <p class="lexend comment-like-count">0</p>
+          </div>
+          <div class="comment-reply-section">
+            <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+            <p class="lexend comment-reply-count">0</p>
+          </div>
+          <p class="reply-comment lexend">Reply</p>
+        </div>
+    `;
+
+    var postedReplyContainer = document.querySelector(".posted-reply-container");
+    postedReplyContainer.appendChild(newPostedReplySection);
+
+    addLikeCounter();
+    toggleReplyContainer();
+    toggleReplies();
+
+    document.querySelector(".reply-comment-text").value = "";
+    
+    document.getElementById('reply-button').disabled = true;
+};
 
 /* Header */
 window.addEventListener('scroll', function() {

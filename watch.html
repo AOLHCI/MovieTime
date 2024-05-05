@@ -251,50 +251,68 @@
             <p class="reply-comment lexend">Reply</p>
           </div>
         </div>
-  
-        <div class="posted-reply-section">
-          <div class="flex-row">
-            <img src="Assets/Icon/profilepicture.png" alt="">
-            <div class="flex-column">
-              <p class="lexend comment-author">Marvin Kopling Samping</p>
-              <p class="lexend comment-date">07:24 - 6 May 2024</p>
-              <p class="lexend comment-description"><span class="replying-to">@Ferlie Ban Dalam</span> The "Invincible" title says it all slowly breaking each episode when he had small good changes. Notice how the title didn't come out in episode 8 because he didn't change.</p>
-            </div>
-          </div>
-          <div class="flex-row comment-details">
-            <div class="comment-like-section">
-              <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
-              <p class="lexend comment-like-count">0</p>
-            </div>
-            <div class="comment-reply-section">
-              <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
-              <p class="lexend comment-reply-count">0</p>
-            </div>
-            <p class="reply-comment lexend">Reply</p>
-          </div>
-        </div>
 
-        <div class="posted-reply-section">
-          <div class="flex-row">
-            <img src="Assets/Icon/profilepicture.png" alt="">
-            <div class="flex-column">
-              <p class="lexend comment-author">Zaki Jagoan Neon</p>
-              <p class="lexend comment-date">09:41 - 6 May 2024</p>
-              <p class="lexend comment-description"><span class="replying-to">@Ferlie Ban Dalam</span> So you're saying the title slowly breaking was a good thing I always thought it was a bad thing it represented his mind breaking place by plece cause usually things breaking apart is not a good thing.</p>
+        <div class="reply-a-comment-container">
+          <div class="reply-comment-section">
+            <div class="flex-row">
+              <img src="Assets/Icon/profilepicture.png" alt="">
+              <textarea id="autoresizing" name="" placeholder="Type something..." class="lexend reply-comment-text" oninput="toggleReplyButton()"></textarea>
             </div>
-          </div>
-          <div class="flex-row comment-details">
-            <div class="comment-like-section">
-              <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
-              <p class="lexend comment-like-count">0</p>
+            <div class="reply-buttons">
+              <button id="cancel-button" class="lexend cancel-button">Cancel</button>
+              <button id="reply-button" class="lexend reply-button" onclick="replyComment()" disabled>Reply</button>
             </div>
-            <div class="comment-reply-section">
-              <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
-              <p class="lexend comment-reply-count">0</p>
-            </div>
-            <p class="reply-comment lexend">Reply</p>
           </div>
         </div>
+  
+        <div class="posted-reply-container">
+
+          <div class="posted-reply-section">
+            <div class="flex-row">
+              <img src="Assets/Icon/profilepicture.png" alt="">
+              <div class="flex-column">
+                <p class="lexend comment-author">Marvin Kopling Samping</p>
+                <p class="lexend comment-date">07:24 - 6 May 2024</p>
+                <p class="lexend comment-description"><span class="replying-to">@Ferlie Ban Dalam</span> The "Invincible" title says it all slowly breaking each episode when he had small good changes. Notice how the title didn't come out in episode 8 because he didn't change.</p>
+              </div>
+            </div>
+            <div class="flex-row comment-details">
+              <div class="comment-like-section">
+                <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+                <p class="lexend comment-like-count">0</p>
+              </div>
+              <div class="comment-reply-section">
+                <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+                <p class="lexend comment-reply-count">0</p>
+              </div>
+              <p class="reply-comment lexend">Reply</p>
+            </div>
+          </div>
+  
+          <div class="posted-reply-section">
+            <div class="flex-row">
+              <img src="Assets/Icon/profilepicture.png" alt="">
+              <div class="flex-column">
+                <p class="lexend comment-author">Zaki Jagoan Neon</p>
+                <p class="lexend comment-date">09:41 - 6 May 2024</p>
+                <p class="lexend comment-description"><span class="replying-to">@Ferlie Ban Dalam</span> So you're saying the title slowly breaking was a good thing I always thought it was a bad thing it represented his mind breaking place by plece cause usually things breaking apart is not a good thing.</p>
+              </div>
+            </div>
+            <div class="flex-row comment-details">
+              <div class="comment-like-section">
+                <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+                <p class="lexend comment-like-count">0</p>
+              </div>
+              <div class="comment-reply-section">
+                <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+                <p class="lexend comment-reply-count">0</p>
+              </div>
+              <p class="reply-comment lexend">Reply</p>
+            </div>
+          </div>
+
+        </div>
+        
       </div>
     </div>
   </div>

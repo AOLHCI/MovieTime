@@ -300,7 +300,7 @@ var movies = [
     type: "Film",
     genre: "Romance",
     releaseDate: "16 March 2024",
-    production: "Amazon MGM Studios, Somewhere Pictures, Welle Entertainment, I’ll Have Another, Belle Hope Productions",
+    production: "Amazon MGM Studios, Somewhere Pictures, Welle Entertainment, Belle Hope Productions",
     director: "Michael Showalter",
     cast: "Anne Hathaway, Nicholas Galitzine",
     trailerURL: "https://www.youtube.com/embed/V8i6PB0gGOA?si=xbz7e2_wV4rURf6H",

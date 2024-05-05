@@ -36,6 +36,7 @@ a {
 /* HOME PAGE */
 
 .slider-container {
+  /* padding-top: 100px; */
   height: auto;
   position: relative;
   overflow: hidden;
@@ -398,7 +399,7 @@ a {
   justify-content: center;
   align-items: center;
   height: 30px;
-  padding: 8px 12px;
+  padding: 25px 15px;
   border-radius: 10px;
   background-color: var(--grey);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -419,6 +420,71 @@ a {
 
 .add-button:hover {
   background-color: #2b3039;
+}
+
+.detail-container {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: row;
+}
+
+.detail-children-left {
+  width: calc(100% - 300px);
+  /* border: 1px solid var(--blue); */
+  margin-right: 20px;
+}
+
+.detail-children-right {
+  /* border: 1px solid yellow; */
+  /* margin-top: 20px; */
+  width: 300px;
+  height: 400px;
+}
+
+.episode-container {
+  width: 100%;
+  height: 100%;
+  background-color: var(--grey);
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  /* overflow: hidden; */
+}
+
+.season {
+  padding: 20px;
+  text-align: center;
+  font-size: 20px;
+  /* overflow: hidden; */
+}
+
+.total-episode {
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  overflow: auto;
+  scrollbar-color: var(--blue) var(--black);
+  scrollbar-width: thin;
+  /* border: 1px solid red; */
+  margin: 0px 15px;
+  border-radius: 5px;
+}
+
+.episode {
+  background-color: var(--black);
+  margin-right: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 15px;
+  transition: all 0.3s ease;
+}
+
+.episode:hover {
+  background-color: var(--blue);
+}
+
+.episode:hover p {
+  color: var(--black);
 }
 
 .rating-section {
@@ -459,7 +525,7 @@ a {
 .trailer-section p {
   color: var(--blue);
   font-size: 25px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
@@ -480,6 +546,7 @@ a {
   flex-direction: column;
   margin: 0px 50px;
   margin-top: 50px;
+  /* border: 1px solid red; */
 }
 
 .more-section-title {
@@ -493,7 +560,7 @@ a {
   display: flex;
   flex-direction: column;
   margin: 0px 50px;
-  margin-top: 50px;
+  margin-top: 10px;
 }
 
 .comment-title {
@@ -520,11 +587,14 @@ a {
   display: flex;
   flex-direction: row;
   /* border: 1px solid red; */
+  /* width: 100%; */
 }
 
 .flex-column {
   display: flex;
   flex-direction: column;
+
+  width: 100%;
 }
 
 .create-comment-section {
@@ -610,6 +680,8 @@ a {
   background-color: var(--grey);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
+
+  /* width: 100%; */
 }
 
 .posted-reply-section {
@@ -650,6 +722,9 @@ a {
   padding: 0px 20px;
   margin-top: 20px;
   margin-bottom: 20px;
+  /* border: 1px solid red; */
+  width: 100%;
+  height: auto;
 }
 
 .replying-to {
@@ -733,6 +808,7 @@ a {
 
 .category-background {
   background-color: #1f1f1f;
+  margin-top: 8rem;
 }
 
 .category-left {
@@ -889,7 +965,6 @@ nav{
   background-color: #47B5FF;
   opacity: 1;
 }
-
 
 .navigation {
   display: flex;

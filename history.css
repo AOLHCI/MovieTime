@@ -37,8 +37,8 @@
     margin-right: 86px;
 }
 
-.border{
-    width: 312px;
+.borderHis{
+    width: 320px;
     height: 230px;
     opacity: 0;
     padding-top: 5px;
@@ -46,7 +46,6 @@
     margin-top: -15px;
     padding-left: 20px;
     margin-right: 86px;
-    display: grid;
     background-color: rgba(53, 57, 65, 1);
     border-radius: 10px;
     position: absolute;
@@ -65,15 +64,10 @@
     transition: opacity .3s;
 }
 
-.History1:hover .border{
+.History1:hover .borderHis{
     animation: show-data 1s forwards;
     opacity: 0.5;
     transition: opacity .3s;
-}
-
-.History2{
-    display: flex;
-    flex-direction: row;
 }
 
 .Desc1{
@@ -108,6 +102,107 @@
 .deleteButton{
     font-size: 64px;
     margin-top: -19px;
-    margin-left: 470px;
+    /* margin-left: 470px; */
+    position: absolute;
 }
 
+.histPopup{
+    /* margin-top: 245.77px; */
+    font-family: "Lexend", sans-serif;
+    position: fixed;
+    top: -100vh;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    transition: top 0ms ease-in-out 300ms;
+}
+
+.histPopup .histOverlay{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(38, 40, 43, 0.9);
+    opacity:0;
+    display: none;
+    transition: opacity 100ms ease-in-out 200ms;
+}
+
+.dltBtnPops{
+    position: absolute;
+    font-size: 64px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: right;
+    padding-right: 15px;
+    padding-bottom: -20px;
+    color: #FFFFFF;
+    margin-left: 1068px;
+}
+
+.histPopup .histPopUpDesc{
+    position: absolute;
+    top: 323px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(53, 57, 65, 1);
+    width: 1120px;
+    border-radius: 20px;
+    height: 210px;
+    transition: all 300ms ease-in-out;
+    opacity: 0;
+}
+
+.histPopDesc{
+    font-size: 24px;
+    padding-top: 45px;
+    padding-bottom: 20px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.histPopBtn{
+    display: flex;
+    justify-content: end;
+    padding-top: 17px;
+    padding-right: 20px;
+}
+
+.YesBtn{
+    margin-right: 8px;
+    padding: 0px 25px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: rgba(71, 181, 255, 1);
+    color: rgba(38, 40, 43, 1);
+    cursor: pointer;
+}
+
+.CancelBtn{
+    padding: 8px 25px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: rgba(38, 40, 43, 1);
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+
+.histPopup.active{
+    top: 0px;
+    transition: top 0ms ease-in-out 0ms;
+}
+
+.histPopup.active .histOverlay{
+    opacity: 1;
+    transition: all 300ms ease-in-out;
+}
+
+.histPopup.active .histPopUpDesc{
+    transition: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}

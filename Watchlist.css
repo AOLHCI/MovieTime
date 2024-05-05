@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend&display=swap');
+
+.MainBackground{
+    background-color: rgba(38, 40, 43, 1);
+}
+
+.WebTitle{
+    /* Watchlist */
+    text-align: center;
+    margin-top: 140px;
+
+    font-family: "Lexend", sans-serif;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 45px;
+    /* identical to box height */
+
+    color: #FFFFFF;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.list{
+    color: #FFFFFF;
+    display: flex;
+    margin-left: 95px;
+    margin-top: 100px;
+    font-size: 24px;
+    font-family: "Inter", sans-serif;
+}
+/* .list2{
+    color: #FFFFFF;
+    margin-left: 95px;
+    margin-top: 100px;
+    font-size: 24px;
+    font-family: "Inter", sans-serif;
+} */
+ .Watchlist1{
+    display: flex; 
+    flex-direction: row;
+    padding-top: 18px;
+    margin-left: -21px;
+    padding-left: 20px;
+    margin-right: 86px;
+} 
+/
+ .border{
+    width: 340px;
+    height: 230px;
+    opacity: 0;
+    padding-top: 5px;
+    margin-left: -20px;
+    margin-top: -15px;
+    padding-left: 20px;
+    margin-right: 86px;
+    display: grid;
+    background-color: rgba(53, 57, 65, 1);
+    border-radius: 50px;
+    position: absolute;
+} 
+/*
+.History1:hover{
+    transition: all 0.3s ease;
+    border-radius: 0px;
+    background-color: rgba(53, 57, 65, 1);
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.25);
+} */
+
+  .Watchlist1:hover .pButton{
+    animation: show-data 1s forwards;
+    opacity: 1;
+    transition: opacity .3s;
+} 
+
+.Watchlist1:hover .border{
+    animation: show-data 1s forwards;
+    opacity: 1;
+    transition: opacity .3s;
+} 
+
+/* .History2{
+    display: flex;
+    flex-direction: row;
+}
+
+.Desc1{
+    padding-bottom: 18px;
+    font-family: "Lexend", sans-serif;
+    color: #FFFFFF;
+    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
+} */
+
+.pButton{
+    position: absolute;
+    margin-top: 74px;
+    margin-left: 125px;
+    opacity: 0;
+} */
+
+.movieTitle1{
+    font-size: 20px;
+    margin-top: 100px;
+}
+
+/* .Date1{
+    font-size: 18px;
+    margin-top: -5px;
+}
+
+.Progress1{
+    font-size: 18px;
+    padding-top: 89px;
+} */
+
+/* .deleteButton{
+    font-size: 64px;
+    margin-top: -19px;
+    margin-left: 470px;
+} */
+
+/* .Watchlist2{
+    display: flex;
+    flex-direction: row;
+    padding-top: 18px;
+    margin-left: -21px;
+    padding-left: 20px;
+    margin-right: 86px;
+} 
+
+.Watchlist2:hover .pButton{
+    animation: show-data 1s forwards;
+    opacity: 1;
+    transition: opacity .3s;
+} 
+
+.Watchlist2:hover .border{
+    animation: show-data 1s forwards;
+    opacity: 0.5;
+    transition: opacity .3s;
+} */
+

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History Page</title>
-    <link rel="stylesheet" href="history.css">
+    <title>Watchlist</title>
+    <link rel="stylesheet" href="Watchlist.css">
     <link rel="stylesheet" href="Header.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         <link rel = "stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -67,77 +67,60 @@
             
             <div class="bx bx-menu" id="icon"></div>
         </div>
+
     </header>
-    <h1 class="WebTitle">History</h1>
-    <div class="Today">
-        <p>Today</p>
-        <div class="History1">
-            <div class="borderHis"></div>
+    <h1 class="WebTitle">Watchlist</h1>
+    <div class="list">
+        <div class="Watchlist1">
+            <div class="border"></div>
             <img class="Poster" src="Assets/HistoryPhoto/KungfuPanda3.jpg" alt="" width="299.15px" height="200px" style="border-radius: 10px;">
             <img class="pButton" src="Assets/Icon/PlayButton.png" alt="" width="55px" height="50px">
                 <div class="Desc1">
-                    <p class="movieTitle1">KUNG FU PANDA 4</p>
-                    <p class="Date1">April 2, 2024</p>
-                    <p class="Progress1">Watched 34%</p>
+                    
                 </div>
-            <p class="deleteButton" id="open-popup1" style="cursor: pointer;">×</p>
+            <!-- <p class="deleteButton" style="padding-left: 10px;">×</p> -->
+            <p class="movieTitle1">KUNG FU PANDA 4</p>
         </div>
-        <div class="History1" style="margin-top: 10px;">
-            <div class="borderHis"></div>
+        
+
+        <div class="Watchlist1" style="margin-top: 10px;">
+            <div class="border"></div>
             <img class="Poster" src="Assets/HistoryPhoto/OnePieceStampede.jpg" alt="" width="299.15px" height="200px" style="border-radius: 10px;">
             <img class="pButton" src="Assets/Icon/PlayButton.png" alt="" width="55px" height="50px">
                 <div class="Desc1">
-                    <p class="movieTitle1">ONE PIECE STAMPEDE</p>
-                    <p class="Date1">April 2, 2024</p>
-                    <p class="Progress1">Completed</p>
+                    
                 </div>
-            <p class="deleteButton" id="open-popup2" style="cursor: pointer;">×</p>
+            <!-- <p class="deleteButton">×</p> -->
+            <!-- <a>×</a> -->
+            <p class="movieTitle1">ONE PIECE STAMPEDE</p>
         </div>
         
-        <!-- Buat pop up aja -->
-        <div class="histPopup" id="histPopup1">
-            <div class="histOverlay"></div>
-            <div class="histPopUpDesc">
-                <p class="dltBtnPops" style="cursor: pointer;">×</p>
-                <p class="histPopDesc">Are you sure want to remove [Movie Name] from your history?</p>
-                <div class="histPopBtn">
-                    <button class="YesBtn" id="popUpConfirm1">Yes, remove this title</button>
-                    <button class="CancelBtn">Cancel</button>
-                </div>
-            </div>
-        </div>
 
-        <div class="histPopup" id="histPopup2">
-            <div class="histOverlay"></div>
-            <div class="histPopUpDesc">
-                <p class="dltBtnPops" style="cursor: pointer;">×</p>
-                <p class="histPopDesc">Are you sure want to remove [Movie Name] from your history?</p>
-                <div class="histPopBtn">
-                    <button class="YesBtn" id="popUpConfirm2">Yes, remove this title</button>
-                    <button class="CancelBtn">Cancel</button>
+        <div class="Watchlist1" style="margin-top: 10px;">
+            <div class="border"></div>
+            <img class="Poster" src="Assets/HistoryPhoto/BlackPhanter.jpg" alt="" width="299.15px" height="200px" style="border-radius: 10px;">
+            <img class="pButton" src="Assets/Icon/PlayButton.png" alt="" width="55px" height="50px">
+                <div class="Desc1">
+                    
                 </div>
-            </div>
-        </div>
-        
-        <div class="histPopup" id="popUpCon1">
-            <div class="histOverlay"></div>
-            <div class="histPopUpDesc">
-                <p class="dltBtnPops" style="cursor: pointer;">×</p>
-                <p class="histPopDesc">[Movie Name] has been successfully removed from your history.</p>
-            </div>
-        </div>
-
-        <div class="histPopup" id="popUpCon2">
-            <div class="histOverlay"></div>
-            <div class="histPopUpDesc">
-                <p class="dltBtnPops" style="cursor: pointer;">×</p>
-                <p class="histPopDesc">[Movie Name] has been successfully removed from your history.</p>
-            </div>
+            <!-- <p class="deleteButton">×</p> -->
+            <!-- <a>×</a> -->
+            <p class="movieTitle1">Black Panther</p>
         </div>
     </div>
-
-    <!-- Pop up doang -->
+    <div class="list1">
+    <div class="Watchlist1" style="margin-top: 10px;">
+            <div class="border"></div>
+            <img class="Poster" src="Assets/HistoryPhoto/CekTokoSebelah.jpg" alt="" width="299.15px" height="200px" style="border-radius: 10px;">
+            <img class="pButton" src="Assets/Icon/PlayButton.png" alt="" width="55px" height="50px">
+                <div class="Desc1">
+                
+                </div>
+            <!-- <p class="deleteButton">×</p> -->
+            <!-- <a>×</a> -->
+            <p class="movieTitle1">Cek Toko Sebelah</p>
+        </div>
+    </div>
 </body>
 <script src="JavaScripts/Header.js"></script>
-<script src="JavaScripts/History.js"></script>
 </html>

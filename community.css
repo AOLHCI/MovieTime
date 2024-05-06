@@ -1,0 +1,252 @@
+.MainBackground{
+    background-color: rgba(38, 40, 43, 1);
+    color: #FFF;
+    font-family: Inter;
+}
+
+hr{
+    color: white;
+}
+
+.community-top{
+    display: flex;
+    position: fixed;
+    top: 100px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    z-index: 1000;
+    width: 100%;
+    background-color:#222222;
+}
+
+.SearchBar{
+    display: flex;
+    width: 75vw;
+    height: 50px;
+    align-items: center;
+    gap: 7px;
+    flex-shrink: 2;
+    background: #353941;
+    border-radius: 10px;
+    margin: 12px 20px 20px 60px;
+
+}
+
+#Search-input{
+    width: 100%;
+    border: 0;
+    background-color: #353941;
+    color: white;
+}
+
+#Search-input:focus{
+    outline: none;
+}
+
+.SearchBar .SearchIcon{
+    justify-content: center;
+    display: flex;
+    width: 40px;
+    height: auto;
+    padding-left: 10px;
+}
+
+.Create-thread{
+    background: #353941;
+    display: flex;
+    align-items: center;
+    width: 25vw;
+    max-width: 240px;
+    height: 50px;
+    gap: 7px;
+    border-radius: 10px;
+    flex-direction: row;
+    margin-right: 50px;
+    margin-top: 12px;
+}
+
+.Create-thread p{
+    display: flex;
+    opacity: 0.85;
+    text-align: left;
+    width: 17vw;
+    padding: 33px;
+    font-family: Inter;
+    font-size: 18px;
+}
+
+.PlusIcon{
+    width: 40px;
+    height: auto;
+    padding-right: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.community-bottom{
+    margin: 200px 0px 0px 0px;
+    display: flex;
+    width: 100%;
+}
+
+.community-thread{
+    width: 75vw;
+    background-color: #353941;
+    border-radius: 10px;
+    display: flex;
+    align-items: start;
+    margin: 10px 20px 20px 60px;
+}
+
+.threads{
+    margin: 20px;
+    width: 100%;
+}
+
+.Post-thread{
+    display: flex;
+}
+
+.Profile-pic{
+    width: auto;
+    height: 50px;
+    display: inline-block;
+}
+
+.Input-area{
+    display: flex;
+    width: calc(100% - 50px);
+    flex-wrap: wrap;
+    margin: 0px 5px 10px 20px;
+    background-color: rgba(38, 40, 43, 1);
+    border-radius: 10px;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+}
+
+#User-input{
+    margin: 15px;
+    width: 100%;
+    border: none;
+    background-color: rgba(38, 40, 43, 1);
+    color: white;
+    padding-bottom: 5px;
+    text-decoration: none;
+}
+
+#User-input:focus{
+    outline: none;
+}
+
+.Image-Input{
+    width: 40px;
+    height: auto;
+    display: flex;
+    padding-left: 15px;
+    margin-bottom: 10px;
+}
+
+.Input-area button{
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+.Trending-film{
+    background-color: #353941;
+    margin: 10px 50px 0px 0px;
+    border-radius: 10px;
+    width: 25vw;
+    max-width: 240px;
+    height: fit-content;
+    padding: 0px 0px 10px 0px;
+}
+
+.Title-trending{
+    text-align: center;
+    color: #007bff;
+    font-size: 20px;
+}
+
+.Trending-film hr{
+    margin: 20px;
+    border-color: #007bff;
+}
+
+.Trend-1{
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+    justify-content: center;
+    margin: 15px;
+    padding: 0px 30px 0px 0px;
+}
+
+.Trend-1 div{
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+}
+
+.Trend-1 p{
+    margin: 0;
+    font-size: 18px;
+}
+
+#Number-1{
+    font-weight: bold;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+#Trendthreads-1{
+    opacity: 0.6;
+    font-size: 14px;
+}
+
+.Trend-info{
+    width: 50%;
+}
+
+.Thread-list{
+    background-color: rgba(38, 40, 43, 1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.Thread-information{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    align-items: start;
+    font-size: 16px;
+}
+
+.Thread-information p{
+    margin: 0px 0px 5px 10px;
+}
+
+#Thread-name{
+    font-size: 17px;
+}
+
+#Thread-time{
+    opacity: 0.6;
+    margin-bottom: 0;
+}
+
+#Thread-text{
+    margin: 20px 0px 20px 10px;
+    text-align: justify;
+    font-size: 16px;
+}

@@ -1100,11 +1100,34 @@ function autoResize() {
     this.style.height = this.scrollHeight + 'px';
 }
 
-// Get all elements with the class 'comment-like-section'
-const commentLikeSections = document.querySelectorAll('.comment-like-section');
+function toggleButton() {
+    var commentText = document.getElementsByClassName('comment-text')[0].value;
+    var postButton = document.getElementById('post-button');
+
+    if (commentText.trim() === "") {
+        postButton.disabled = true;
+    } else {
+        postButton.disabled = false;
+    }
+}
+
+function toggleReplyButton(){
+  var commentText = document.getElementsByClassName('reply-comment-text')[0].value;
+  var replyButton = document.getElementById('reply-button');
+
+  if(commentText.trim() === ""){
+    replyButton.disabled = true;
+  } else {
+    replyButton.disabled = false;
+  }
+}
+
+function addLikeCounter(){
+    // Get all elements with the class 'comment-like-section'
+  const commentLikeSections = document.querySelectorAll('.comment-like-section');
 
 // Loop through each comment-like-section element
-commentLikeSections.forEach(commentLikeSection => {
+  commentLikeSections.forEach(commentLikeSection => {
     let isLiked = false;
 
     // Add click event listener to toggle like
@@ -1144,34 +1167,20 @@ commentLikeSections.forEach(commentLikeSection => {
             commentLikeCount.style.color = "#FFFFFF";
         }
     });
-});
+  });
+};
 
-function toggleButton() {
-    var commentText = document.getElementsByClassName('comment-text')[0].value;
-    var postButton = document.getElementById('post-button');
+addLikeCounter();
 
-    if (commentText.trim() === "") {
-        postButton.disabled = true;
-    } else {
-        postButton.disabled = false;
-    }
-}
+function addLikeCounterForPostedReply(){
+  // Get all elements with the class 'comment-like-section'
+  const commentLikeSections = document.querySelectorAll('.posted-reply-like-counter');
 
-function toggleReplyButton(){
-  var commentText = document.getElementsByClassName('reply-comment-text')[0].value;
-  var replyButton = document.getElementById('reply-button');
+  // Loop through each comment-like-section element
+  commentLikeSections.forEach(commentLikeSection => {
+  let isLiked = false;
 
-  if(commentText.trim() === ""){
-    replyButton.disabled = true;
-  } else {
-    replyButton.disabled = false;
-  }
-}
-
-function addLikeCounter(){
-    const commentLikeSection = document.querySelector('.comment-like-section');
-    let isLiked = false;
-
+  // Add click event listener to toggle like
     commentLikeSection.addEventListener('click', function(){
         const commentLikeIcon = this.querySelector('img');
         const commentLikeCount = this.querySelector('p');
@@ -1189,6 +1198,7 @@ function addLikeCounter(){
         }
     });
 
+    // Add mouseover event listener to change icon and count color
     commentLikeSection.addEventListener('mouseover', function() {
         const commentLikeIcon = this.querySelector('img');
         const commentLikeCount = this.querySelector('p');
@@ -1198,6 +1208,7 @@ function addLikeCounter(){
         }
     });
 
+    // Add mouseout event listener to change icon and count color
     commentLikeSection.addEventListener('mouseout', function() {
         const commentLikeIcon = this.querySelector('img');
         const commentLikeCount = this.querySelector('p');
@@ -1206,6 +1217,7 @@ function addLikeCounter(){
             commentLikeCount.style.color = "#FFFFFF";
         }
     });
+  });
 };
 
 function postComment() {
@@ -1232,7 +1244,7 @@ function postComment() {
                 </div>
             </div>
             <div class="flex-row comment-details">
-                <div class="comment-like-section" id="comment-like-section">
+                <div class="comment-like-section posted-reply-like-counter" id="comment-like-section">
                     <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
                     <p class="lexend comment-like-count">0</p>
                 </div>
@@ -1291,6 +1303,7 @@ cancelButton.addEventListener('click', toggleReplyContainer);
 function replyComment() {
     if(toggleReplyStatus === 1){
       toggleReplies();
+      toggleReplyStatus = 0;
     }
     
     var commentText = document.getElementsByClassName('reply-comment-text')[0].value;
@@ -1315,7 +1328,7 @@ function replyComment() {
           </div>
         </div>
         <div class="flex-row comment-details">
-          <div class="comment-like-section">
+          <div class="comment-like-section posted-reply-like-counter">
             <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
             <p class="lexend comment-like-count">0</p>
           </div>
@@ -1327,10 +1340,12 @@ function replyComment() {
         </div>
     `;
 
-    var postedReplyContainer = document.querySelector(".posted-reply-container");
-    postedReplyContainer.appendChild(newPostedReplySection);
+    var postedReplyContainer = document.querySelector(".posted-reply-container");    
 
-    addLikeCounter();
+    postedReplyContainer.appendChild(newPostedReplySection);
+    
+    addLikeCounterForPostedReply();
+
     toggleReplyContainer();
     toggleReplies();
 

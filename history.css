@@ -30,7 +30,7 @@
 
 .History1{
     display: flex;
-    flex-direction: row;
+    justify-content: end;
     padding-top: 18px;
     margin-left: -21px;
     padding-left: 20px;
@@ -70,6 +70,12 @@
     transition: opacity .3s;
 }
 
+.headMovie{
+    display: flex;
+    flex-direction: row;
+    margin-right: auto;
+}
+
 .Desc1{
     padding-left: 18px;
     font-family: "Lexend", sans-serif;
@@ -99,11 +105,10 @@
     padding-top: 89px;
 }
 
-.deleteButton{
+.History1 .deleteButton{
     font-size: 64px;
     margin-top: -19px;
-    margin-left: 475px;
-    position: relative;
+    padding-right: 12px;
 }
 
 .histPopup{

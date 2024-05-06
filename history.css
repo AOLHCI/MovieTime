@@ -25,7 +25,7 @@
     margin-left: 95px;
     margin-top: 100px;
     font-size: 24px;
-    font-family: "Inter", sans-serif;
+    font-family: "Lexend", sans-serif;
 }
 
 .History1{
@@ -42,9 +42,9 @@
     height: 230px;
     opacity: 0;
     padding-top: 5px;
-    margin-left: -20px;
+    margin-left: -16px;
     margin-top: -15px;
-    padding-left: 20px;
+    padding-left: 18px;
     margin-right: 86px;
     background-color: rgba(53, 57, 65, 1);
     border-radius: 10px;
@@ -52,16 +52,20 @@
 }
 
 .History1:hover{
-    transition: all 0.3s ease;
-    border-radius: 10px;
-    background-color: rgba(53, 57, 65, 1);
+    border-radius: 16px;
+}
+
+.History1:hover{
     box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    background-color: rgba(53, 57, 65, 1);
 }
 
 .History1:hover .pButton{
     animation: show-data 1s forwards;
     opacity: 1;
     transition: opacity .3s;
+    cursor: pointer;
 }
 
 .History1:hover .borderHis{
@@ -74,6 +78,11 @@
     display: flex;
     flex-direction: row;
     margin-right: auto;
+}
+
+.Poster{
+    padding-bottom: 3px;
+    border-radius: 10px;
 }
 
 .Desc1{
@@ -108,7 +117,8 @@
 .History1 .deleteButton{
     font-size: 64px;
     margin-top: -19px;
-    padding-right: 12px;
+    padding-top: 5px;
+    padding-right: 23px;
 }
 
 .histPopup{
@@ -148,7 +158,7 @@
 
 .histPopup .histPopUpDesc{
     position: absolute;
-    top: 323px;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgba(53, 57, 65, 1);
@@ -161,7 +171,7 @@
 
 .histPopDesc{
     font-size: 24px;
-    padding-top: 45px;
+    padding-top: 60px;
     padding-bottom: 20px;
     text-align: center;
     color: #FFFFFF;
@@ -170,8 +180,8 @@
 .histPopBtn{
     display: flex;
     justify-content: end;
-    padding-top: 17px;
-    padding-right: 20px;
+    padding-top: 0px;
+    padding-right: 13px;
 }
 
 .YesBtn{

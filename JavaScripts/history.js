@@ -38,6 +38,7 @@ let popup2 = createPopup("#histPopup2");
 
 //Yesterday
 let popup3 = createPopup("#histPopup3");
+let popup10 = createPopup("#histPopup10");
 
 //Earlier
 let popup4 = createPopup("#histPopup4");
@@ -53,6 +54,7 @@ document.querySelector("#open-popup2").addEventListener("click", popup2);
 
 //Yesterday
 document.querySelector("#open-popup3").addEventListener("click", popup3);
+document.querySelector("#open-popup10").addEventListener("click", popup10);
 
 //Earlier
 document.querySelector("#open-popup4").addEventListener("click", popup4);
@@ -61,7 +63,6 @@ document.querySelector("#open-popup6").addEventListener("click", popup6);
 document.querySelector("#open-popup7").addEventListener("click", popup7);
 document.querySelector("#open-popup8").addEventListener("click", popup8);
 document.querySelector("#open-popup9").addEventListener("click", popup9);
-
 
 function createValidate(id){
     let confirmpopNode = document.querySelector(id);
@@ -90,6 +91,7 @@ let popup2s = createValidate("#popUpCon2");
 
 //Yesterday
 let popup3s = createValidate("#popUpCon3"); 
+let popup10s = createValidate("#popUpCon10"); 
 
 //Earlier
 let popup4s = createValidate("#popUpCon4"); 
@@ -105,6 +107,7 @@ document.querySelector("#popUpConfirm2").addEventListener("click", popup2s);
 
 //Yesterday
 document.querySelector("#popUpConfirm3").addEventListener("click", popup3s);
+document.querySelector("#popUpConfirm10").addEventListener("click", popup10s);
 
 //Earlier
 document.querySelector("#popUpConfirm4").addEventListener("click", popup4s);
@@ -115,6 +118,8 @@ document.querySelector("#popUpConfirm8").addEventListener("click", popup8s);
 document.querySelector("#popUpConfirm9").addEventListener("click", popup9s);
 
 var countData = 0;
+var empty = 0;
+
 const hisShowHide = function(block) {
     let SubJudul1 = document.getElementById('SubJudul1');
     if (block.style.display === 'none') {
@@ -123,6 +128,7 @@ const hisShowHide = function(block) {
         block.style.display = 'none';
     }
     countData++;
+    empty++;
     if(countData == 2){
         SubJudul1.remove();
         countData = 0;
@@ -137,7 +143,8 @@ const hisShowHide2 = function(block) {
         block.style.display = 'none';
     }
     countData++;
-    if(countData == 1){
+    empty++;
+    if(countData == 2){
         SubJudul2.remove();
         countData = 0;
     }
@@ -151,6 +158,7 @@ const hisShowHide3 = function(block) {
         block.style.display = 'none';
     }
     countData++;
+    empty++;
     if(countData == 6){
         SubJudul3.remove();
         countData = 0;

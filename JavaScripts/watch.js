@@ -1100,11 +1100,34 @@ function autoResize() {
     this.style.height = this.scrollHeight + 'px';
 }
 
-// Get all elements with the class 'comment-like-section'
-const commentLikeSections = document.querySelectorAll('.comment-like-section');
+function toggleButton() {
+    var commentText = document.getElementsByClassName('comment-text')[0].value;
+    var postButton = document.getElementById('post-button');
+
+    if (commentText.trim() === "") {
+        postButton.disabled = true;
+    } else {
+        postButton.disabled = false;
+    }
+}
+
+function toggleReplyButton(){
+  var commentText = document.getElementsByClassName('reply-comment-text')[0].value;
+  var replyButton = document.getElementById('reply-button');
+
+  if(commentText.trim() === ""){
+    replyButton.disabled = true;
+  } else {
+    replyButton.disabled = false;
+  }
+}
+
+function addLikeCounter(){
+    // Get all elements with the class 'comment-like-section'
+  const commentLikeSections = document.querySelectorAll('.comment-like-section');
 
 // Loop through each comment-like-section element
-commentLikeSections.forEach(commentLikeSection => {
+  commentLikeSections.forEach(commentLikeSection => {
     let isLiked = false;
 
     // Add click event listener to toggle like
@@ -1144,34 +1167,20 @@ commentLikeSections.forEach(commentLikeSection => {
             commentLikeCount.style.color = "#FFFFFF";
         }
     });
-});
+  });
+};
 
-function toggleButton() {
-    var commentText = document.getElementsByClassName('comment-text')[0].value;
-    var postButton = document.getElementById('post-button');
+addLikeCounter();
 
-    if (commentText.trim() === "") {
-        postButton.disabled = true;
-    } else {
-        postButton.disabled = false;
-    }
-}
+function addLikeCounterForPostedReply(){
+  // Get all elements with the class 'comment-like-section'
+  const commentLikeSections = document.querySelectorAll('.posted-reply-like-counter');
 
-function toggleReplyButton(){
-  var commentText = document.getElementsByClassName('reply-comment-text')[0].value;
-  var replyButton = document.getElementById('reply-button');
+  // Loop through each comment-like-section element
+  commentLikeSections.forEach(commentLikeSection => {
+  let isLiked = false;
 
-  if(commentText.trim() === ""){
-    replyButton.disabled = true;
-  } else {
-    replyButton.disabled = false;
-  }
-}
-
-function addLikeCounter(){
-    const commentLikeSection = document.querySelector('.comment-like-section');
-    let isLiked = false;
-
+  // Add click event listener to toggle like
     commentLikeSection.addEventListener('click', function(){
         const commentLikeIcon = this.querySelector('img');
         const commentLikeCount = this.querySelector('p');
@@ -1189,6 +1198,7 @@ function addLikeCounter(){
         }
     });
 
+    // Add mouseover event listener to change icon and count color
     commentLikeSection.addEventListener('mouseover', function() {
         const commentLikeIcon = this.querySelector('img');
         const commentLikeCount = this.querySelector('p');
@@ -1198,6 +1208,7 @@ function addLikeCounter(){
         }
     });
 
+    // Add mouseout event listener to change icon and count color
     commentLikeSection.addEventListener('mouseout', function() {
         const commentLikeIcon = this.querySelector('img');
         const commentLikeCount = this.querySelector('p');
@@ -1206,6 +1217,7 @@ function addLikeCounter(){
             commentLikeCount.style.color = "#FFFFFF";
         }
     });
+  });
 };
 
 function postComment() {
@@ -1232,7 +1244,7 @@ function postComment() {
                 </div>
             </div>
             <div class="flex-row comment-details">
-                <div class="comment-like-section" id="comment-like-section">
+                <div class="comment-like-section posted-reply-like-counter" id="comment-like-section">
                     <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
                     <p class="lexend comment-like-count">0</p>
                 </div>
@@ -1291,6 +1303,7 @@ cancelButton.addEventListener('click', toggleReplyContainer);
 function replyComment() {
     if(toggleReplyStatus === 1){
       toggleReplies();
+      toggleReplyStatus = 0;
     }
     
     var commentText = document.getElementsByClassName('reply-comment-text')[0].value;
@@ -1315,7 +1328,7 @@ function replyComment() {
           </div>
         </div>
         <div class="flex-row comment-details">
-          <div class="comment-like-section">
+          <div class="comment-like-section posted-reply-like-counter">
             <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
             <p class="lexend comment-like-count">0</p>
           </div>
@@ -1327,10 +1340,12 @@ function replyComment() {
         </div>
     `;
 
-    var postedReplyContainer = document.querySelector(".posted-reply-container");
-    postedReplyContainer.appendChild(newPostedReplySection);
+    var postedReplyContainer = document.querySelector(".posted-reply-container");    
 
-    addLikeCounter();
+    postedReplyContainer.appendChild(newPostedReplySection);
+    
+    addLikeCounterForPostedReply();
+
     toggleReplyContainer();
     toggleReplies();
 
@@ -1340,88 +1355,88 @@ function replyComment() {
 };
 
 /* Header */
-window.addEventListener('scroll', function() {
-  const header = document.querySelector('header');
-  if (window.scrollY > 0) {
-      header.classList.add('scrolled');
-  } else {
-      header.classList.remove('scrolled');
-  }
-});
+// window.addEventListener('scroll', function() {
+//   const header = document.querySelector('header');
+//   if (window.scrollY > 0) {
+//       header.classList.add('scrolled');
+//   } else {
+//       header.classList.remove('scrolled');
+//   }
+// });
 
-let menu = document.querySelector('#icon');
-let navbar = document.querySelector('.navigation');
-let dropdown = document.querySelector('.dropdown');
+// let menu = document.querySelector('#icon');
+// let navbar = document.querySelector('.navigation');
+// let dropdown = document.querySelector('.dropdown');
 
-menu.onclick = () => {
-  menu.classList.toggle('bx-x');
-  navbar.classList.toggle('nyala');
-  dropdown.classList.remove('active'); 
-}
+// menu.onclick = () => {
+//   menu.classList.toggle('bx-x');
+//   navbar.classList.toggle('nyala');
+//   dropdown.classList.remove('active'); 
+// }
 
-dropdown.onclick = (event) => {
-  event.stopPropagation();
-  dropdown.classList.toggle('active');
-}
+// dropdown.onclick = (event) => {
+//   event.stopPropagation();
+//   dropdown.classList.toggle('active');
+// }
 
-if (window.matchMedia('(min-width: 1000px)').matches) {
-  dropdown.onclick = (event) => {
-      event.stopPropagation();
-      dropdown.classList.toggle('active');
-  }
-}
-document.addEventListener('DOMContentLoaded', function() {
-  const searchInput = document.querySelector('.search input[type="text"]');
+// if (window.matchMedia('(min-width: 1000px)').matches) {
+//   dropdown.onclick = (event) => {
+//       event.stopPropagation();
+//       dropdown.classList.toggle('active');
+//   }
+// }
+// document.addEventListener('DOMContentLoaded', function() {
+//   const searchInput = document.querySelector('.search input[type="text"]');
 
-  searchInput.addEventListener('input', function() {
-      if (searchInput.value.trim() !== '') {
-          searchInput.classList.add('expanded');
-      } else {
-          searchInput.classList.remove('expanded');
-      }
-  });
+//   searchInput.addEventListener('input', function() {
+//       if (searchInput.value.trim() !== '') {
+//           searchInput.classList.add('expanded');
+//       } else {
+//           searchInput.classList.remove('expanded');
+//       }
+//   });
 
-  var profileIcon = document.getElementById('profileIcon');
-  var dropdownMenu = document.getElementById('dropdownMenu');
+//   var profileIcon = document.getElementById('profileIcon');
+//   var dropdownMenu = document.getElementById('dropdownMenu');
 
-  profileIcon.addEventListener('click', function () {
-      dropdownMenu.classList.toggle('show');
-      setTimeout(function() {
-          dropdownMenu.classList.toggle('opacity-transition');
-      }, 1);
-  });
+//   profileIcon.addEventListener('click', function () {
+//       dropdownMenu.classList.toggle('show');
+//       setTimeout(function() {
+//           dropdownMenu.classList.toggle('opacity-transition');
+//       }, 1);
+//   });
 
-  document.addEventListener('click', function (e) {
-      if (!dropdownMenu.contains(e.target) && !profileIcon.contains(e.target)) {
-          dropdownMenu.classList.remove('show');
-      }
-  });
-
-
+//   document.addEventListener('click', function (e) {
+//       if (!dropdownMenu.contains(e.target) && !profileIcon.contains(e.target)) {
+//           dropdownMenu.classList.remove('show');
+//       }
+//   });
 
 
-  let dropdown = document.querySelector('.dropdown');
-  let categoryDropdown = document.querySelector('.dropdown-content');
 
-  function toggleDropdown() {
-      categoryDropdown.classList.toggle('active');
-  }
 
-  dropdown.addEventListener('click', function(event) {
-      event.stopPropagation();
-      toggleDropdown();
-  });
+//   let dropdown = document.querySelector('.dropdown');
+//   let categoryDropdown = document.querySelector('.dropdown-content');
 
-  document.addEventListener('click', function (e) {
-      if (!categoryDropdown.contains(e.target) && !dropdown.contains(e.target)) {
-          categoryDropdown.classList.remove('active');
-      }
-  });
-  categoryDropdown.addEventListener('click', function(event) {
-      event.stopPropagation();
-  });
+//   function toggleDropdown() {
+//       categoryDropdown.classList.toggle('active');
+//   }
 
-});
+//   dropdown.addEventListener('click', function(event) {
+//       event.stopPropagation();
+//       toggleDropdown();
+//   });
+
+//   document.addEventListener('click', function (e) {
+//       if (!categoryDropdown.contains(e.target) && !dropdown.contains(e.target)) {
+//           categoryDropdown.classList.remove('active');
+//       }
+//   });
+//   categoryDropdown.addEventListener('click', function(event) {
+//       event.stopPropagation();
+//   });
+
+// });
 
 
 

@@ -648,7 +648,7 @@ var movies = [
   },
   {
   posterURL: "https://upload.wikimedia.org/wikipedia/en/3/36/ExorcistBelieverPoster.jpg",
-  mainPoster: "https://lh3.googleusercontent.com/proxy/sMxCxYP7LZzae061UXiFMG49Ym2c6u5fcv2K5BLRvHvZHdmvAz8Mz2IYkf4JM5vJn2Fj4NAUOdEnedDUW9pMQ4y5h4ukr4jcJm7F8hqEmlL1OZsVmqlgcpZwF1kGupziOe-Tdd6AgbbiEzR3zlRKxJbJqEwabM6g6371LD4OnCoP4a0",
+  mainPoster: "https://static.platinumcineplex.co.id/images/movie/1695984371landscape-exorcist.jpeg",
     title: "The Exorcist: Believer",
     rating: 4.8,
     year: 2023,
@@ -1125,7 +1125,7 @@ function toggleReplyButton(){
 function addLikeCounter(){
     // Get all elements with the class 'comment-like-section'
   const commentLikeSections = document.querySelectorAll('.comment-like-section');
-
+  // alert(commentLikeSections.length);
 // Loop through each comment-like-section element
   commentLikeSections.forEach(commentLikeSection => {
     let isLiked = false;
@@ -1136,13 +1136,25 @@ function addLikeCounter(){
         const commentLikeCount = this.querySelector('p');
         if(isLiked) {
             commentLikeIcon.src = 'Assets/Icon/like.png';
-            commentLikeCount.textContent = parseInt(commentLikeCount.textContent) - 1;
+            // commentLikeCount.textContent = parseInt(commentLikeCount.textContent) - 1;
+            if(commentLikeCount.textContent === "1"){
+              commentLikeCount.textContent = 0;
+            }
+            else if(commentLikeCount.textContent === "4"){
+              commentLikeCount.textContent = 3;
+            }
             commentLikeCount.style.color = "#FFFFFF";
             isLiked = false;
         }
         else {
             commentLikeIcon.src = 'Assets/Icon/like (1).png';
-            commentLikeCount.textContent = parseInt(commentLikeCount.textContent) + 1;
+            // commentLikeCount.textContent = parseInt(commentLikeCount.textContent) + 1;
+            if(commentLikeCount.textContent === "0"){
+              commentLikeCount.textContent = 1;
+            }
+            else if(commentLikeCount.textContent === "3"){
+              commentLikeCount.textContent = 4;
+            }
             commentLikeCount.style.color = "#47B5FF";
             isLiked = true;
         }
@@ -1186,13 +1198,25 @@ function addLikeCounterForPostedReply(){
         const commentLikeCount = this.querySelector('p');
         if(isLiked) {
             commentLikeIcon.src = 'Assets/Icon/like.png';
-            commentLikeCount.textContent = parseInt(commentLikeCount.textContent) - 1;
+            // commentLikeCount.textContent = parseInt(commentLikeCount.textContent) - 1;
+            if(commentLikeCount.textContent === "1"){
+              commentLikeCount.textContent = 0;
+            }
+            else if(commentLikeCount.textContent === "4"){
+              commentLikeCount.textContent = 3;
+            }
             commentLikeCount.style.color = "#FFFFFF";
             isLiked = false;
         }
         else {
             commentLikeIcon.src = 'Assets/Icon/like (1).png';
-            commentLikeCount.textContent = parseInt(commentLikeCount.textContent) + 1;
+            // commentLikeCount.textContent = parseInt(commentLikeCount.textContent) + 1;
+            if(commentLikeCount.textContent === "0"){
+              commentLikeCount.textContent = 1;
+            }
+            else if(commentLikeCount.textContent === "3"){
+              commentLikeCount.textContent = 4;
+            }
             commentLikeCount.style.color = "#47B5FF";
             isLiked = true;
         }

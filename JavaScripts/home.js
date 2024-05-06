@@ -762,7 +762,7 @@ var movies = [
   },
   {
   posterURL: "https://upload.wikimedia.org/wikipedia/en/3/36/ExorcistBelieverPoster.jpg",
-  mainPoster: "https://lh3.googleusercontent.com/proxy/sMxCxYP7LZzae061UXiFMG49Ym2c6u5fcv2K5BLRvHvZHdmvAz8Mz2IYkf4JM5vJn2Fj4NAUOdEnedDUW9pMQ4y5h4ukr4jcJm7F8hqEmlL1OZsVmqlgcpZwF1kGupziOe-Tdd6AgbbiEzR3zlRKxJbJqEwabM6g6371LD4OnCoP4a0",
+  mainPoster: "https://static.platinumcineplex.co.id/images/movie/1695984371landscape-exorcist.jpeg",
     title: "The Exorcist: Believer",
     rating: 4.8,
     year: 2023,
@@ -989,7 +989,7 @@ var movies = [
 var categories = [
     {
         category: "Top10",
-        title: "Discover the Top 10 BlockBusters!"
+        title: "Discover the Top 10 Blockbusters!"
     },
     {
         category: "New",

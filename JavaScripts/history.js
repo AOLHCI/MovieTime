@@ -1,3 +1,4 @@
+
 function createPopup(id){
     let histpopNode = document.querySelector(id);
     let histOverlay = histpopNode.querySelector(".histOverlay");
@@ -59,7 +60,36 @@ function createValidate(id){
 }
 
 let popup1s = createValidate("#popUpCon1"); 
-document.querySelector("#popUpConfirm1").addEventListener("click", popup1s);
-
 let popup2s = createValidate("#popUpCon2"); 
+
+document.querySelector("#popUpConfirm1").addEventListener("click", popup1s);
 document.querySelector("#popUpConfirm2").addEventListener("click", popup2s);
+
+
+function removeEmptyCategories() {
+    
+    if (todayCategory) { // Memastikan todayCategory ada sebelum melakukan pencarian dan penghapusan
+        if (!todayCategory.querySelector(".History1") && !todayCategory.querySelector(".History2")) {
+            if (SubJudul1) { // Memastikan SubJudul1 ada sebelum mencoba menghapusnya
+            }
+            todayCategory.remove();
+        }
+    }
+}
+
+var countData = 0;
+const hisShowHide = function(block) {
+    let SubJudul1 = document.getElementById('SubJudul1');
+    let todayCategory = document.getElementById('TodayCategory');
+    let container = todayCategory.children;
+    if (block.style.display === 'none') {
+        block.style.display = 'block';
+    } else {
+        block.style.display = 'none';
+    }
+    countData++;
+    if(countData == 2){
+        SubJudul1.remove();
+        countData = 0;
+    }
+}

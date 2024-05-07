@@ -971,6 +971,48 @@ footer {
   margin: 0 2rem;
 }
 
+/* SEARCH PAGE */
+
+.search-content {
+  margin-top: 65px;
+  width: 100%;
+  height: auto;
+  background-color: var(--black);
+  /* border: 1px solid yellow; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* overflow-x: hidden; */
+  padding-bottom: 65px;
+}
+
+.search-result-title {
+  margin: 50px 0px;
+  color: var(--white);
+  font-size: 25px;
+  /* border: 1px solid red; */
+}
+
+.searched-movie-container {
+  width: 1150px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  /* justify-content: center; */
+  /* border: 1px solid red; */
+}
+
+.not-found-description {
+  color: var(--white);
+  text-align: center;
+  /* border: 1px solid red; */
+  width: 100%;
+  padding: 120px;
+  font-size: 18px;
+  display: none;
+}
+
 /* HISTORY PAGE */
 
 /* WATCHLIST PAGE */
@@ -1376,6 +1418,53 @@ footer {
     margin: 0 2rem;
   }
 
+    /* SEARCH PAGE */
+
+  .search-content {
+    margin-top: 65px;
+    width: 100%;
+    height: auto;
+    background-color: var(--black);
+    /* border: 1px solid yellow; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .search-result-title {
+    margin: 50px 0px;
+    color: var(--white);
+    font-size: 25px;
+  }
+
+  .searched-movie-container {
+    /* margin-top: 50px;
+    margin-bottom: 80px; */
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    gap: 10px;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
+    /* border: 1px solid red; */
+  }
+  
+  .searched-movie-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .not-found-description {
+    color: var(--white);
+    text-align: center;
+    width: 100%;
+    padding: 60px 30px;
+    font-size: 16px;
+    /* padding-bottom: 140px; */
+  }
+
   /* CATEGORY PAGE */
 
   /* HISTORY PAGE */
@@ -1586,6 +1675,45 @@ footer {
     gap: 5px;
   }
 
+  /* SEARCH PAGE */
+
+  .search-content {
+    margin-top: 65px;
+    width: 100%;
+    height: auto;
+    background-color: var(--black);
+    /* border: 1px solid yellow; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .search-result-title {
+    margin: 50px 0px;
+    color: var(--white);
+    font-size: 25px;
+  }
+
+  .searched-movie-container {
+    width: 100%;
+    /* border: 1px solid red; */
+    gap: 10px;
+  }
+  
+  .searched-movie-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .not-found-description {
+    color: var(--white);
+    text-align: center;
+    width: 100%;
+    padding: 60px 30px;
+    font-size: 16px;
+    /* padding-bottom: 140px; */
+  }
+
   /* CATEGORY PAGE */
   .category-title {
     text-align: center;
@@ -1629,7 +1757,6 @@ footer {
     margin: 0 2rem;
   }
 
-  /* CATEGORY PAGE */
 
   /* HISTORY PAGE */
 

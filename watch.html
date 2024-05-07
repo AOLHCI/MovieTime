@@ -46,10 +46,10 @@
 
     <div class="rightnav">
         <div class="search">
-            <form>
-                <input type="text" placeholder="Search...">
-            </form>
-            <img src="Assets/HeaderPhoto/search.png">
+          <form>
+              <input type="text" placeholder="Search..." id="searchInput">
+          </form>
+          <img src="Assets/HeaderPhoto/search.png" id="searchButton" onclick="goToSearch()">
         </div>
 
         <div class="profile dropdown">
@@ -328,10 +328,28 @@
 
 </footer>
 
-
-  
   <script src="JavaScripts/watch.js"></script>
   <script src="JavaScripts/Header.js"></script>
-  <!-- <script src="JavaScripts/Header.js"></script> -->
+  <script>
+    function goToSearch() {
+        const searchText = document.getElementById('searchInput').value;
+        if(searchText.length > 0){
+                window.location.href = 'search.html?search=' + encodeURIComponent(searchText);
+                document.getElementById('searchInput').value = "";
+        }
+    }   
+
+    function handleKeyPress(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            goToSearch();
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('keypress', handleKeyPress);
+    });
+  </script>
 </body>
 </html>

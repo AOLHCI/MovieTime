@@ -223,12 +223,15 @@
     opacity: 1;
 }
 
-
-@media screen and (max-width: 767px){
+@media screen and (min-width: 0px) and (max-width: 767px){
     .WebTitle{
         font-size: 25px;
     }
     
+    .twoRowTitle .Progress1{
+        padding-top: 22px;
+    }
+
     .MainHistory{
         margin-top: 0px;
         margin-left: 40px;
@@ -236,8 +239,13 @@
     }
 
     .History1{
-        width: 350px;
-        height: 130px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        height: 110px;
+        padding-top: 7px;
+        padding-left: 7px;
     }
 
     .SubJudul1{
@@ -245,8 +253,10 @@
     }
 
     .borderHis{
-        width: 170px;
-        height: 125px;
+        width: 165px;
+        height: 105px;
+        margin-top: -1px;
+        margin-left: 0px;
     }
 
     .movieTitle1{
@@ -259,7 +269,7 @@
 
     .Progress1{
         font-size: 11px;
-        padding-top: 22px;
+        padding-top: 38px;
         font-size: 8px;
     }
 
@@ -271,6 +281,7 @@
     }
 
     .Desc1{
+        padding-left: 8px;
         font-size: 5px;
     }
 
@@ -388,9 +399,25 @@
         opacity: 1;
     }
 
-}
+}   
 
-    @media (max-width: 1240px){
+    @media (min-width: 768px) and (max-width: 1240px){
+        .borderHis{
+            margin-bottom: 10px;
+        }        
+
+        .SubJudul1{
+            font-size: 30px;
+        }
+        
+        .Poster{
+            margin-bottom: 20px;
+        }
+
+        .Progress1{
+            padding-top: 88px;
+        }
+
         .histPopup{
         /* margin-top: 245.77px; */
         font-family: "Lexend", sans-serif;
@@ -423,7 +450,7 @@
         padding-right: 15px;
         padding-bottom: -20px;
         color: #FFFFFF;
-        margin-left: 780px;
+        margin-left: 640px;
     }
 
     .histPopup .histPopUpDesc{
@@ -432,7 +459,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         background-color: rgba(53, 57, 65, 1);
-        width: 840px;
+        width: 700px;
         border-radius: 20px;
         height: 200px;
         transition: all 300ms ease-in-out;

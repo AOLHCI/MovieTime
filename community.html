@@ -83,32 +83,105 @@
                 <div class="Post-thread">
                     <img class="Profile-pic" src="Assets/Icon/profilepicture.png">
                     <div class="Input-area">
-                        <input type="text" id="User-input" placeholder="Type something...">
-                        <img class="Image-Input" src="Assets/Icon/image.png">
-                        <button>Post</button>
+                        <textarea id="autoresizing" name="" placeholder="Type something..." class="comment-text" oninput="toggleButton()"></textarea>
+                        <div class="flex-column">
+                            <div id="imagePreviewContainer"></div>
+                            <div class="row-input">
+                                <div class="Images">
+                                    <img id="imageSelector" class="Image-Input" src="Assets/Icon/image.png" onclick="imageUpload()">
+                                </div>
+                                <div class="Post-button">
+                                    <button id="post-button" class="Thread-btn" onclick="postComment()" disabled>Post</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <hr>
-                <div class="Thread-list">
-                    <img class="Profile-pic" src="Assets/Icon/profilepicture.png">
-                    <div class="Thread-information">
-                        <p id="Thread-name">Valak Vundak</p>
-                        <p id="Thread-time">18 minutes ago</p>
-                        <p id="Thread-text">Nyesel gua nonton Lumayan Lain,  film ini tuh kayak kencan buta yang awalnya penuh harapan tapi endingnya bikin lo pulang dengan hati hampa. Bukan berarti gue nggak menghargai kerja keras mereka sih, tapi ya, sebagai penonton yang udah rela ngeluarin waktu dan duit, pengennya sih dapat pengalaman nonton yang memorable.
-                            Ah, sudahlah, semoga film-film selanjutnya bisa lebih menggigit dan nggak bikin kita kecewa lagi. Kita butuh cerita yang bukan hanya sekedar tontonan, tapi juga bisa menggerakkan hati dan pikiran. Semangat terus untuk para pembuat film Indonesia! Kita tahu kalian bisa lebih dan lebih lagi!
-                            #LumayanLain
-                        </p>
+                <div id="posted-comments"></div>
+                <div class="comment-1">
+                    <!-- <div class="Thread-list">
+                        <img class="Profile-pic" src="Assets/Icon/profilepicture.png">
+                        <div class="Thread-information">
+                            <p id="Thread-name">Valak Vundak</p>
+                            <p id="Thread-time">19:00 - 5 May 2024</p>
+                            <p id="Thread-text">Nyesel gua nonton Lumayan Lain,  film ini tuh kayak kencan buta yang awalnya penuh harapan tapi endingnya bikin lo pulang dengan hati hampa. Bukan berarti gue nggak menghargai kerja keras mereka sih, tapi ya, sebagai penonton yang udah rela ngeluarin waktu dan duit, pengennya sih dapat pengalaman nonton yang memorable.
+                                Ah, sudahlah, semoga film-film selanjutnya bisa lebih menggigit dan nggak bikin kita kecewa lagi. Kita butuh cerita yang bukan hanya sekedar tontonan, tapi juga bisa menggerakkan hati dan pikiran. Semangat terus untuk para pembuat film Indonesia! Kita tahu kalian bisa lebih dan lebih lagi!
+                                #LumayanLain
+                            </p>
+                            <div class="comment-details">
+                                <div class="comment-like-section">
+                                <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+                                <p class="comment-like-count">0</p>
+                                </div>
+                                <div class="comment-reply-section" onclick="toggleReplies()">
+                                <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+                                <p class="comment-reply-count">0</p>
+                                </div>
+                                <p class="reply-comment" onclick="toggleReplyContainer()">Reply</p>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="Thread-list">
+                        <img class="Profile-pic" src="Assets/Icon/profilepicture.png">
+                        <div class="Thread-information">
+                            <p id="Thread-name">Valak Vundak</p>
+                            <p id="Thread-time">12:00 - 1 May 2024</p>
+                            <p id="Thread-text">Nyesel gua nonton Lumayan Lain,  film ini tuh kayak kencan buta yang awalnya penuh harapan tapi endingnya bikin lo pulang dengan hati hampa. Bukan berarti gue nggak menghargai kerja keras mereka sih, tapi ya, sebagai penonton yang udah rela ngeluarin waktu dan duit, pengennya sih dapat pengalaman nonton yang memorable.
+                                Ah, sudahlah, semoga film-film selanjutnya bisa lebih menggigit dan nggak bikin kita kecewa lagi. Kita butuh cerita yang bukan hanya sekedar tontonan, tapi juga bisa menggerakkan hati dan pikiran. Semangat terus untuk para pembuat film Indonesia! Kita tahu kalian bisa lebih dan lebih lagi!
+                                #LumayanLain
+                            </p>
+                            <div class="comment-details">
+                                <div class="comment-like-section">
+                                    <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+                                    <p class="comment-like-count">0</p>
+                                </div>
+                                <div class="comment-reply-section" onclick="toggleReplies()">
+                                    <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+                                    <p class="comment-reply-count">1</p>
+                                </div>
+                                <p class="reply-comment">Reply</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="Thread-list">
-                    <img class="Profile-pic" src="Assets/Icon/profilepicture.png">
-                    <div class="Thread-information">
-                        <p id="Thread-name">Valak Vundak</p>
-                        <p id="Thread-time">18 minutes ago</p>
-                        <p id="Thread-text">Nyesel gua nonton Lumayan Lain,  film ini tuh kayak kencan buta yang awalnya penuh harapan tapi endingnya bikin lo pulang dengan hati hampa. Bukan berarti gue nggak menghargai kerja keras mereka sih, tapi ya, sebagai penonton yang udah rela ngeluarin waktu dan duit, pengennya sih dapat pengalaman nonton yang memorable.
-                            Ah, sudahlah, semoga film-film selanjutnya bisa lebih menggigit dan nggak bikin kita kecewa lagi. Kita butuh cerita yang bukan hanya sekedar tontonan, tapi juga bisa menggerakkan hati dan pikiran. Semangat terus untuk para pembuat film Indonesia! Kita tahu kalian bisa lebih dan lebih lagi!
-                            #LumayanLain
-                        </p>
+                <div class="reply-a-comment-container">
+                    <div class="reply-comment-section">
+                      <div class="flex-row">
+                        <img src="Assets/Icon/profilepicture.png" alt="">
+                        <textarea id="autoresizing" name="" placeholder="Type something..." class="reply-comment-text" oninput="toggleReplyButton()"></textarea>
+                      </div>
+                      <div class="reply-buttons">
+                        <div class="Images">
+                            <img class="Reply-image-Input" src="Assets/Icon/image.png">
+                        </div>
+                        <button id="cancel-button" class="cancel-button">Cancel</button>
+                        <button id="reply-button" class="reply-button" onclick="replyComment()" disabled>Reply</button>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="posted-reply-container">
+                    <div class="posted-reply-section">
+                        <div class="flex-row">
+                            <img src="Assets/Icon/profilepicture.png" alt="">
+                            <div class="flex-column">
+                                <p class="comment-author">Marvin Kopling Samping</p>
+                                <p class="comment-date">07:24 - 6 May 2024</p>
+                                <p class="comment-description"><span class="replying-to">@Ferlie Ban Dalam</span> The "Invincible" title says it all slowly breaking each episode when he had small good changes. Notice how the title didn't come out in episode 8 because he didn't change.</p>
+                            <div class="comment-details">
+                                <div class="comment-like-section">
+                                    <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+                                    <p class="comment-like-count">0</p>
+                                </div>
+                                <div class="comment-reply-section" onclick="toggleReplies()">
+                                    <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+                                    <p class="comment-reply-count">0</p>
+                                </div>
+                                <p class="reply-comment">Reply</p>
+                            </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -146,5 +219,12 @@
             </div>
         </div>
     </div>
+    <div class="Overlay-input">
+
+    </div>
+    <div class="Overlay-done">
+        
+    </div>
+    <script src="JavaScripts/community.js"></script>
 </body>
 </html>

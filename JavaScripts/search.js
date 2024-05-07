@@ -866,149 +866,45 @@ var movies = [
     },
   ];
 
-function generateMovieMarkup(movie) {
-    return `
-        <div class="movie-card-container">
-        <img class="movie-card-poster" src="${movie.mainPoster}" alt="${movie.title}" width="272px" height="170px">
-        <img onclick="goToMovieDetail('${movie.title}')" class="movie-card-play" src="Assets/Icon/PlayButton.png" alt="">
-        <div class="movie-card-rating-section">
-            <img src="Assets/Icon/star (1).png" alt="">
-            <p class="lexend">${movie.rating}</p>
-        </div>
-        <p onclick="goToMovieDetail('${movie.title}')" class="movie-card-title lexend">${movie.title}</p>
-        <div class="movie-card-button">
-            <img src="Assets/Icon/bookmark.png" alt="">
-            <p class="lexend">Add to Watchlist</p>
-        </div>
-        </div>
-    `;
+
+function searchMovieByInput(input){
+
+    const searchText = input.toLowerCase();
+    // alert(searchText);
+
+    // Filter movies based on search query
+    const filteredMovies = movies.filter(movie => movie.title.toLowerCase().includes(searchText));
+    // alert(filteredMovies.length);
+
+    // Generate HTML for filtered movies
+    const movieCardsHTML = filteredMovies.map(movie => `
+            <div class="movie-card-container">
+                <img class="movie-card-poster" src="${movie.mainPoster}" alt="${movie.title}" width="272px" height="170px">
+                <img onclick="goToMovieDetail('${movie.title}')" class="movie-card-play" src="Assets/Icon/PlayButton.png" alt="">
+                <div class="movie-card-rating-section">
+                    <img src="Assets/Icon/star (1).png" alt="">
+                    <p class="lexend">${movie.rating}</p>
+                </div>
+                <p onclick="goToMovieDetail('${movie.title}')" class="movie-card-title lexend">${movie.title}</p>
+                <div class="movie-card-button">
+                    <img src="Assets/Icon/bookmark.png" alt="">
+                    <p class="lexend">Add to Watchlist</p>
+                </div>
+            </div>
+    `).join('');
+
+
+    // Update the watchlist container with filtered movies
+    const watchlistMoviesSection = document.querySelector('.searched-movie-container');
+    // alert(watchlistMoviesSection.length)
+    watchlistMoviesSection.innerHTML = movieCardsHTML;
+    // console.log(watchlistMoviesSection);
+    document.querySelector('.search-result-title').textContent = "Results for " + "\"" + input +"\"";
+    if(filteredMovies.length === 0){
+      document.querySelector('.not-found-description').textContent = "Oops! Looks like the movie you're searching for isn't available.";
+      document.querySelector('.not-found-description').style.display = 'block';
+    }
+    // addIconChangingListeners();
+    // addDraggableListeners();
+
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    const genreDropdownItems = document.querySelectorAll('.dropdown-content a');
-    // alert(genreDropdownItems.length);
-    const categoryTitle = document.querySelector('.category-title h2')
-
-    genreDropdownItems.forEach(item => {
-        item.addEventListener('click', function(event) {
-            event.preventDefault();
-
-            const selectedGenre = this.textContent.trim();
-            const filteredMovies = movies.filter(movie => movie.genre === selectedGenre);
-
-            renderMovies(filteredMovies);
-            categoryTitle.textContent = selectedGenre;
-        });
-    });
-});
-
-function renderMovies(movies) {
-    const movieContainer = document.getElementById('movie-container');
-    movieContainer.innerHTML = '';
-    movies.forEach((movie, index) => {
-        const movieMarkup = generateMovieMarkup(movie);
-
-        // Create a new row for every third movie
-        if (index % 4 === 0) {
-            movieContainer.innerHTML += '<div class="category-row">';
-        }
-
-        // Append the movie card to the current row
-        movieContainer.innerHTML += `<div class="category-col">${movieMarkup}</div>`;
-
-        // Close the row after every third movie or for the last movie
-        if ((index + 1) % 3 === 0 || index === movies.length - 1) {
-            movieContainer.innerHTML += '</div>';
-        }
-    });
-}
-
-// Call the renderMovies function when the DOM content is loaded
-document.addEventListener('DOMContentLoaded', renderMovies);
-
-
-
-
-
-window.addEventListener('scroll', function() {
-  const header = document.querySelector('header');
-  if (window.scrollY > 0) {
-      header.classList.add('scrolled');
-  } else {
-      header.classList.remove('scrolled');
-  }
-});
-
-let menu = document.querySelector('#icon');
-let navbar = document.querySelector('.navigation');
-let dropdown = document.querySelector('.dropdown');
-
-menu.onclick = () => {
-  menu.classList.toggle('bx-x');
-  navbar.classList.toggle('nyala');
-  dropdown.classList.remove('active'); 
-}
-
-dropdown.onclick = (event) => {
-  event.stopPropagation();
-  dropdown.classList.toggle('active');
-}
-
-if (window.matchMedia('(min-width: 1000px)').matches) {
-  dropdown.onclick = (event) => {
-      event.stopPropagation();
-      dropdown.classList.toggle('active');
-  }
-}
-document.addEventListener('DOMContentLoaded', function() {
-  const searchInput = document.querySelector('.search input[type="text"]');
-
-  searchInput.addEventListener('input', function() {
-      if (searchInput.value.trim() !== '') {
-          searchInput.classList.add('expanded');
-      } else {
-          searchInput.classList.remove('expanded');
-      }
-  });
-
-  var profileIcon = document.getElementById('profileIcon');
-  var dropdownMenu = document.getElementById('dropdownMenu');
-
-  profileIcon.addEventListener('click', function () {
-      dropdownMenu.classList.toggle('show');
-      setTimeout(function() {
-          dropdownMenu.classList.toggle('opacity-transition');
-      }, 1);
-  });
-
-  document.addEventListener('click', function (e) {
-      if (!dropdownMenu.contains(e.target) && !profileIcon.contains(e.target)) {
-          dropdownMenu.classList.remove('show');
-      }
-  });
-
-
-
-
-  let dropdown = document.querySelector('.dropdown');
-  let categoryDropdown = document.querySelector('.dropdown-content');
-
-  function toggleDropdown() {
-      categoryDropdown.classList.toggle('active');
-  }
-
-  dropdown.addEventListener('click', function(event) {
-      event.stopPropagation();
-      toggleDropdown();
-  });
-
-  document.addEventListener('click', function (e) {
-      if (!categoryDropdown.contains(e.target) && !dropdown.contains(e.target)) {
-          categoryDropdown.classList.remove('active');
-      }
-  });
-  categoryDropdown.addEventListener('click', function(event) {
-      event.stopPropagation();
-  });
-
-});

@@ -11,62 +11,56 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Marko+One&display=swap" rel="stylesheet">
-        
+    <link rel="stylesheet" href="Header.css">
     <title>Category</title>
 </head>
 <body class="category-background">
     <header>
-        <a href="#" class="movielogo"> 
-            <img class="logomovie" src="./Assets/HeaderPhoto/logo.png">
+        <a href="home.html" class="movielogo"> 
+            <img class="logomovie" src="Assets/HeaderPhoto/logo.png">
             <h2>MovieTime</h2>
         </a>
         <nav>
             <ul class="navigation">
-                <li><a href="./home.html">Home</a></li>
+                <li class="top"><a href="home.html">Home</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn">Category</a>
                     <ul class="dropdown-content">
                         <a href="#">Action</a>
+                        <a href="#">Adventure</a>
                         <a href="#">Animation</a>
                         <a href="#">Comedy</a>
                         <a href="#">Drama</a>
+                        <a href="#">Fantasy</a>
                         <a href="#">Horror</a>
                         <a href="#">Romance</a>
-                        <a href="#">Adult</a>
-                        <a href="#">Sci-fic</a>
-                        <a href="#">Space</a>
-                        <a href="#">Romance</a>
-                        <a href="#">Romance</a>
-                        <a href="#">Romance</a>
-                        <a href="#">Romance</a>
-                        <a href="#">Romance</a>
-                        <a href="#">Romance</a>
-                        <a href="#">Romance</a>
+                        <a href="#">Thriller</a>
                     </ul>
                 </li>
-                <li><a href="#">History</a></li>
-                <li><a href="#">Watchlist</a></li>
-                <li><a href="#">Community</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="Watchlist.html">Watchlist</a></li>
+                <li><a href="community.html">Community</a></li>
             </ul>
         </nav>
 
         <div class="rightnav">
             <div class="search">
                 <form>
-                    <input type="text" placeholder="Search...">
+                    <input type="text" placeholder="Search..." id="searchInput">
                 </form>
-                <img src="./Assets/HeaderPhoto/search.png">
+                <img src="Assets/HeaderPhoto/search.png" id="searchButton" onclick="goToSearch()">
             </div>
 
             <div class="profile dropdown">
-                <img src="./Assets/HeaderPhoto/profileicon.png" class="profil" id="profileIcon">
+                <img src="Assets/HeaderPhoto/profileicon.png" class="profil" id="profileIcon">
                 <div class="dropdown-profile" id="dropdownMenu">
-                    <a href="#" id="logoutLink"><img src="./Assets/HeaderPhoto/logout.png" id="logoutIcon"><span class="logout-text">Log out</span></a>
+                    <a href="#" id="logoutLink"><img src="Assets/HeaderPhoto/logout.png" id="logoutIcon"><span class="logout-text">Logout</span></a>
                 </div>
             </div>          
             
             <div class="bx bx-menu" id="icon"></div>
         </div>
+
     </header>
     
     <div class="category-title">
@@ -82,5 +76,25 @@
         <script src="./JavaScripts/category.js"></script>
     </div>
 </body>
-<script src="Header.js"></script>
+<script>
+    function goToSearch() {
+        const searchText = document.getElementById('searchInput').value;
+        if(searchText.length > 0){
+                window.location.href = 'search.html?search=' + encodeURIComponent(searchText);
+                document.getElementById('searchInput').value = "";
+        }
+    }   
+
+    function handleKeyPress(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            goToSearch();
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('keypress', handleKeyPress);
+    });
+</script>
 </html>

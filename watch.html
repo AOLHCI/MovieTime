@@ -12,56 +12,50 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Marko+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="Header.css">
 </head>
 <body>
 
   <header>
-    <a href="#" class="movielogo"> 
+    <a href="home.html" class="movielogo"> 
         <img class="logomovie" src="Assets/HeaderPhoto/logo.png">
         <h2>MovieTime</h2>
     </a>
     <nav>
         <ul class="navigation">
-            <li><a href="#">Home</a></li>
+            <li class="top"><a href="home.html">Home</a></li>
             <li class="dropdown">
                 <a href="#" class="dropbtn">Category</a>
                 <ul class="dropdown-content">
                     <a href="#">Action</a>
+                    <a href="#">Adventure</a>
                     <a href="#">Animation</a>
                     <a href="#">Comedy</a>
                     <a href="#">Drama</a>
+                    <a href="#">Fantasy</a>
                     <a href="#">Horror</a>
                     <a href="#">Romance</a>
-                    <a href="#">Adult</a>
-                    <a href="#">Sci-fic</a>
-                    <a href="#">Space</a>
-                    <a href="#">Romance</a>
-                    <a href="#">Romance</a>
-                    <a href="#">Romance</a>
-                    <a href="#">Romance</a>
-                    <a href="#">Romance</a>
-                    <a href="#">Romance</a>
-                    <a href="#">Romance</a>
+                    <a href="#">Thriller</a>
                 </ul>
             </li>
-            <li><a href="#">History</a></li>
-            <li><a href="#">Watchlist</a></li>
-            <li><a href="#">Community</a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="Watchlist.html">Watchlist</a></li>
+            <li><a href="community.html">Community</a></li>
         </ul>
     </nav>
 
     <div class="rightnav">
         <div class="search">
-            <form>
-                <input type="text" placeholder="Search...">
-            </form>
-            <img src="Assets/HeaderPhoto/search.png">
+          <form>
+              <input type="text" placeholder="Search..." id="searchInput">
+          </form>
+          <img src="Assets/HeaderPhoto/search.png" id="searchButton" onclick="goToSearch()">
         </div>
 
         <div class="profile dropdown">
             <img src="Assets/HeaderPhoto/profileicon.png" class="profil" id="profileIcon">
             <div class="dropdown-profile" id="dropdownMenu">
-                <a href="#" id="logoutLink"><img src="Assets/HeaderPhoto/logout.png" id="logoutIcon"><span class="logout-text">Log out</span></a>
+                <a href="#" id="logoutLink"><img src="Assets/HeaderPhoto/logout.png" id="logoutIcon"><span class="logout-text">Logout</span></a>
             </div>
         </div>          
         
@@ -334,10 +328,28 @@
 
 </footer>
 
-
-  
   <script src="JavaScripts/watch.js"></script>
   <script src="JavaScripts/Header.js"></script>
-  <!-- <script src="JavaScripts/Header.js"></script> -->
+  <script>
+    function goToSearch() {
+        const searchText = document.getElementById('searchInput').value;
+        if(searchText.length > 0){
+                window.location.href = 'search.html?search=' + encodeURIComponent(searchText);
+                document.getElementById('searchInput').value = "";
+        }
+    }   
+
+    function handleKeyPress(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            goToSearch();
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('keypress', handleKeyPress);
+    });
+  </script>
 </body>
 </html>

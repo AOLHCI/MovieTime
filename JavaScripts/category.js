@@ -886,6 +886,7 @@ function generateMovieMarkup(movie) {
 
 document.addEventListener('DOMContentLoaded', function() {
     const genreDropdownItems = document.querySelectorAll('.dropdown-content a');
+    // alert(genreDropdownItems.length);
     const categoryTitle = document.querySelector('.category-title h2')
 
     genreDropdownItems.forEach(item => {

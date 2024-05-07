@@ -22,9 +22,15 @@
 
 .list{
     color: #FFFFFF;
-    display: flex;
-    margin-left: 95px;
+    /* margin-left: 95px; */
     margin-top: 100px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* border: 1px solid red; */
+    width: 100%;
     font-size: 24px;
     font-family: "Inter", sans-serif;
 }

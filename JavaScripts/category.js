@@ -925,10 +925,6 @@ function goToMovieDetail(title) {
   window.location.href = 'watch.html?title=' + encodeURIComponent(title);
 }
 
-function goToMovieDetail(title) {
-  window.location.href = 'watch.html?title=' + encodeURIComponent(title);
-}
-
 function redirectRandom() {
   const urlParams = new URLSearchParams(window.location.search);
   const genre = urlParams.get('genre');
@@ -946,7 +942,7 @@ function redirectRandom() {
 
   const randIndex = Math.floor(Math.random() * genreMovies.length);
   const title = encodeURIComponent(genreMovies[randIndex].title);
-  window.location.href = 'watch.html?title=' + encodeURIComponent(title);
+  window.location.href = 'watch.html?title=' + title;
 }
 
 document.addEventListener('DOMContentLoaded', function() {

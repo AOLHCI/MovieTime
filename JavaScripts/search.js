@@ -866,6 +866,63 @@ var movies = [
     },
   ];
 
+  function addIconChangingListeners(){
+    const movieCardButtons = document.querySelectorAll('.movie-card-button');
+
+    movieCardButtons.forEach(function(movieCardButton) {
+
+        let isAdded = false;
+
+        movieCardButton.addEventListener('click', function() {
+            const cardImg = this.querySelector('img');
+            const cardDesc = this.querySelector('p');
+            
+            if (isAdded) {
+                cardImg.src = 'Assets/Icon/bookmark.png';
+                cardDesc.textContent = "Add to Watchlist";
+                this.classList.remove('clicked');
+                isAdded = false;
+            } else {
+                cardImg.src = 'Assets/Icon/bookmark (1).png'; // Adjusted for file name
+                cardDesc.textContent = "Added to Watchlist";
+                this.classList.add('clicked');
+                isAdded = true;
+            }
+        });
+    });
+}
+
+function addDraggableListeners() {
+  var containers = document.querySelectorAll('.searched-movie-container');
+
+  containers.forEach(function(container) {
+      var isDown = false;
+      var startX;
+      var scrollLeft;
+
+      container.addEventListener('mousedown', function(event) {
+          isDown = true;
+          startX = event.pageX - container.offsetLeft;
+          scrollLeft = container.scrollLeft;
+      });
+
+      container.addEventListener('mouseleave', function() {
+          isDown = false;
+      });
+
+      container.addEventListener('mouseup', function() {
+          isDown = false;
+      });
+
+      container.addEventListener('mousemove', function(event) {
+          if (!isDown) return;
+          event.preventDefault();
+          var x = event.pageX - container.offsetLeft;
+          var walk = (x - startX) * 1; // Adjust scrolling speed
+          container.scrollLeft = scrollLeft - walk;
+      });
+  });
+}
 
 function searchMovieByInput(input){
 
@@ -904,7 +961,10 @@ function searchMovieByInput(input){
       document.querySelector('.not-found-description').textContent = "Oops! Looks like the movie you're searching for isn't available.";
       document.querySelector('.not-found-description').style.display = 'block';
     }
-    // addIconChangingListeners();
-    // addDraggableListeners();
+    if(filteredMovies.length === 1){
+      document.querySelector('.searched-movie-container').style.gap = '0px';
+    }
+    addIconChangingListeners();
+    addDraggableListeners();
 
 }

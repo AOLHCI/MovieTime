@@ -1325,6 +1325,12 @@ replyParagraph.addEventListener('click', toggleReplyContainer);
 cancelButton.addEventListener('click', toggleReplyContainer);
 
 function replyComment() {
+    var replyCountElements = document.querySelectorAll('.comment-reply-count');
+    replyCountElements.forEach(replyCountElement => {
+        var currentCount = parseInt(replyCountElement.textContent);
+        replyCountElement.textContent = currentCount + 1;
+    });
+
     if(toggleReplyStatus === 1){
       toggleReplies();
       toggleReplyStatus = 0;

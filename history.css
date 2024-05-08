@@ -51,6 +51,10 @@
     visibility: visible;
 }
 
+.history-card:hover .history-card-poster {
+    filter: brightness(0.7);
+}
+
 .history-card-left {
     width: 30%;
     cursor: pointer;
@@ -326,11 +330,11 @@
     }
     
     .MainHistory{
-        margin-top: 30px;
+        margin-top: 15px;
         /* border: 1px solid red; */
     }
 
-    .Today {
+    .Today, .Yesterday, .Earlier {
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -355,7 +359,7 @@
         height: 80px;
         padding: 5px;
         border-radius: 10px;
-        margin-bottom: 5px;
+        margin-bottom: 8px;
         background-color: var(--grey);
     }
 
@@ -373,6 +377,7 @@
         width: 100%;
         height: 100%;
         border-radius: 8px;
+        filter: brightness(0.7);
     }
     
     .history-play-button {
@@ -421,6 +426,7 @@
         /* border: 1px solid red; */
         text-align: left;
         width: 90%;
+        margin-top: 15px;
     }
     
     .histPopup{

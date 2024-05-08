@@ -150,7 +150,7 @@ hr{
     width: 100%;
 }
 
-.comment-text{
+.comment-text, .comment-text-popup{
     margin: 0.938rem;
     width: 100%;
     border: none;
@@ -161,7 +161,7 @@ hr{
     resize: none;
 }
 
-.comment-text:focus{
+.comment-text:focus, .comment-text-popup:focus{
     outline: none;
 }
 
@@ -332,13 +332,17 @@ hr{
     flex-grow: 1;
 }
 
-#fileInput, #reply-fileInput{
+#fileInput, #reply-fileInput, #fileInput-popup{
     display: none;
 }
 
-.Post-button:hover button{
+.Post-button:hover button, .Post-button-popup:hover button{
     background-color: #FFF;
     color: #007bff;
+}
+
+.Thread-list .Thread-information img{
+    margin-bottom: 20px;
 }
 
 .comment-description{
@@ -518,7 +522,7 @@ hr{
     height: 1.125rem;
 }
 
-#imagePreviewContainer{
+#imagePreviewContainer, #imagePreviewContainer-popup{
     display: none;
     max-width: 120px;
     height: auto;
@@ -526,4 +530,57 @@ hr{
 
 .posted-reply-section img{
     margin-bottom: 1rem;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 999; 
+    transition: transform 0.3s ease opacity 0.3s ease; 
+}
+
+.Popup-content {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    height: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease, transform 0.3s ease; 
+    opacity: 0; 
+    transform: translate(-50%, -50%) scale(0.8); 
+}
+
+.Popup-content.active {
+    display: block;
+    opacity: 1; 
+    transform: translate(-50%, -50%) scale(1); 
+    background-color: var(--grey);
+}
+
+#Close-popupCreate{
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7440%) hue-rotate(43deg) brightness(97%) contrast(93%);
+    width: 20px;
+    height: fit-content;
+}
+
+.Popup-content .flex-row{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    justify-content: space-between;
+    margin-bottom: 1.2rem;
+}
+
+.popup-Title{
+    margin: 0;
 }

@@ -67,7 +67,7 @@
             <img class="SearchIcon" src="Assets/Icon/black-search.png">
             <input type="text" name="Search-input" id="Search-input" placeholder="Search...">
         </div>
-        <div class="Create-thread">
+        <div class="Create-thread" onclick="popUpCreate()">
             <p>Create Thread</p>
             <img class="PlusIcon" src="Assets/Icon/white-plus.png">
         </div>
@@ -217,13 +217,36 @@
             </div>
         </div>
     </div>
-    <div class="Overlay-input">
-
+    <div id="popupOverlay" class="overlay">
+        <div id="popupContent" class="Popup-content">
+            <div class="flex-row">
+                <p class="popup-Title">What's on your mind?</p>
+                <img src="Assets/Icon/letter-x.png" id="Close-popupCreate" onclick="closepopUpCreate()">
+            </div>
+            <div class="Post-thread">
+                <img class="Profile-pic" src="Assets/Icon/profilepicture.png">
+                <div class="Input-area">
+                    <textarea id="autoresizing" name="" placeholder="Type something..." class="comment-text-popup" oninput="toggleButtonpopup()" oninput="autoResize()"></textarea>
+                    <div class="flex-column">
+                        <div id="imagePreviewContainer-popup"></div>
+                        <div class="row-input">
+                            <div class="Images">
+                                <img id="imageSelector" class="Image-Input" src="Assets/Icon/image.png" onclick="imageUploadPopup()">
+                            </div>
+                            <div class="Post-button">
+                                <button id="post-button-popup" class="Thread-btn" onclick="postCommentpopup()" disabled>Post</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="Overlay-done">
         
     </div>
     <script src="JavaScripts/community.js"></script>
+    <script src="JavaScripts/Header.js"></script>
     <script>
         function goToSearch() {
             const searchText = document.getElementById('searchInput').value;

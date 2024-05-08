@@ -5,28 +5,123 @@
 }
 
 .WebTitle{
-    /* History */
     text-align: center;
     margin-top: 140px;
-
     font-family: "Lexend", sans-serif;
     font-weight: 400;
     font-size: 36px;
     line-height: 40px;
-    /* identical to box height */
-
     color: #FFFFFF;
-
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .MainHistory{
     color: #FFFFFF;
-    margin-left: 95px;
-    margin-top: 100px;
-    font-size: 24px;
+    /* margin-left: 95px; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
     font-family: "Lexend", sans-serif;
 }
+
+/* Naldo */
+
+.history-card {
+    /* border: 1px solid red; */
+    width: 900px;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+.history-card:hover {
+    background-color: var(--grey);
+}
+
+.history-card:hover .history-play-button {
+    visibility: visible;
+}
+
+.history-card-left {
+    width: 30%;
+    cursor: pointer;
+    position: relative;
+    margin-right: 10px;
+}
+
+.history-card-right {
+    width: calc(100% - 30%);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid white; */
+    /* gap: 90px; */
+    /* margin-left: 10px; */
+}
+
+.history-card-poster {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.history-play-button {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+}
+
+.history-card-top-detail {
+    /* border: 1px solid red; */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title-section {
+    /* border: 1px solid red; */
+    font-size: 24px;
+    width: fit-content;
+}
+
+.date-section {
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+.progress-section {
+    font-size: 16px;
+    margin-top: 100px;
+}
+
+.delete-button-section {
+    padding: 5px;
+    font-size: 64px;
+    /* border: 1px solid red; */
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.SubJudul1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/*  */
 
 .History1{
     display: flex;
@@ -225,10 +320,110 @@
 
 @media screen and (min-width: 0px) and (max-width: 767px){
     .WebTitle{
-        font-size: 25px;
+        margin-top: 100px;
+        font-size: 22px;
+        /* border: 1px solid red; */
     }
     
-    .twoRowTitle .Progress1{
+    .MainHistory{
+        margin-top: 30px;
+        /* border: 1px solid red; */
+    }
+
+    .Today {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
+    }
+    
+    .MainHistory{
+        color: #FFFFFF;
+        /* margin-left: 95px; */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: "Lexend", sans-serif;
+    }
+
+    .history-card {
+        /* border: 1px solid red; */
+        width: 90%;
+        height: 80px;
+        padding: 5px;
+        border-radius: 10px;
+        margin-bottom: 5px;
+        background-color: var(--grey);
+    }
+
+    .history-card-left {
+        width: 35%;
+        margin-right: 5px;
+        /* border: 1px solid red; */
+    }
+    
+    .history-card-right {
+        width: calc(100% - 35%);
+    }
+    
+    .history-card-poster {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+    }
+    
+    .history-play-button {
+        width: 20px;
+        height: 20px;
+        visibility: visible;
+    }
+    
+    .history-card-top-detail {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        /* border: 1px solid red; */
+    }
+    
+    .title-section {
+        /* border: 1px solid red; */
+        font-size: 15px;
+        max-width: 190px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    
+    .date-section {
+        font-size: 11px;
+        margin-top: 0px;
+    }
+    
+    .progress-section {
+        font-size: 11px;
+        margin-top: 23px;
+    }
+    
+    .delete-button-section {
+        padding: 5px;
+        font-size: 36px;
+        /* border: 1px solid red; */
+        line-height: 10px;
+        cursor: pointer;
+    }
+    
+    .SubJudul1 {
+        font-size: 16px;
+        margin-bottom: 5px;
+        /* border: 1px solid red; */
+        text-align: left;
+        width: 90%;
+    }
+    
+    /* .twoRowTitle .Progress1{
         padding-top: 22px;
     }
 
@@ -294,7 +489,7 @@
     .Poster{
         width: 150px;
         height: 100px;
-    }   
+    }    */
 
     
     .histPopup{
@@ -401,14 +596,55 @@
 
 }   
 
-    @media (min-width: 768px) and (max-width: 1240px){
+    @media (min-width: 768px) and (max-width: 1023px){
+
+        .WebTitle{
+            margin-top: 120px;
+            font-size: 30px;
+        }
+        
+        .MainHistory{
+            margin-top: 60px;
+        }
+    
+        .history-card {
+            width: 700px;
+            height: 160px;
+            padding: 8px;
+        }
+
+        .history-play-button {
+            width: 35px;
+            height: 35px;
+        }
+        
+        .title-section {
+            font-size: 22px;
+        }
+        
+        .date-section {
+            font-size: 16px;
+        }
+        
+        .progress-section {
+            font-size: 16px;
+            margin-top: 70px;
+        }
+        
+        .delete-button-section {
+            font-size: 50px;
+        }
+
+        .SubJudul1{
+            font-size: 20px;
+        }
+
+        /*  */
+
+
         .borderHis{
             margin-bottom: 10px;
         }        
-
-        .SubJudul1{
-            font-size: 30px;
-        }
         
         .Poster{
             margin-bottom: 20px;

@@ -925,6 +925,34 @@ function goToMovieDetail(title) {
   window.location.href = 'watch.html?title=' + encodeURIComponent(title);
 }
 
+function goToMovieDetail(title) {
+  window.location.href = 'watch.html?title=' + encodeURIComponent(title);
+}
+
+function redirectRandom() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const genre = urlParams.get('genre');
+
+  let genreMovies = movies;
+
+  if (genre) {
+    genreMovies = movies.filter(movie => movie.genre === genre);
+  }
+
+  if (genreMovies.length === 0) {
+    console.error("No movies available for the specified genre.");
+    return;
+  }
+
+  const randIndex = Math.floor(Math.random() * genreMovies.length);
+  const title = encodeURIComponent(genreMovies[randIndex].title);
+  window.location.href = 'watch.html?title=' + encodeURIComponent(title);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const randomButton = document.querySelector(".category-random-button");
+  randomButton.addEventListener('click', redirectRandom);
+});
 
 window.addEventListener('scroll', function() {
   const header = document.querySelector('header');

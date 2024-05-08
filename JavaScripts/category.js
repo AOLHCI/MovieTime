@@ -891,7 +891,7 @@ function renderMovies(movies) {
         const movieMarkup = generateMovieMarkup(movie);
 
         // Create a new row for every third movie
-        if (index % 4 === 0) {
+        if (index % 3 === 0) {
             movieContainer.innerHTML += '<div class="category-row">';
         }
 
@@ -908,6 +908,9 @@ function renderMovies(movies) {
 document.addEventListener('DOMContentLoaded', function() {
   const urlParams = new URLSearchParams(window.location.search);
   const genre = urlParams.get('genre');
+  const categoryTitle = document.querySelector(".category-title h2");
+  categoryTitle.textContent = genre;
+
 
   if (genre) {
       const filteredMovies = movies.filter(movie => movie.genre === genre);
@@ -916,6 +919,7 @@ document.addEventListener('DOMContentLoaded', function() {
       console.error("Genre not available.");
   }
 });
+
 
 function goToMovieDetail(title) {
   window.location.href = 'watch.html?title=' + encodeURIComponent(title);

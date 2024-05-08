@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Login.css">
+  <link rel="stylesheet" href="Header.css">
+  <title>Login Page</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  
+</head>
+
+<body>
+  
+  <div class="wrapper">
+    <div class="form-wrapper sign-in">
+
+      <form id="loginForm" action="" onsubmit="return validateForm()">
+        <h2>Register</h2>
+    
+        <div class="input-group">
+            <input type="text">
+            <label for="">Username</label>
+            <i class="bx bxs-user"></i>
+        </div>
+
+
+        <div class="input-group">
+          <input id="emailInput" type="text">
+          <label for="">Email</label>
+          <i class='bx bx-envelope'></i>
+        </div>
+    
+        <div class="input-group">
+            <input id="passwordInput" type="password" >
+            <label for="">Password</label>
+            <i id="showPasswordIcon" class='bx bxs-hide'></i>
+            <i id="hidePasswordIcon" class='bx bx-show' style="display: none;"></i>
+        </div>
+    
+        <div class="remember">
+            <label for=""><input type="checkbox" required> I Accept and Agree to Terms and Conditions</label>
+        </div>
+        
+        <button type="submit" class="btn">Login</button>
+    
+        <div class="signUp-link">
+            <p>Already have an account? <a href="Login.html" class="signUpBtn-link"><b>Register</b></a> </p>
+        </div>
+    </form>    
+
+    </div>
+  </div>  
+
+
+  <script src="/JavaScripts/Register.js"></script>
+</body>
+
+</html>

@@ -1095,6 +1095,7 @@ let menu = document.querySelector('#icon');
 let navbar = document.querySelector('.navigation');
 let dropdown = document.querySelector('.dropdown');
 
+//Burger
 menu.onclick = () => {
   menu.classList.toggle('bx-x');
   navbar.classList.toggle('nyala');
@@ -1112,6 +1113,7 @@ if (window.matchMedia('(min-width: 1000px)').matches) {
       dropdown.classList.toggle('active');
   }
 }
+
 document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.querySelector('.search input[type="text"]');
 
@@ -1126,11 +1128,16 @@ document.addEventListener('DOMContentLoaded', function() {
   var profileIcon = document.getElementById('profileIcon');
   var dropdownMenu = document.getElementById('dropdownMenu');
 
+  //Munculin logout
   profileIcon.addEventListener('click', function () {
       dropdownMenu.classList.toggle('show');
+      menu.classList.toggle('bx-x');
+      navbar.classList.toggle('nyala');
+      dropdown.classList.remove('active'); 
       setTimeout(function() {
           dropdownMenu.classList.toggle('opacity-transition');
       }, 1);
+      
   });
 
   document.addEventListener('click', function (e) {

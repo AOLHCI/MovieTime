@@ -17,6 +17,17 @@ function toggleButton() {
     }
 }
 
+function toggleButtonpopup() {
+  var commentText = document.getElementsByClassName('comment-text-popup')[0].value;
+  var postButton = document.getElementById('post-button-popup');
+
+  if (commentText.trim() === "") {
+      postButton.disabled = true;
+  } else {
+      postButton.disabled = false;
+  }
+}
+
 function toggleReplyButton(){
     var commentText = document.getElementsByClassName('reply-comment-text')[0].value;
     var replyButton = document.getElementById('reply-button');
@@ -28,7 +39,7 @@ function toggleReplyButton(){
     }
   }
 
-  function addLikeCounter(){
+function addLikeCounter(){
     // Get all elements with the class 'comment-like-section'
   const commentLikeSections = document.querySelectorAll('.comment-like-section');
   // alert(commentLikeSections.length);
@@ -228,7 +239,6 @@ function postComment() {
 
   document.getElementById('post-button').disabled = true;
 }
-
 
 var toggleReplyStatus = 0;
 
@@ -432,4 +442,178 @@ function replyimageUpload() {
     // Jika elemen input file sudah ada, cukup klik saja
     fileInput.click();
   }
+}
+
+function popUpCreate() {
+  const createThreadButton = document.querySelector('.Create-thread');
+  const popupOverlay = document.getElementById('popupOverlay');
+  const popupContent = document.getElementById('popupContent');
+
+  createThreadButton.addEventListener('click', () => {
+    popupOverlay.style.display = 'block';
+    popupContent.classList.add('active');
+  });
+
+  popupOverlay.addEventListener('click', (event) => {
+    if (event.target === popupOverlay) {
+      popupOverlay.style.display = 'none';
+      popupContent.classList.remove('active');
+    }
+  });
+}
+
+function closepopUpCreate() {
+  const closeButton = document.getElementById("Close-popupCreate");
+
+  closeButton.addEventListener("click", () => {
+    popupOverlay.style.display = "none";
+    popupContent.classList.remove("active");
+  });
+}
+
+function imageUploadPopup() {
+  const fileInput = document.getElementById('fileInput-Popup');
+
+  if (!fileInput) {
+    // Jika elemen input file belum ada, maka buat yang baru
+    const imagePreviewContainer = document.getElementById('imagePreviewContainer-popup');
+
+    const newFileInput = document.createElement('input');
+    newFileInput.type = 'file';
+    newFileInput.id = 'fileInput-popup'; // Beri id agar dapat dikenali jika sudah ada
+    newFileInput.accept = 'image/*';
+
+    newFileInput.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+
+      reader.onload = function(e) {
+        const imageUrl = e.target.result;
+        imagePreviewContainer.innerHTML = `<img src="${imageUrl}" id="previewImage-popup" alt="Preview" style="width: 100%; height: 100%;">`;
+        
+        // Tampilkan imageContainer saat gambar dipilih
+        imagePreviewContainer.style.display = 'block';
+      };
+
+      reader.readAsDataURL(file);
+    });
+
+    // Tambahkan elemen input file ke dalam dokumen
+    document.body.appendChild(newFileInput);
+
+    // Klik elemen input file
+    newFileInput.click();
+  } else {
+    // Jika elemen input file sudah ada, cukup klik saja
+    fileInput.click();
+  }
+}
+
+function postCommentpopup() {
+  const popupOverlay = document.getElementById('popupOverlay');
+  const popupContent = document.getElementById('popupContent');
+  const popupdone = document.getElementById('popupDone');
+  const popupdoneContent = document.getElementById('popupMessage');
+
+  
+  // Ambil nilai komentar dari textarea input pada pop-up
+  var commentText = document.querySelector('.comment-text-popup').value;
+  
+  // Ambil URL gambar yang dipilih dari preview gambar pada pop-up
+  var imagePreviewContainer = document.getElementById('imagePreviewContainer-popup');
+  var imagePreview = '';
+  if (imagePreviewContainer.innerHTML.trim() !== '') {
+    var previewImage = document.getElementById('previewImage-popup');
+    if (previewImage) {
+      imagePreview = previewImage.src;
+    }
+  }
+  
+  // Buat objek Date untuk mendapatkan tanggal dan waktu saat ini
+  var currentDate = new Date();
+  
+  // Buat string yang memuat tanggal dan waktu dalam format yang diinginkan
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    var formattedDate = currentDate.getHours().toString().padStart(2, '0') + ":" + currentDate.getMinutes().toString().padStart(2, '0') + " - " + currentDate.getDate() + " " + monthNames[currentDate.getMonth()] + " " + currentDate.getFullYear();
+    
+    // Buat elemen div baru untuk menampilkan komentar yang baru ditambahkan
+    var newCommentSection = document.createElement("div");
+    newCommentSection.classList.add("comment-1");
+    
+    // Periksa apakah ada gambar yang dipilih, jika ada, tambahkan HTML dengan gambar ke dalam newCommentSection
+    if (imagePreview !== '') {
+      newCommentSection.innerHTML = `
+      <div class="Thread-list">
+      <img class="Profile-pic" src="Assets/Icon/profilepicture.png">
+      <div class="Thread-information">
+      <p id="Thread-name">You</p>
+      <p id="Thread-time">${formattedDate}</p>
+      <p id="Thread-text">${commentText}</p>
+      <img src="${imagePreview}" style="max-width:150px; height=auto;">
+      <div class="comment-details">
+      <div class="comment-like-section posted-reply-like-counter">
+      <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+      <p class="comment-like-count">0</p>
+                    </div>
+                    <div class="comment-reply-section">
+                        <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+                        <p class="comment-reply-count">0</p>
+                        </div>
+                    <p class="reply-comment">Reply</p>
+                </div>
+            </div>
+        </div>
+    `;
+  } else {
+    // Jika tidak ada gambar yang dipilih, tambahkan HTML tanpa gambar ke dalam newCommentSection
+    newCommentSection.innerHTML = `
+    <div class="Thread-list">
+    <img class="Profile-pic" src="Assets/Icon/profilepicture.png">
+    <div class="Thread-information">
+    <p id="Thread-name">You</p>
+    <p id="Thread-time">${formattedDate}</p>
+    <p id="Thread-text">${commentText}</p>
+    <div class="comment-details">
+    <div class="comment-like-section posted-reply-like-counter">
+                        <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+                        <p class="comment-like-count">0</p>
+                    </div>
+                    <div class="comment-reply-section">
+                        <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+                        <p class="comment-reply-count">0</p>
+                    </div>
+                    <p class="reply-comment">Reply</p>
+                </div>
+            </div>
+            </div>
+    `;
+  }
+  
+  // Sisipkan newCommentSection ke dalam elemen dengan id "posted-comments"
+  var postedComments = document.getElementById("posted-comments");
+  postedComments.insertBefore(newCommentSection, postedComments.firstChild);
+  
+  // Panggil fungsi addLikeCounter untuk menambahkan fungsi like ke komentar yang baru ditambahkan
+  addLikeCounter();
+
+  // Kosongkan nilai textarea dan preview gambar pada pop-up setelah komentar diposting
+  document.querySelector('.comment-text-popup').value = "";
+  document.querySelector('#imagePreviewContainer-popup').innerHTML = "";
+  
+  // Matikan tombol post setelah komentar diposting
+  document.getElementById('post-button-popup').disabled = true;
+  
+  // Sembunyikan pop-up setelah komentar diposting
+  popupOverlay.style.display = "none";
+  popupContent.classList.remove("active");
+
+  popupdone.style.display = 'block';
+  popupdoneContent.classList.add('active'); 
+  
+  setTimeout(function() {
+    popupdone.style.display = 'none';
+    popupdoneContent.classList.remove('active');
+  }, 500);
 }

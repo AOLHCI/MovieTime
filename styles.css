@@ -936,12 +936,15 @@ footer {
 }
 
 .category-background {
-  background-color: #1f1f1f;
+  background-color: #26282B;
   margin-top: 8rem;
 }
 
-.category-left {
-  margin-left: 2.8rem;
+.category-left.category-row {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+  padding-left: 1.2rem;
   margin-bottom: 1rem;
 }
 
@@ -958,17 +961,13 @@ footer {
 }
 
 .category-row {
-  font-size: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .category-col {
-  display: inline-block;
-  width: calc(50% - 20px/rem);
-  margin-right: calc(10px/rem);
-}
-
-.category-col .movie-container {
-  margin: 0 2rem;
+  margin: 0 auto;
 }
 
 /* SEARCH PAGE */

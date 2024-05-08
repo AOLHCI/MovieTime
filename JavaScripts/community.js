@@ -190,7 +190,7 @@ function postComment() {
                 <p id="Thread-name">You</p>
                 <p id="Thread-time">${formattedDate}</p>
                 <p id="Thread-text">${commentText}</p>
-                <img src="${imagePreview}" style="max-width:150px; height=auto;">
+                <img src="${imagePreview}" id="thread-img" style="max-width:150px; height=auto;">
                 <div class="comment-details">
                     <div class="comment-like-section posted-reply-like-counter">
                         <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
@@ -256,6 +256,67 @@ function toggleReplies() {
       toggleReplyStatus = 0;
     }
 }
+var printReplyStatus =  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+function printReply(commentIndex) {
+  // Dapatkan komentar berdasarkan indeks
+  var comment = comments[commentIndex];
+  if(printReplyStatus[commentIndex] === 0)
+    {
+      // Buat elemen div untuk setiap reply
+      comment.reply.forEach(function(reply) {
+        // Buat elemen div untuk reply
+        var replyContainer = document.createElement('div');
+        replyContainer.classList.add('posted-reply-container');
+    
+        // Isi konten reply
+        replyContainer.innerHTML = `
+          <div class="posted-reply-sections">
+              <div class="flex-row">
+                  <img src="Assets/Icon/profilepicture.png" alt="">
+                  <div class="flex-column">
+                      <p class="comment-author">${reply.name}</p>
+                      <p class="comment-date">${reply.time}</p>
+                      <p class="comment-description">${reply.text}</p>
+                      <div class="comment-details">
+                          <div class="comment-like-section">
+                              <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+                              <p class="comment-like-count">${reply.likecount}</p>
+                          </div>
+                          <div class="comment-reply-section" onclick="toggleReplies()">
+                              <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+                              <p class="comment-reply-count">${reply.replycount}</p>
+                          </div>
+                          <p class="reply-comment">Reply</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        `;
+    
+        // Sisipkan reply di bawah Thread-list
+        var commentElement = document.querySelectorAll('.comment-1')[commentIndex];
+        var threadList = commentElement.querySelector('.Thread-list');
+        threadList.parentNode.insertBefore(replyContainer, threadList.nextSibling);
+      });
+    printReplyStatus[commentIndex] = 1;
+  } else if (printReplyStatus[commentIndex] === 1) {
+    // If printReplyStatus is 1, meaning replies have been printed, remove them
+    var commentElement = document.querySelectorAll('.comment-1')[commentIndex];
+    var threadList = commentElement.querySelector('.Thread-list');
+    var nextSibling = threadList.nextSibling;
+    
+    // Remove all next siblings of the Thread-list
+    while (nextSibling) {
+      var siblingToRemove = nextSibling;
+      nextSibling = siblingToRemove.nextSibling;
+      siblingToRemove.remove();
+    }
+    
+    // Reset printReplyStatus to 0
+    printReplyStatus[commentIndex] = 0;
+  }
+}
+
 
 const replyParagraph = document.querySelector('.reply-comment');
 const cancelButton = document.querySelector('.cancel-button');
@@ -314,7 +375,7 @@ function replyComment() {
               <p class="comment-author">You</p>
               <p class="comment-date">${formattedDate}</p>
               <p class="comment-description">${commentText}</p>
-              <img src="${imagePreview}" style="max-width:150px; height=auto;">
+              <img src="${imagePreview}" id="reply-img" style="max-width:150px; height=auto;">
               <div class="comment-details">
               <div class="comment-like-section posted-reply-like-counter">
                   <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
@@ -617,3 +678,81 @@ function postCommentpopup() {
     popupdoneContent.classList.remove('active');
   }, 500);
 }
+
+var comments = [
+  {
+    name: 'John',
+    time: '10:00',
+    text: 'Great movie!',
+    likecount: 5,
+    replycount: 2,
+    reply: [
+      {
+        name: 'Sarah',
+        time: '10:05',
+        text: 'I agree, it was amazing!',
+        likecount: 3,
+        replycount: 0,
+        reply: [],
+        hashtag: 'none'
+      },
+      {
+        name: 'Michael',
+        time: '10:10',
+        text: 'Epic battle scenes!',
+        likecount: 2,
+        replycount: 0,
+        reply: [],
+        hashtag: 'none'
+      }
+    ],
+    hashtag: '#GodzillaXKong'
+  },
+  {
+    name: 'Emma',
+    time: '11:30',
+    text: 'I loved the character development!',
+    likecount: 8,
+    replycount: 1,
+    reply: [
+      {
+        name: 'Alex',
+        time: '11:35',
+        text: 'Yes, it was so well done!',
+        likecount: 4,
+        replycount: 0,
+        reply: [],
+        hashtag: 'none'
+      }
+    ],
+    hashtag: '#QueenOfTears'
+  },
+  {
+    name: 'Lisa',
+    time: '12:45',
+    text: 'Can\'t wait for the next season!',
+    likecount: 6,
+    replycount: 1,
+    reply: [
+      {
+        name: 'David',
+        time: '12:50',
+        text: 'Me too! It\'s going to be epic!',
+        likecount: 2,
+        replycount: 0,
+        reply: [],
+        hashtag: 'none'
+      }
+    ],
+    hashtag: '#Exhuma'
+  },
+  {
+    name: 'Chris',
+    time: '13:15',
+    text: 'The storyline was gripping!',
+    likecount: 7,
+    replycount: 0,
+    reply: [],
+    hashtag: '#GameOfThrones'
+  },
+];

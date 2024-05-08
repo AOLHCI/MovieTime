@@ -884,24 +884,6 @@ function generateMovieMarkup(movie) {
     `;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const genreDropdownItems = document.querySelectorAll('.dropdown-content a');
-    // alert(genreDropdownItems.length);
-    const categoryTitle = document.querySelector('.category-title h2')
-
-    genreDropdownItems.forEach(item => {
-        item.addEventListener('click', function(event) {
-            event.preventDefault();
-
-            const selectedGenre = this.textContent.trim();
-            const filteredMovies = movies.filter(movie => movie.genre === selectedGenre);
-
-            renderMovies(filteredMovies);
-            categoryTitle.textContent = selectedGenre;
-        });
-    });
-});
-
 function renderMovies(movies) {
     const movieContainer = document.getElementById('movie-container');
     movieContainer.innerHTML = '';
@@ -923,11 +905,21 @@ function renderMovies(movies) {
     });
 }
 
-// Call the renderMovies function when the DOM content is loaded
-document.addEventListener('DOMContentLoaded', renderMovies);
+document.addEventListener('DOMContentLoaded', function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const genre = urlParams.get('genre');
 
+  if (genre) {
+      const filteredMovies = movies.filter(movie => movie.genre === genre);
+      renderMovies(filteredMovies);
+  } else {
+      console.error("Genre not available.");
+  }
+});
 
-
+function goToMovieDetail(title) {
+  window.location.href = 'watch.html?title=' + encodeURIComponent(title);
+}
 
 
 window.addEventListener('scroll', function() {

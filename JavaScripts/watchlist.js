@@ -866,6 +866,41 @@
         },
     ];
 
+
+
+    function createPopup(id){
+        let histpopNode = document.querySelector(id);
+        let histOverlay = histpopNode.querySelector(".histOverlay");
+        let CancelBtn = histpopNode.querySelector(".CancelBtn");
+        let dltBtnPops = histpopNode.querySelector(".dltBtnPops");
+        let openConfirm = histpopNode.querySelector(".YesBtn");
+    
+        function openPopup(){
+            histpopNode.classList.add("active");
+            histOverlay.style.display = "block";
+            // histOverlay.style.pointerEvents = "auto";
+        }
+    
+        function closePopup(){
+            histpopNode.classList.remove("active");
+            histOverlay.style.display = "none";
+            // histOverlay.style.pointerEvents = "none";
+        }
+    
+        histOverlay.addEventListener("click", closePopup);
+        CancelBtn.addEventListener("click", closePopup);
+        dltBtnPops.addEventListener("click", closePopup);
+    
+        if (openConfirm) {
+            openConfirm.addEventListener("click", function() {
+                closePopup(); 
+                openCon(); 
+            });
+        }
+    
+        return openPopup;
+    }
+
     const watchlistMovies = movies.filter(movie => movie.category === "Watchlist");
     // alert(watchlistMovies.length);
 
@@ -879,8 +914,9 @@
                 </div>
                 <p onclick="goToMovieDetail('${movie.title}')" class="movie-card-title lexend">${movie.title}</p>
                 <div class="movie-card-button">
-                    <img src="Assets/Icon/bookmark.png" alt="">
-                    <p class="lexend">Add to Watchlist</p>
+
+                    <p class="lexend">Remove from Watchlist</p>
+                   
                 </div>
             </div>
         `).join('');
@@ -890,6 +926,9 @@
             ${movieCardsHTML}
         `;
         
+    document.getElementById("lexend")
+
         watchlistMoviesSection.innerHTML = watchlistHTML;
         // addIconChangingListeners();
         // addDraggableListeners();
+        // <img src="Assets/Icon/bookmark.png" alt=""></img> (1)

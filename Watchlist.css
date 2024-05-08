@@ -109,6 +109,72 @@
     margin-top: 100px;
 }
 
+.histPopup{
+    /* margin-top: 245.77px; */
+    font-family: "Lexend", sans-serif;
+    position: fixed;
+    top: -100vh;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    transition: top 0ms ease-in-out 300ms;
+}
+
+.histPopup .histOverlay{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(38, 40, 43, 0.9);
+    opacity:0;
+    display: none;
+    transition: opacity 100ms ease-in-out 200ms;
+}
+
+.histPopup .histPopUpDesc{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(53, 57, 65, 1);
+    width: 1120px;
+    border-radius: 20px;
+    height: 210px;
+    transition: all 300ms ease-in-out;
+    opacity: 0;
+}
+
+.histPopDesc{
+    font-size: 24px;
+    padding-top: 60px;
+    padding-bottom: 20px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.histPopBtn{
+    display: flex;
+    justify-content: end;
+    padding-top: 0px;
+    padding-right: 13px;
+}
+
+.histPopup.active{
+    top: 0px;
+    transition: top 0ms ease-in-out 0ms;
+}
+
+.histPopup.active .histOverlay{
+    opacity: 1;
+    transition: all 300ms ease-in-out;
+}
+
+.histPopup.active .histPopUpDesc{
+    transition: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
 /* .Date1{
     font-size: 18px;
     margin-top: -5px;
@@ -146,3 +212,94 @@
     transition: opacity .3s;
 } */
 
+@media screen and (min-width: 0px) and (max-width: 767px){
+    .histPopup{
+        /* margin-top: 245.77px; */
+        font-family: "Lexend", sans-serif;
+        position: fixed;
+        top: -100vh;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        transition: top 0ms ease-in-out 300ms;
+    }
+
+    .histPopup .histOverlay{
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background: rgba(38, 40, 43, 0.9);
+        opacity:0;
+        display: none;
+        transition: opacity 100ms ease-in-out 200ms;
+    }
+
+    .histPopup .histPopUpDesc{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(53, 57, 65, 1);
+        width: 352px;
+        border-radius: 20px;
+        height: 160px;
+        transition: all 300ms ease-in-out;
+        opacity: 0;
+    }
+    .histPopup.active{
+        top: 0px;
+        transition: top 0ms ease-in-out 0ms;
+    }
+
+    .histPopup.active .histOverlay{
+        opacity: 1;
+        transition: all 300ms ease-in-out;
+    }
+
+    .histPopup.active .histPopUpDesc{
+        transition: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
+}   
+
+@media (min-width: 768px) and (max-width: 1023px){
+    .histPopup{
+        /* margin-top: 245.77px; */
+        font-family: "Lexend", sans-serif;
+        position: fixed;
+        top: -100vh;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        transition: top 0ms ease-in-out 300ms;
+    }
+
+    .histPopup .histOverlay{
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background: rgba(38, 40, 43, 0.9);
+        opacity:0;
+        display: none;
+        transition: opacity 100ms ease-in-out 200ms;
+    }
+
+    
+    .histPopup .histPopUpDesc{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(53, 57, 65, 1);
+        width: 700px;
+        border-radius: 20px;
+        height: 200px;
+        transition: all 300ms ease-in-out;
+        opacity: 0;
+    }
+}

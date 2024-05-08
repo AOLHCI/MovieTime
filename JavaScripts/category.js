@@ -868,8 +868,8 @@ var movies = [
 
 function generateMovieMarkup(movie) {
     return `
-        <div class="movie-card-container">
-        <img class="movie-card-poster" src="${movie.mainPoster}" alt="${movie.title}" width="272px" height="170px">
+        <div class="movie-card-container category">
+        <img class="movie-card-poster category" src="${movie.mainPoster}" alt="${movie.title}" width="272px" height="170px">
         <img onclick="goToMovieDetail('${movie.title}')" class="movie-card-play" src="Assets/Icon/PlayButton.png" alt="">
         <div class="movie-card-rating-section">
             <img src="Assets/Icon/star (1).png" alt="">
@@ -887,22 +887,20 @@ function generateMovieMarkup(movie) {
 function renderMovies(movies) {
     const movieContainer = document.getElementById('movie-container');
     movieContainer.innerHTML = '';
+    let htmlMarkup = '<div class="category-row">';
+
     movies.forEach((movie, index) => {
         const movieMarkup = generateMovieMarkup(movie);
+        htmlMarkup += `<div class="category-col">${movieMarkup}</div>`;
 
-        // Create a new row for every third movie
-        if (index % 3 === 0) {
-            movieContainer.innerHTML += '<div class="category-row">';
-        }
-
-        // Append the movie card to the current row
-        movieContainer.innerHTML += `<div class="category-col">${movieMarkup}</div>`;
-
-        // Close the row after every third movie or for the last movie
-        if ((index + 1) % 3 === 0 || index === movies.length - 1) {
-            movieContainer.innerHTML += '</div>';
-        }
+        if ((index + 1) % 4 === 0 || index === movies.length - 1) {
+          htmlMarkup += '</div>';
+          if (index !== movies.length - 1) {
+              htmlMarkup += '<div class="category-row">';
+          }
+      }
     });
+    movieContainer.innerHTML = htmlMarkup;
 }
 
 document.addEventListener('DOMContentLoaded', function() {

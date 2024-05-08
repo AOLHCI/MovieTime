@@ -100,14 +100,6 @@ hr{
     background-color: #007bff;
 }
 
-.Create-thread:hover p{
-    color: black;
-} 
-
-.Create-thread:hover .PlusIcon{
-    filter: brightness(0) saturate(100%)
-}
-
 .community-bottom{
     margin: 9.5rem 0px 0px 0px;
     display: flex;
@@ -202,12 +194,12 @@ hr{
     font-size: 16px;
     color: var(--white);
     border: none;
+    resize: none;
     outline: 0;
     padding: 18px 20px;
     margin-top: 0px;
     min-height: 80px;
-    resize: none;
-    border-radius: 10px;
+    border-radius: 10px 10px 0px 0px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
   
@@ -217,7 +209,27 @@ hr{
     color: var(--white);
     opacity: 1;
   }
+
+  .reply-comment-section .flex-column{
+    width: 100%;
+    padding-right: 1rem;
+  }
+
+  #reply-imagePreviewContainer{
+    margin-left: 15px;
+    width: 100%;
+    height: auto;
+    display: none;
+    align-items: center;
+    background-color: var(--black);
+    border-radius: 0px 0px 10px 10px;
+    padding: 0.5rem 0rem 1rem 1.2rem;
+  }
   
+#reply-imagePreviewContainer img{
+    max-width: 120px;
+}
+
   .reply-buttons {
     display: flex;
     flex-direction: row;
@@ -246,7 +258,7 @@ hr{
     border-radius: 8px;
     border: 0;
     background-color: #26282B;
-    color: var(--black);
+    color: var(--white);
     /* margin-left: calc(100% - 80px); */
     margin-top: 8px;
     transition: all 0.2s ease;
@@ -277,7 +289,6 @@ hr{
   
   #cancel-button:hover {
     background-color: red;
-    color: var(--black);
   }
 
 .reply-comment:hover {
@@ -321,13 +332,17 @@ hr{
     flex-grow: 1;
 }
 
-#fileInput{
+#fileInput, #reply-fileInput{
     display: none;
 }
 
 .Post-button:hover button{
     background-color: #FFF;
     color: #007bff;
+}
+
+.comment-description{
+    margin-bottom: 1rem;
 }
 
 .row-input{
@@ -507,4 +522,8 @@ hr{
     display: none;
     max-width: 120px;
     height: auto;
+}
+
+.posted-reply-section img{
+    margin-bottom: 1rem;
 }

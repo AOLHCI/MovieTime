@@ -155,9 +155,7 @@ function postComment() {
   var imagePreviewContainer = document.getElementById('imagePreviewContainer');
   var imagePreview = '';
 
-  // Periksa apakah imagePreviewContainer memiliki isi
   if (imagePreviewContainer.innerHTML.trim() !== '') {
-    // Jika ada, ambil src dari gambar di dalamnya
     var previewImage = document.getElementById('previewImage');
     if (previewImage) {
       imagePreview = previewImage.src;
@@ -173,7 +171,6 @@ function postComment() {
   var newCommentSection = document.createElement("div");
   newCommentSection.classList.add("comment-1");
 
-  // Tentukan konten berdasarkan keberadaan gambar di imagePreviewContainer
   if (imagePreview !== '') {
     newCommentSection.innerHTML = `
         <div class="Thread-list">
@@ -184,7 +181,7 @@ function postComment() {
                 <p id="Thread-text">${commentText}</p>
                 <img src="${imagePreview}" style="max-width:150px; height=auto;">
                 <div class="comment-details">
-                    <div class="comment-like-section">
+                    <div class="comment-like-section posted-reply-like-counter">
                         <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
                         <p class="comment-like-count">0</p>
                     </div>
@@ -206,7 +203,7 @@ function postComment() {
                 <p id="Thread-time">${formattedDate}</p>
                 <p id="Thread-text">${commentText}</p>
                 <div class="comment-details">
-                    <div class="comment-like-section">
+                    <div class="comment-like-section posted-reply-like-counter">
                         <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
                         <p class="comment-like-count">0</p>
                     </div>
@@ -226,7 +223,6 @@ function postComment() {
 
   addLikeCounter();
 
-  // Reset input textarea dan preview gambar setelah posting komentar
   document.querySelector(".comment-text").value = "";
   document.querySelector('#imagePreviewContainer').innerHTML = "";
 
@@ -280,6 +276,15 @@ function replyComment() {
     }
     
     var commentText = document.getElementsByClassName('reply-comment-text')[0].value;
+    var imagePreviewContainer = document.getElementById('reply-imagePreviewContainer');
+    var imagePreview = '';
+
+    if (imagePreviewContainer.innerHTML.trim() !== '') {
+      var previewImage = document.getElementById('reply-previewImage');
+      if (previewImage) {
+        imagePreview = previewImage.src;
+      }
+    }
     // window.alert(commentText);
     
     var currentDate = new Date();
@@ -291,27 +296,52 @@ function replyComment() {
     var newPostedReplySection = document.createElement("div");
     newPostedReplySection.classList.add('posted-reply-section');
     
-    newPostedReplySection.innerHTML = `
-        <div class="flex-row">
-          <img src="Assets/Icon/profilepicture.png" alt="">
-          <div class="flex-column">
-            <p class="comment-author">You</p>
-            <p class="comment-date">${formattedDate}</p>
-            <p class="comment-description">${commentText}</p>
-            <div class="comment-details">
-            <div class="comment-like-section">
-                <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
-                <p class="comment-like-count">0</p>
-            </div>
-            <div class="comment-reply-section" onclick="toggleReplies()">
-                <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
-                <p class="comment-reply-count">0</p>
-            </div>
-            <p class="reply-comment">Reply</p>
-        </div>
-        </div>
-    </div>
-    `;
+    if (imagePreview !== '') {
+      newPostedReplySection.innerHTML = `
+          <div class="flex-row">
+            <img src="Assets/Icon/profilepicture.png" alt="">
+            <div class="flex-column">
+              <p class="comment-author">You</p>
+              <p class="comment-date">${formattedDate}</p>
+              <p class="comment-description">${commentText}</p>
+              <img src="${imagePreview}" style="max-width:150px; height=auto;">
+              <div class="comment-details">
+              <div class="comment-like-section posted-reply-like-counter">
+                  <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+                  <p class="comment-like-count">0</p>
+              </div>
+              <div class="comment-reply-section" onclick="toggleReplies()">
+                  <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+                  <p class="comment-reply-count">0</p>
+              </div>
+              <p class="reply-comment">Reply</p>
+          </div>
+          </div>
+      </div>
+      `;
+    }else {
+      newPostedReplySection.innerHTML = `
+          <div class="flex-row">
+            <img src="Assets/Icon/profilepicture.png" alt="">
+            <div class="flex-column">
+              <p class="comment-author">You</p>
+              <p class="comment-date">${formattedDate}</p>
+              <p class="comment-description">${commentText}</p>
+              <div class="comment-details">
+              <div class="comment-like-section posted-reply-like-counter">
+                  <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+                  <p class="comment-like-count">0</p>
+              </div>
+              <div class="comment-reply-section" onclick="toggleReplies()">
+                  <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+                  <p class="comment-reply-count">0</p>
+              </div>
+              <p class="reply-comment">Reply</p>
+          </div>
+          </div>
+      </div>
+      `;
+    }
 
     var postedReplyContainer = document.querySelector(".posted-reply-container");    
 
@@ -323,6 +353,7 @@ function replyComment() {
     toggleReplies();
 
     document.querySelector(".reply-comment-text").value = "";
+    document.querySelector('#reply-imagePreviewContainer').innerHTML = "";
     
     document.getElementById('reply-button').disabled = true;
 };
@@ -332,7 +363,6 @@ function imageUpload() {
 
   if (!fileInput) {
     // Jika elemen input file belum ada, maka buat yang baru
-    const imageSelector = document.getElementById('imageSelector');
     const imagePreviewContainer = document.getElementById('imagePreviewContainer');
 
     const newFileInput = document.createElement('input');
@@ -366,3 +396,40 @@ function imageUpload() {
   }
 }
 
+function replyimageUpload() {
+  const replyfileInput = document.getElementById('reply-fileInput');
+
+  if (!replyfileInput) {
+    // Jika elemen input file belum ada, maka buat yang baru
+    const imagePreviewContainer = document.getElementById('reply-imagePreviewContainer');
+
+    const newFileInput = document.createElement('input');
+    newFileInput.type = 'file';
+    newFileInput.id = 'reply-fileInput'; // Beri id agar dapat dikenali jika sudah ada
+    newFileInput.accept = 'image/*';
+
+    newFileInput.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+
+      reader.onload = function(e) {
+        const imageUrl = e.target.result;
+        imagePreviewContainer.innerHTML = `<img src="${imageUrl}" id="reply-previewImage" alt="Preview" style="width: 100%; height: 100%;">`;
+        
+        // Tampilkan imageContainer saat gambar dipilih
+        imagePreviewContainer.style.display = 'block';
+      };
+
+      reader.readAsDataURL(file);
+    });
+
+    // Tambahkan elemen input file ke dalam dokumen
+    document.body.appendChild(newFileInput);
+
+    // Klik elemen input file
+    newFileInput.click();
+  } else {
+    // Jika elemen input file sudah ada, cukup klik saja
+    fileInput.click();
+  }
+}

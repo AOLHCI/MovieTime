@@ -910,30 +910,49 @@
         popup.style.display = 'none';
     }
 
-    function redirectRandom() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const genre = urlParams.get('genre');
+    // function redirectRandom() {
+    //     const urlParams = new URLSearchParams(window.location.search);
+    //     const genre = urlParams.get('genre');
       
-        let genreMovies = movies;
+    //     let genreMovies = movies;
       
-        if (genre) {
-          genreMovies = movies.filter(movie => movie.genre === genre);
+    //     if (genre) {
+    //       genreMovies = movies.filter(movie => movie.genre === genre);
+    //     }
+      
+    //     if (genreMovies.length === 0) {
+    //       console.error("No movies available for the specified genre.");
+    //       return;
+    //     }
+      
+    //     const randIndex = Math.floor(Math.random() * genreMovies.length);
+    //     const title = encodeURIComponent(genreMovies[randIndex].title);
+    //     window.location.href = 'watch.html?title=' + title;
+    //   }
+      
+    //   document.addEventListener('DOMContentLoaded', function() {
+    //     const randomButton = document.querySelector(".category-random-button");
+    //     randomButton.addEventListener('click', redirectRandom);
+    //   });
+
+    function playRandomFromWatchlist() {
+        const watchlistMovies = movies.filter(movie => movie.category === "Watchlist");
+    
+        if (watchlistMovies.length === 0) {
+            console.error("No movies available in the watchlist.");
+            return;
         }
-      
-        if (genreMovies.length === 0) {
-          console.error("No movies available for the specified genre.");
-          return;
-        }
-      
-        const randIndex = Math.floor(Math.random() * genreMovies.length);
-        const title = encodeURIComponent(genreMovies[randIndex].title);
+    
+        const randIndex = Math.floor(Math.random() * watchlistMovies.length);
+        const title = encodeURIComponent(watchlistMovies[randIndex].title);
         window.location.href = 'watch.html?title=' + title;
-      }
-      
-      document.addEventListener('DOMContentLoaded', function() {
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
         const randomButton = document.querySelector(".category-random-button");
-        randomButton.addEventListener('click', redirectRandom);
-      });
+        randomButton.addEventListener('click', playRandomFromWatchlist);
+    });
+    
     
     const watchlistMovies = movies.filter(movie => movie.category === "Watchlist");
     

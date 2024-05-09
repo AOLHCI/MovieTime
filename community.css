@@ -9,11 +9,14 @@
 body{
     background-color: var(--black);
     color: #FFF;
-    font-family: Inter;
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 hr{
-    color: white;
+    color: var(--white);
 }
 
 .reply-a-comment-container{
@@ -48,10 +51,12 @@ hr{
 }
 
 #Search-input{
+    padding: 12px;
     width: 100%;
     border: 0;
     background-color: #353941;
     color: white;
+    border-radius: 10px;
 }
 
 #Search-input:focus{
@@ -59,12 +64,17 @@ hr{
 }
 
 .SearchBar .SearchIcon{
-    justify-content: center;
-    display: flex;
-    width: 2rem;
+    padding: 4px;
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width:30px;
     height: auto;
-    position: relative;
-    margin-left: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.3s ease;
 }
 
 .Create-thread{
@@ -89,8 +99,11 @@ hr{
     width: 17vw;
     height: auto;
     padding: 0.5rem;
-    font-family: Inter;
     font-size: 1.1rem;
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .PlusIcon{
@@ -119,7 +132,8 @@ hr{
 }
 
 .Create-thread:hover {
-    background-color: #007bff;
+    background-color: var(--blue);
+    cursor: pointer;
 }
 
 .community-bottom{
@@ -136,6 +150,7 @@ hr{
     display: flex;
     align-items: start;
     margin: 0.625rem 1.25rem 1.25rem 3.75rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .threads{
@@ -150,7 +165,7 @@ hr{
 
 .Profile-pic{
     width: auto;
-    height: 3.125rem;
+    height: 38px;
     display: inline-block;
 }
 
@@ -232,9 +247,23 @@ hr{
     opacity: 1;
   }
 
+  .flex-column p{
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
   .reply-comment-section .flex-column{
     width: 100%;
     padding-right: 1rem;
+  }
+
+  .lexend {
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
   }
 
   #reply-imagePreviewContainer{
@@ -249,7 +278,7 @@ hr{
   }
   
 #reply-imagePreviewContainer img{
-    max-width: 120px;
+    max-width: 80px;
 }
 
   .reply-buttons {
@@ -290,7 +319,8 @@ hr{
   }
   
   #reply-button:hover {
-    background-color: royalblue;
+    background-color: var(--blue);
+    cursor: pointer;
   }
   
   #cancel-button {
@@ -311,10 +341,12 @@ hr{
   
   #cancel-button:hover {
     background-color: red;
+    cursor: pointer;
   }
 
 .reply-comment:hover {
     color: var(--blue);
+    cursor: pointer;
   }
 
 .flex-row{
@@ -335,6 +367,7 @@ hr{
 
 .Images:hover img{
     filter: invert(38%) sepia(98%) saturate(4215%) hue-rotate(200deg) brightness(103%) contrast(106%);
+    cursor: pointer;
 }
 
   /* Initially hide all posted-reply-sections */
@@ -359,8 +392,9 @@ hr{
 }
 
 .Post-button:hover button, .Post-button-popup:hover button{
-    background-color: #FFF;
-    color: #007bff;
+    background-color: var(--grey);
+    color: var(--blue);
+    cursor: pointer;
 }
 
 .comment-description{
@@ -377,7 +411,7 @@ hr{
 
 .Input-area button{
     padding: 0.625rem 1.25rem;
-    background-color: #007bff;
+    background-color: var(--blue);
     color: #fff;
     border: none;
     outline: none;
@@ -395,6 +429,7 @@ hr{
     height: fit-content;
     padding: 0px 0px 0.625rem 0px;
     display: flex;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .Trending-content{
@@ -403,13 +438,20 @@ hr{
 
 .Title-trending{
     text-align: center;
-    color: #007bff;
+    color: var(--blue);
     font-size: 1.25rem;
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    margin-top: 15px;
+    margin-bottom: 10px;
 }
 
 .Trending-film hr{
-    margin: 1.25rem;
-    border-color: #007bff;
+    margin: 0.5rem;
+    border-color: var(--blue);
 }
 
 .Trend-1{
@@ -419,6 +461,18 @@ hr{
     justify-content: center;
     margin: 0.938rem;
     padding: 0px 1.875rem 0px 0px;
+}
+
+.Trending-content .flex-row{
+    align-items: center;
+    justify-content: center;
+}
+
+#Close-trending{
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7440%) hue-rotate(43deg) brightness(97%) contrast(93%);
+    width: 20px;
+    height: fit-content;
+    display: none;
 }
 
 .Trend-1 div{
@@ -448,7 +502,8 @@ hr{
 }
 
 .Trend-1:hover #Trendtitle-1, .Trend-1:hover #Number-1, .reply-comment:hover{
-    color: #007bff;
+    color: var(--blue);
+    cursor: pointer;
 }
 
 .Thread-list{
@@ -478,7 +533,6 @@ hr{
 .Thread-information{
     display: flex;
     flex-direction: column;
-    margin: 0.625rem;
     align-items: start;
     font-size: 1rem;
     margin-top: 0;
@@ -486,22 +540,38 @@ hr{
 
 .Thread-information p, .comment-details p{
     margin: 0px 0px 0rem 0.625rem;
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .comment-like-section:hover .comment-like-icon{
     content: url('Assets/Icon/like\ \(1\).png');
+    cursor: pointer;
   }
   
   .comment-like-section:hover p {
-    color: royalblue;
+    color: var(--blue);
+    cursor: pointer;
   }
   
   .comment-reply-section:hover .comment-reply-icon {
     content: url('Assets/Icon/comment\ \(1\).png');
+    cursor: pointer;
   }
   
   .comment-reply-section:hover p {
-    color: royalblue;
+    color: var(--blue);
+    cursor: pointer;
+  }
+
+  .replybutts{
+    width: fit-content;
+  }
+  .reply-butts:hover{
+    cursor: pointer;
+    color: var(--blue);
   }
 
 #Thread-name, .comment-author{
@@ -619,6 +689,11 @@ hr{
 
 .popup-Title{
     margin: 0;
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
 }
 
 .search-Msg{
@@ -626,6 +701,10 @@ hr{
     text-align: center;
     padding: 3rem;
     display: none;
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .popup-trending {
@@ -652,6 +731,10 @@ hr{
 }
 
 @media screen and (max-width: 767px){
+    .popup-Title{
+        font-size: 14px;
+    }
+
     .popup-overlay-Trending {
         position: fixed;
         top: 0;
@@ -675,6 +758,10 @@ hr{
         display: none; /* Mulai tersembunyi */
     }
 
+    .reply-comment{
+        font-size: 14px;
+    }
+
     .Trending-film {
         display: none; /* Awalnya disembunyikan */
         position: fixed;
@@ -682,12 +769,28 @@ hr{
         left: 50%;
         transform: translate(-50%, -50%);
         background-color: var(--grey);
-        padding: 20px;
+        padding: 15px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         max-width: 70%;
         overflow-y: auto;
         z-index: 1000;
+        margin: 0;
+    }
+
+    .Trending-content .flex-row{
+        justify-content: end;
+    }
+
+    .Title-trending{
+        margin-right: 60px;
+    }
+
+    #Close-trending{
+        width: 15px;
+        margin-bottom: 40px;
+        margin-right: -5px;
+        position: absolute;
     }
 
     #Cross-Trending{
@@ -901,6 +1004,10 @@ hr{
         margin: 15px;
         padding: 0px 1.875rem 0px 0px;
     }
+
+    .posted-comment-section .reply-butts{
+        font-size: 14px;
+    }
     
     .Trend-1 div{
         margin-right: 0.938rem;
@@ -916,7 +1023,7 @@ hr{
     }
     
     .Profile-pic{
-        height: 40px;
+        height: 35px;
     }
 
     .community-thread{
@@ -940,6 +1047,10 @@ hr{
         padding-top: 10px;
         padding-bottom: 10px;
         margin: 0px 0px 0px 50px; 
+      }
+
+      .reply-comment{
+        font-size: 14px;
       }
       
       .reply-comment-section img, .posted-reply-section img, .posted-reply-sections img{
@@ -982,7 +1093,7 @@ hr{
     .Thread-information{
         margin: 0.5rem;
         margin-top: 0;
-        font-size: 0.8rem;
+        font-size: 14px;
     }
     
     .Thread-information p, .comment-details p{

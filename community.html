@@ -40,7 +40,7 @@
                 </li>
                 <li><a href="history.html">History</a></li>
                 <li><a href="Watchlist.html">Watchlist</a></li>
-                <li><a href="community.html"><p class="page-is-clicked">Community</p></a></li>
+                <li><a href="community.html"><p class="lexend" class="page-is-clicked">Community</p></a></li>
             </ul>
         </nav>
 
@@ -61,12 +61,11 @@
             
             <div class="bx bx-menu" id="icon"></div>
         </div>
-
     </header>
     <div class="community-top">
         <div class="SearchBar">
-            <img class="SearchIcon" src="Assets/Icon/black-search.png">
-            <input type="text" name="Search-input" id="Search-input" placeholder="Search...">
+            <img id="SearchIcon" class="SearchIcon" src="Assets/HeaderPhoto/search.png">
+            <input type="text" name="Search-input" class="Searchs-input" id="Search-input" placeholder="Search...">
         </div>
         <div class="Create-thread" onclick="popUpCreate()">
             <p>Create Thread</p>
@@ -99,114 +98,48 @@
                 <hr id="hr-thread">
                 <div class="search-Msg" id="search-Msg"></div>
                 <div id="posted-comments"></div>
-                <!-- <div id="comments-demo">
-                    <div class="comment-1">
-                        <div class="Thread-list">
-                            <img class="Profile-pic" src="Assets/Icon/profilepicture.png">
-                            <div class="Thread-information">
-                                <p id="Thread-name">Valak Vundak</p>
-                                <p id="Thread-time">12:00 - 1 May 2024</p>
-                                <p id="Thread-text">Nyesel gua nonton Lumayan Lain,  film ini tuh kayak kencan buta yang awalnya penuh harapan tapi endingnya bikin lo pulang dengan hati hampa. Bukan berarti gue nggak menghargai kerja keras mereka sih, tapi ya, sebagai penonton yang udah rela ngeluarin waktu dan duit, pengennya sih dapat pengalaman nonton yang memorable.
-                                    Ah, sudahlah, semoga film-film selanjutnya bisa lebih menggigit dan nggak bikin kita kecewa lagi. Kita butuh cerita yang bukan hanya sekedar tontonan, tapi juga bisa menggerakkan hati dan pikiran. Semangat terus untuk para pembuat film Indonesia! Kita tahu kalian bisa lebih dan lebih lagi!
-                                    #LumayanLain
-                                </p>
-                                <div class="comment-details">
-                                    <div class="comment-like-section">
-                                        <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
-                                        <p class="comment-like-count">0</p>
-                                    </div>
-                                    <div class="comment-reply-section" onclick="toggleReplies()">
-                                        <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
-                                        <p class="comment-reply-count">1</p>
-                                    </div>
-                                    <p class="reply-comment">Reply</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="reply-a-comment-container">
-                        <div class="reply-comment-section">
-                          <div class="flex-row">
-                            <img src="Assets/Icon/profilepicture.png" alt="">
-                            <div class="flex-column">
-                                <textarea id="autoresizing" name="" placeholder="Type something..." class="reply-comment-text" oninput="toggleReplyButton()"></textarea>
-                                <div id="reply-imagePreviewContainer"></div>
-                            </div>
-                          </div>
-                          <div class="reply-buttons">
-                            <div class="Images">
-                                <img class="Reply-image-Input" id="imageSelector" src="Assets/Icon/image.png" onclick="replyimageUpload()">
-                            </div>
-                            <button id="cancel-button" class="cancel-button">Cancel</button>
-                            <button id="reply-button" class="reply-button" onclick="replyComment()" disabled>Reply</button>
-                          </div>
-                        </div>
-                    </div>
-    
-                    <div class="posted-reply-container">
-                        <div class="posted-reply-section">
-                            <div class="flex-row">
-                                <img src="Assets/Icon/profilepicture.png" alt="">
-                                <div class="flex-column">
-                                    <p class="comment-author">Marvin Kopling Samping</p>
-                                    <p class="comment-date">07:24 - 6 May 2024</p>
-                                    <p class="comment-description"><span class="replying-to">@Ferlie Ban Dalam</span> The "Invincible" title says it all slowly breaking each episode when he had small good changes. Notice how the title didn't come out in episode 8 because he didn't change.</p>
-                                <div class="comment-details">
-                                    <div class="comment-like-section">
-                                        <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
-                                        <p class="comment-like-count">0</p>
-                                    </div>
-                                    <div class="comment-reply-section" onclick="toggleReplies()">
-                                        <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
-                                        <p class="comment-reply-count">0</p>
-                                    </div>
-                                    <p class="reply-comment">Reply</p>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
                 <div id="Temporary-comment"></div>
             </div>
         </div>
         <div class="Trending-film" id="Trending-film">
             <div class="Trending-content">
-                <p class="Title-trending">#TrendingFilm</p>
+                <div class="flex-row">
+                    <p class="Title-trending">#TrendingFilm</p>
+                    <img src="Assets/Icon/letter-x.png" id="Close-trending">
+                </div>
                 <hr>
                 <div class="Trend-1">
-                    <p id="Number-1">1.</p>
+                    <p class="lexend" id="Number-1">1.</p>
                     <div class="Trend-info">
-                        <p id="Trendtitle-1">#QueenOfTears</p>
-                        <p id="Trendthreads-1">2435 threads</p>
+                        <p class="lexend" id="Trendtitle-1">#QueenOfTears</p>
+                        <p class="lexend" id="Trendthreads-1">2435 threads</p>
                     </div>
                 </div>
                 <div class="Trend-1">
-                    <p id="Number-1">2.</p>
+                    <p class="lexend" id="Number-1">2.</p>
                     <div class="Trend-info">
-                        <p id="Trendtitle-1">#GodzillaXKong</p>
-                        <p id="Trendthreads-1">2019 threads</p>
+                        <p class="lexend" id="Trendtitle-1">#GodzillaXKong</p>
+                        <p class="lexend" id="Trendthreads-1">2019 threads</p>
                     </div>
                 </div>
                 <div class="Trend-1">
-                    <p id="Number-1">3.</p>
+                    <p class="lexend" id="Number-1">3.</p>
                     <div class="Trend-info">
-                        <p id="Trendtitle-1">#Exhuma</p>
-                        <p id="Trendthreads-1">1499 threads</p>
+                        <p class="lexend" id="Trendtitle-1">#Exhuma</p>
+                        <p class="lexend" id="Trendthreads-1">1499 threads</p>
                     </div>
                 </div>
                 <div class="Trend-1">
-                    <p id="Number-1">4.</p>
+                    <p class="lexend" id="Number-1">4.</p>
                     <div class="Trend-info">
-                        <p id="Trendtitle-1">#GameOfThrones</p>
-                        <p id="Trendthreads-1">642 threads</p>
+                        <p class="lexend" id="Trendtitle-1">#GameOfThrones</p>
+                        <p class="lexend" id="Trendthreads-1">642 threads</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div id="popupOverlay-Trending" class="popup-overlay-Trending"></div>
-    <div id="popupContent-Trending" class="popup-content-Trending"></div>
     <div id="popupOverlay" class="overlay">
         <div id="popupContent" class="Popup-content">
             <div class="flex-row">
@@ -234,7 +167,7 @@
     </div>
     <div class="overlay-done" id="popupDone">  
         <div class="Popup-done" id="popupMessage">
-            <p>Your post has been published</p>
+            <p class="lexend">Your post has been published</p>
         </div>
     </div>
     <script src="JavaScripts/community.js"></script>
@@ -265,14 +198,14 @@
         var comments = [
         {
             name: 'John',
-            time: '10:00',
+            time: '09:21 - 10 May 2024',
             text: 'Great movie!',
             likecount: 5,
             replycount: 2,
             reply: [
             {
                 name: 'Sarah',
-                time: '10:05',
+                time: '14:47 - 10 May 2024',
                 text: 'I agree, it was amazing!',
                 likecount: 3,
                 replycount: 0,
@@ -281,7 +214,7 @@
             },
             {
                 name: 'Michael',
-                time: '10:10',
+                time: '03:15 - 11 May 2024',
                 text: 'Epic battle scenes!',
                 likecount: 2,
                 replycount: 0,
@@ -293,14 +226,14 @@
         },
         {
             name: 'Emma',
-            time: '11:30',
+            time: '20:36 - 11 May 2024',
             text: 'I loved the character development!',
             likecount: 8,
             replycount: 1,
             reply: [
             {
                 name: 'Alex',
-                time: '11:35',
+                time: '08:59 - 12 May 2024',
                 text: 'Yes, it was so well done!',
                 likecount: 4,
                 replycount: 0,
@@ -312,14 +245,14 @@
         },
         {
             name: 'Lisa',
-            time: '12:45',
+            time: '16:22 - 12 May 2024',
             text: 'Can\'t wait for the next season!',
             likecount: 6,
             replycount: 1,
             reply: [
             {
                 name: 'David',
-                time: '12:50',
+                time: '11:04 - 13 May 2024',
                 text: 'Me too! It\'s going to be epic!',
                 likecount: 2,
                 replycount: 0,
@@ -331,7 +264,7 @@
         },
         {
             name: 'Chris',
-            time: '13:15',
+            time: '22:10 - 13 May 2024',
             text: 'The storyline was gripping!',
             likecount: 7,
             replycount: 0,
@@ -339,7 +272,6 @@
             hashtag: '#GameOfThrones'
         },
         ];
-    
     for (var i = comments.length - 1; i >= 0; i--) {
     var comment = comments[i];
 
@@ -351,23 +283,25 @@
     <div class="Thread-list ${i}">
         <img class="Profile-pic" src="Assets/Icon/profilepicture.png">
         <div class="Thread-information">
-            <p id="Thread-name">${comment.name}</p>
-            <p id="Thread-time">${comment.time}</p>
-            <p id="Thread-text">${comment.text}</p>
+            <p class="lexend" id="Thread-name">${comment.name}</p>
+            <p class="lexend" id="Thread-time">${comment.time}</p>
+            <p class="lexend" id="Thread-text">${comment.text}</p>
             <div class="comment-details">
                 <div class="comment-like-section posted-reply-like-counter">
                     <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
-                    <p class="comment-like-count">${comment.likecount}</p>
+                    <p class="lexend" class="comment-like-count">${comment.likecount}</p>
                 </div>
                 <div class="comment-reply-section" onclick="toggleRepliesTag(this)">
                     <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
-                    <p class="comment-reply-count">${comment.replycount}</p>
+                    <p class="lexend" class="comment-reply-count">${comment.replycount}</p>
                 </div>
-                <p class="reply-comment">Reply</p>
+                <div class="reply-butts">
+                    <p class="lexend" class="reply-comment" onclick="toggleReplyInput(this)">Reply</p>
+                </div>
             </div>
         </div>
     </div>
-    <div class="reply-a-comment-container">
+    <div class="reply-a-comment-container" id="reply-${i}">
         <div class="reply-comment-section">
             <div class="flex-row">
                 <img src="Assets/Icon/profilepicture.png" alt="">
@@ -378,9 +312,9 @@
             </div>
             <div class="reply-buttons">
                 <div class="Images">
-                    <img class="Reply-image-Input" id="imageSelector" src="Assets/Icon/image.png" onclick="replyimageUpload()">
+                    <img class="Reply-image-Input" id="imageSelector" src="Assets/Icon/image.png" onclick="replyimageUpload(this)">
                 </div>
-                <button id="cancel-button" class="cancel-button">Cancel</button>
+                <button id="cancel-button" class="cancel-button" onclick="hideReplyContainer(this)">Cancel</button>
                 <button id="reply-button" class="reply-button" onclick="replyComment()" disabled>Reply</button>
             </div>
         </div>
@@ -405,13 +339,15 @@
                           <div class="comment-details">
                               <div class="comment-like-section">
                                   <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
-                                  <p class="comment-like-count">${reply.likecount}</p>
+                                  <p class="lexend" class="comment-like-count">${reply.likecount}</p>
                               </div>
                               <div class="comment-reply-section">
                                   <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
-                                  <p class="comment-reply-count">${reply.replycount}</p>
+                                  <p class="lexend" class="comment-reply-count">${reply.replycount}</p>
                               </div>
-                              <p class="reply-comment">Reply</p>
+                              <div class="reply-butts">
+                                <p class="reply-comment">Reply</p>
+                                </div>
                           </div>
                       </div>
                   </div>

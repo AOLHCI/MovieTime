@@ -181,7 +181,7 @@ hr{
     margin-bottom: 10px;
   }
   
-  .reply-comment-section img, .posted-reply-section img{
+  .reply-comment-section img, .posted-reply-section img, .posted-reply-sections img{
     width: 45px;
     height: 45px; 
     filter: drop-shadow(0px 0px 10px #1f1f1f);
@@ -341,10 +341,6 @@ hr{
     color: #007bff;
 }
 
-.Thread-list .Thread-information img{
-    margin-bottom: 20px;
-}
-
 .comment-description{
     margin-bottom: 1rem;
 }
@@ -437,7 +433,7 @@ hr{
     margin-bottom: 0.625rem;
 }
 
-.posted-reply-section {
+.posted-reply-section , .posted-reply-sections{
     margin: 0px 0px 0px 80px; 
     padding: 0.938rem;
     margin-bottom: 0.625rem;
@@ -445,6 +441,11 @@ hr{
     background-color: rgba(38, 40, 43, 1);
     display: none;
     flex-direction: row;
+}
+
+.posted-reply-sections{
+    display: block;
+    opacity: 1;
 }
 
 .Thread-information{
@@ -456,7 +457,7 @@ hr{
 }
 
 .Thread-information p, .comment-details p{
-    margin: 0px 0px 0.313rem 0.625rem;
+    margin: 0px 0px 0rem 0.625rem;
 }
 
 .comment-like-section:hover .comment-like-icon{
@@ -514,7 +515,14 @@ hr{
     flex-direction: row;
     gap: 1.25rem;
     align-items: center;
-    padding-left: 0.625rem;
+}
+
+.Thread-list .comment-details{
+    margin-left: 0.625rem;
+}
+
+#reply-img, #thread-img{
+    margin-bottom: 1rem;
 }
 
 .comment-details img{
@@ -528,10 +536,6 @@ hr{
     height: auto;
 }
 
-.posted-reply-section img{
-    margin-bottom: 1rem;
-}
-
 .overlay, .overlay-done{
     display: none; 
     position: fixed;
@@ -542,7 +546,8 @@ hr{
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 999;
     transition: opacity 500ms ease-in-out;
-  }
+}
+
   
   .Popup-content, .Popup-done {
     display: none;

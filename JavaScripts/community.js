@@ -190,7 +190,7 @@ function postComment() {
                 <p id="Thread-name">You</p>
                 <p id="Thread-time">${formattedDate}</p>
                 <p id="Thread-text">${commentText}</p>
-                <img src="${imagePreview}" style="max-width:150px; height=auto;">
+                <img src="${imagePreview}" id="thread-img" style="max-width:150px; height=auto;">
                 <div class="comment-details">
                     <div class="comment-like-section posted-reply-like-counter">
                         <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
@@ -274,99 +274,100 @@ replyParagraph.addEventListener('click', toggleReplyContainer);
 cancelButton.addEventListener('click', toggleReplyContainer);
 
 function replyComment() {
-    var replyCountElements = document.querySelectorAll('.comment-reply-count');
-    replyCountElements.forEach(replyCountElement => {
-        var currentCount = parseInt(replyCountElement.textContent);
-        replyCountElement.textContent = currentCount + 1;
-    });
+  var replyCountElements = document.querySelectorAll('#comments-demo .comment-reply-count');
+  replyCountElements.forEach(replyCountElement => {
+      var currentCount = parseInt(replyCountElement.textContent);
+      replyCountElement.textContent = currentCount + 1;
+  });
 
-    if(toggleReplyStatus === 1){
-      toggleReplies();
-      toggleReplyStatus = 0;
-    }
-    
-    var commentText = document.getElementsByClassName('reply-comment-text')[0].value;
-    var imagePreviewContainer = document.getElementById('reply-imagePreviewContainer');
-    var imagePreview = '';
-
-    if (imagePreviewContainer.innerHTML.trim() !== '') {
-      var previewImage = document.getElementById('reply-previewImage');
-      if (previewImage) {
-        imagePreview = previewImage.src;
-      }
-    }
-    // window.alert(commentText);
-    
-    var currentDate = new Date();
-    const monthNames = ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
-    ];
-    var formattedDate = currentDate.getHours().toString().padStart(2, '0') + ":" + currentDate.getMinutes().toString().padStart(2, '0') + " - " + currentDate.getDate() + " " + monthNames[currentDate.getMonth()] + " " + currentDate.getFullYear();
-
-    var newPostedReplySection = document.createElement("div");
-    newPostedReplySection.classList.add('posted-reply-section');
-    
-    if (imagePreview !== '') {
-      newPostedReplySection.innerHTML = `
-          <div class="flex-row">
-            <img src="Assets/Icon/profilepicture.png" alt="">
-            <div class="flex-column">
-              <p class="comment-author">You</p>
-              <p class="comment-date">${formattedDate}</p>
-              <p class="comment-description">${commentText}</p>
-              <img src="${imagePreview}" style="max-width:150px; height=auto;">
-              <div class="comment-details">
-              <div class="comment-like-section posted-reply-like-counter">
-                  <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
-                  <p class="comment-like-count">0</p>
-              </div>
-              <div class="comment-reply-section" onclick="toggleReplies()">
-                  <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
-                  <p class="comment-reply-count">0</p>
-              </div>
-              <p class="reply-comment">Reply</p>
-          </div>
-          </div>
-      </div>
-      `;
-    }else {
-      newPostedReplySection.innerHTML = `
-          <div class="flex-row">
-            <img src="Assets/Icon/profilepicture.png" alt="">
-            <div class="flex-column">
-              <p class="comment-author">You</p>
-              <p class="comment-date">${formattedDate}</p>
-              <p class="comment-description">${commentText}</p>
-              <div class="comment-details">
-              <div class="comment-like-section posted-reply-like-counter">
-                  <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
-                  <p class="comment-like-count">0</p>
-              </div>
-              <div class="comment-reply-section" onclick="toggleReplies()">
-                  <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
-                  <p class="comment-reply-count">0</p>
-              </div>
-              <p class="reply-comment">Reply</p>
-          </div>
-          </div>
-      </div>
-      `;
-    }
-
-    var postedReplyContainer = document.querySelector(".posted-reply-container");    
-
-    postedReplyContainer.appendChild(newPostedReplySection);
-    
-    addLikeCounterForPostedReply();
-
-    toggleReplyContainer();
+  if(toggleReplyStatus === 1){
     toggleReplies();
+    toggleReplyStatus = 0;
+  }
+  
+  var commentText = document.getElementsByClassName('reply-comment-text')[0].value;
+  var imagePreviewContainer = document.getElementById('reply-imagePreviewContainer');
+  var imagePreview = '';
 
-    document.querySelector(".reply-comment-text").value = "";
-    document.querySelector('#reply-imagePreviewContainer').innerHTML = "";
-    
-    document.getElementById('reply-button').disabled = true;
+  if (imagePreviewContainer.innerHTML.trim() !== '') {
+    var previewImage = document.getElementById('reply-previewImage');
+    if (previewImage) {
+      imagePreview = previewImage.src;
+    }
+  }
+  // window.alert(commentText);
+  
+  var currentDate = new Date();
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+  ];
+  var formattedDate = currentDate.getHours().toString().padStart(2, '0') + ":" + currentDate.getMinutes().toString().padStart(2, '0') + " - " + currentDate.getDate() + " " + monthNames[currentDate.getMonth()] + " " + currentDate.getFullYear();
+
+  var newPostedReplySection = document.createElement("div");
+  newPostedReplySection.classList.add('posted-reply-section');
+  
+  if (imagePreview !== '') {
+    newPostedReplySection.innerHTML = `
+        <div class="flex-row">
+          <img src="Assets/Icon/profilepicture.png" alt="">
+          <div class="flex-column">
+            <p class="comment-author">You</p>
+            <p class="comment-date">${formattedDate}</p>
+            <p class="comment-description">${commentText}</p>
+            <img src="${imagePreview}" id="reply-img" style="max-width:150px; height=auto;">
+            <div class="comment-details">
+            <div class="comment-like-section posted-reply-like-counter">
+                <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+                <p class="comment-like-count">0</p>
+            </div>
+            <div class="comment-reply-section" onclick="toggleReplies()">
+                <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+                <p class="comment-reply-count">0</p>
+            </div>
+            <p class="reply-comment">Reply</p>
+        </div>
+        </div>
+    </div>
+    `;
+  }else {
+    newPostedReplySection.innerHTML = `
+        <div class="flex-row">
+          <img src="Assets/Icon/profilepicture.png" alt="">
+          <div class="flex-column">
+            <p class="comment-author">You</p>
+            <p class="comment-date">${formattedDate}</p>
+            <p class="comment-description">${commentText}</p>
+            <div class="comment-details">
+            <div class="comment-like-section posted-reply-like-counter">
+                <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+                <p class="comment-like-count">0</p>
+            </div>
+            <div class="comment-reply-section" onclick="toggleReplies()">
+                <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+                <p class="comment-reply-count">0</p>
+            </div>
+            <p class="reply-comment">Reply</p>
+        </div>
+        </div>
+    </div>
+    `;
+  }
+
+  var postedReplyContainer = document.querySelector("#comments-demo .posted-reply-container");    
+
+  postedReplyContainer.appendChild(newPostedReplySection);
+  
+  addLikeCounterForPostedReply();
+
+  toggleReplyContainer();
+  toggleReplies();
+
+  document.querySelector(".reply-comment-text").value = "";
+  document.querySelector('#reply-imagePreviewContainer').innerHTML = "";
+  
+  document.getElementById('reply-button').disabled = true;
 };
+
 
 function imageUpload() {
   const fileInput = document.getElementById('fileInput');
@@ -617,3 +618,252 @@ function postCommentpopup() {
     popupdoneContent.classList.remove('active');
   }, 500);
 }
+
+var comments = [
+  {
+    name: 'John',
+    time: '10:00',
+    text: 'Great movie!',
+    likecount: 5,
+    replycount: 2,
+    reply: [
+      {
+        name: 'Sarah',
+        time: '10:05',
+        text: 'I agree, it was amazing!',
+        likecount: 3,
+        replycount: 0,
+        reply: [],
+        hashtag: 'none'
+      },
+      {
+        name: 'Michael',
+        time: '10:10',
+        text: 'Epic battle scenes!',
+        likecount: 2,
+        replycount: 0,
+        reply: [],
+        hashtag: 'none'
+      }
+    ],
+    hashtag: '#GodzillaXKong'
+  },
+  {
+    name: 'Emma',
+    time: '11:30',
+    text: 'I loved the character development!',
+    likecount: 8,
+    replycount: 1,
+    reply: [
+      {
+        name: 'Alex',
+        time: '11:35',
+        text: 'Yes, it was so well done!',
+        likecount: 4,
+        replycount: 0,
+        reply: [],
+        hashtag: 'none'
+      }
+    ],
+    hashtag: '#QueenOfTears'
+  },
+  {
+    name: 'Lisa',
+    time: '12:45',
+    text: 'Can\'t wait for the next season!',
+    likecount: 6,
+    replycount: 1,
+    reply: [
+      {
+        name: 'David',
+        time: '12:50',
+        text: 'Me too! It\'s going to be epic!',
+        likecount: 2,
+        replycount: 0,
+        reply: [],
+        hashtag: 'none'
+      }
+    ],
+    hashtag: '#Exhuma'
+  },
+  {
+    name: 'Chris',
+    time: '13:15',
+    text: 'The storyline was gripping!',
+    likecount: 7,
+    replycount: 0,
+    reply: [],
+    hashtag: '#GameOfThrones'
+  },
+];
+
+// Mengambil semua elemen dengan kelas ".Trend-info" dan menambahkan event listener ke setiap elemen
+document.querySelectorAll('.Trend-info').forEach(element => {
+  element.addEventListener('click', function(event) {
+    document.getElementById('posted-comments').style.display = 'none';
+    document.getElementById('comments-demo').style.display = 'none';
+      // Mengambil teks dari elemen yang diklik (yaitu hashtag)
+      var selectedHashtag = element.querySelector('p:first-child').textContent;
+      var temporaryCommentContainer = document.getElementById('Temporary-comment');
+      temporaryCommentContainer.innerHTML = '';
+
+      var commentsWithSameHashtag = comments.filter(comment => comment.hashtag === selectedHashtag);
+
+      commentsWithSameHashtag.forEach(comment => {
+          var commentElement = document.createElement('div');
+          commentElement.classList.add('comment-1');
+          commentElement.innerHTML = `
+              <div class="Thread-list">
+                  <img class="Profile-pic" src="Assets/Icon/profilepicture.png">
+                  <div class="Thread-information">
+                      <p id="Thread-name">${comment.name}</p>
+                      <p id="Thread-time">${comment.time}</p>
+                      <p id="Thread-text">${comment.text}</p>
+                      <div class="comment-details">
+                          <div class="comment-like-section posted-reply-like-counter" onclick="toggleLike(this)">
+                              <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+                              <p class="comment-like-count">${comment.likecount}</p>
+                          </div>
+                          <div class="comment-reply-section" onclick="toggleRepliesTag(this)">
+                              <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+                              <p class="comment-reply-count">${comment.replycount}</p>
+                          </div>
+                          <p class="reply-comment">Reply</p>
+                      </div>
+                  </div>
+              </div>
+          `;
+          temporaryCommentContainer.appendChild(commentElement);
+
+          comment.reply.forEach(reply => {
+              var replyElement = document.createElement('div');
+              replyElement.classList.add('reply');
+              replyElement.style.display = 'none'; // Menyembunyikan balasan secara default
+              replyElement.innerHTML = `
+              <div class="posted-reply-sections">
+                  <div class="flex-row">
+                      <img src="Assets/Icon/profilepicture.png" alt="">
+                      <div class="flex-column">
+                          <p class="comment-author">${reply.name}</p>
+                          <p class="comment-date">${reply.time}</p>
+                          <p class="comment-description">${reply.text}</p>
+                          <div class="comment-details">
+                              <div class="comment-like-section">
+                                  <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+                                  <p class="comment-like-count">${reply.likecount}</p>
+                              </div>
+                              <div class="comment-reply-section" onclick="toggleReplies()">
+                                  <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+                                  <p class="comment-reply-count">${reply.replycount}</p>
+                              </div>
+                              <p class="reply-comment">Reply</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              `;
+              commentElement.appendChild(replyElement);
+          });
+      });
+  });
+});
+
+
+function toggleRepliesTag(element) {
+  var commentElement = element.closest('.comment-1');
+  var replyContainer = commentElement.querySelectorAll('.reply');
+  replyContainer.forEach(reply => {
+      if (reply.style.display === 'none') {
+          reply.style.display = 'block';
+      } else {
+          reply.style.display = 'none';
+      }
+  });
+}
+
+
+function toggleLike(element) {
+    var likeIcon = element.querySelector('.comment-like-icon');
+    var likeCount = element.querySelector('.comment-like-count');
+    
+    if (likeIcon.src.includes('like.png')) {
+        likeIcon.src = 'Assets/Icon/like (1).png';
+        likeCount.style.color = '#47B5FF';
+        likeCount.textContent = parseInt(likeCount.textContent) + 1;
+    } else {
+        likeIcon.src = 'Assets/Icon/like.png';
+        likeCount.style.color = '#FFFFFF';
+        likeCount.textContent = parseInt(likeCount.textContent) - 1;
+    }
+}
+
+document.getElementById('Search-input').addEventListener('keypress', function(event) {
+  if (event.key === 'Enter') {
+      var hashtag = this.value.trim();
+      
+      document.getElementById('posted-comments').style.display = 'none';
+      document.getElementById('comments-demo').style.display = 'none';
+
+      var temporaryCommentContainer = document.getElementById('Temporary-comment');
+      temporaryCommentContainer.innerHTML = '';
+
+      var filteredComments = comments.filter(comment => comment.hashtag === hashtag);
+
+      filteredComments.forEach(comment => {
+        var commentElement = document.createElement('div');
+        commentElement.classList.add('comment-1');
+        commentElement.innerHTML = `
+            <div class="Thread-list">
+                <img class="Profile-pic" src="Assets/Icon/profilepicture.png">
+                <div class="Thread-information">
+                    <p id="Thread-name">${comment.name}</p>
+                    <p id="Thread-time">${comment.time}</p>
+                    <p id="Thread-text">${comment.text}</p>
+                    <div class="comment-details">
+                        <div class="comment-like-section posted-reply-like-counter" onclick="toggleLike(this)">
+                            <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+                            <p class="comment-like-count">${comment.likecount}</p>
+                        </div>
+                        <div class="comment-reply-section" onclick="toggleRepliesTag(this)">
+                            <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+                            <p class="comment-reply-count">${comment.replycount}</p>
+                        </div>
+                        <p class="reply-comment">Reply</p>
+                    </div>
+                </div>
+            </div>
+        `;
+        temporaryCommentContainer.appendChild(commentElement);
+
+        comment.reply.forEach(reply => {
+            var replyElement = document.createElement('div');
+            replyElement.classList.add('reply');
+            replyElement.style.display = 'none'; // Menyembunyikan balasan secara default
+            replyElement.innerHTML = `
+            <div class="posted-reply-sections">
+                <div class="flex-row">
+                    <img src="Assets/Icon/profilepicture.png" alt="">
+                    <div class="flex-column">
+                        <p class="comment-author">${reply.name}</p>
+                        <p class="comment-date">${reply.time}</p>
+                        <p class="comment-description">${reply.text}</p>
+                        <div class="comment-details">
+                            <div class="comment-like-section">
+                                <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+                                <p class="comment-like-count">${reply.likecount}</p>
+                            </div>
+                            <div class="comment-reply-section" onclick="toggleReplies()">
+                                <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+                                <p class="comment-reply-count">${reply.replycount}</p>
+                            </div>
+                            <p class="reply-comment">Reply</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `;
+            commentElement.appendChild(replyElement);
+        });
+      });
+  }
+});

@@ -887,18 +887,12 @@ function generateMovieMarkup(movie) {
 function renderMovies(movies) {
     const movieContainer = document.getElementById('movie-container');
     movieContainer.innerHTML = '';
-    let htmlMarkup = '<div class="category-row">';
+    let htmlMarkup = '';
 
-    movies.forEach((movie, index) => {
+    movies.forEach((movie) => {
         const movieMarkup = generateMovieMarkup(movie);
-        htmlMarkup += `<div class="category-col">${movieMarkup}</div>`;
+        htmlMarkup += `${movieMarkup}`;
 
-        if ((index + 1) % 4 === 0 || index === movies.length - 1) {
-          htmlMarkup += '</div>';
-          if (index !== movies.length - 1) {
-              htmlMarkup += '<div class="category-row">';
-          }
-      }
     });
     movieContainer.innerHTML = htmlMarkup;
 }

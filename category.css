@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend&display=swap');
+
+:root {
+    --blue: #47B5FF;
+    --black: #26282B;
+    --grey: #353941;
+    --yellow: #FFC107;
+    --white: #FFFFFF;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .lexend {
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  body {
+      margin: 0;
+      padding: 0;
+  }
+  
+  p {
+      margin: 0;
+      padding: 0;
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  a {
+    text-decoration: none;
+  }  
+
+.category-title {
+    text-align: center;
+    color: white;
+    text-shadow:0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  .category-background {
+    background-color: #26282B;
+    margin-top: 8rem;
+  }
+
+  .category-left {
+    margin-left: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+  .category-random-button {
+    background-color: var(--blue);
+    width: 7rem;
+    height: 2.5rem;
+    border-radius: 8px;
+    border: #26282B 2px;
+  }
+
+  .category-random-button:hover {
+    background-color: rgb(18, 103, 194)
+  }
+
+  .category-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.category-content {
+    flex-direction: column;
+}

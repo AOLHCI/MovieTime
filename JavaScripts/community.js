@@ -162,6 +162,16 @@ function addLikeCounterForPostedReply(){
 };
 
 function postComment() {
+  var postedCommentsDisplay = document.getElementById('posted-comments').style.display;
+  var commentsDemoDisplay = document.getElementById('comments-demo').style.display;
+
+  if (postedCommentsDisplay === 'none' && commentsDemoDisplay === 'none') {
+    document.getElementById('posted-comments').style.display = 'block';
+    document.getElementById('comments-demo').style.display = 'block';
+    document.getElementById('search-Msg').style.display = 'none';
+    document.getElementById('Temporary-comment').innerHTML = '';
+  }
+
   var commentText = document.getElementsByClassName('comment-text')[0].value;
   var imagePreviewContainer = document.getElementById('imagePreviewContainer');
   var imagePreview = '';
@@ -257,21 +267,21 @@ function toggleReplies() {
     }
 }
 
-const replyParagraph = document.querySelector('.reply-comment');
-const cancelButton = document.querySelector('.cancel-button');
-const replyContainer = document.querySelector('.reply-a-comment-container');
+// const replyParagraph = document.querySelector('.reply-comment');
+// const cancelButton = document.querySelector('.cancel-button');
+// const replyContainer = document.querySelector('.reply-a-comment-container');
 
-replyContainer.style.display = 'none';
-function toggleReplyContainer() {
-  if (replyContainer.style.display === 'none') {
-    replyContainer.style.display = 'block';
-  } else {
-    replyContainer.style.display = 'none';
-  }
-}
+// replyContainer.style.display = 'none';
+// function toggleReplyContainer() {
+//   if (replyContainer.style.display === 'none') {
+//     replyContainer.style.display = 'block';
+//   } else {
+//     replyContainer.style.display = 'none';
+//   }
+// }
 
-replyParagraph.addEventListener('click', toggleReplyContainer);
-cancelButton.addEventListener('click', toggleReplyContainer);
+// replyParagraph.addEventListener('click', toggleReplyContainer);
+// cancelButton.addEventListener('click', toggleReplyContainer);
 
 function replyComment() {
   var replyCountElements = document.querySelectorAll('#comments-demo .comment-reply-count');
@@ -516,7 +526,18 @@ function postCommentpopup() {
   const popupdone = document.getElementById('popupDone');
   const popupdoneContent = document.getElementById('popupMessage');
 
-  
+  // Cek apakah posted-comments dan comments-demo sedang disembunyikan
+  if (document.getElementById('posted-comments').style.display === 'none' &&
+      document.getElementById('comments-demo').style.display === 'none') {
+    // Ubah display menjadi block
+    document.getElementById('posted-comments').style.display = 'block';
+    document.getElementById('comments-demo').style.display = 'block';
+    document.getElementById('search-Msg').style.display = 'none';
+    
+    // Kosongkan isi Temporary-comment
+    document.getElementById('Temporary-comment').innerHTML = '';
+  }
+
   // Ambil nilai komentar dari textarea input pada pop-up
   var commentText = document.querySelector('.comment-text-popup').value;
   
@@ -619,6 +640,7 @@ function postCommentpopup() {
   }, 500);
 }
 
+
 var comments = [
   {
     name: 'John',
@@ -697,18 +719,30 @@ var comments = [
   },
 ];
 
-// Mengambil semua elemen dengan kelas ".Trend-info" dan menambahkan event listener ke setiap elemen
 document.querySelectorAll('.Trend-info').forEach(element => {
   element.addEventListener('click', function(event) {
-    document.getElementById('posted-comments').style.display = 'none';
-    document.getElementById('comments-demo').style.display = 'none';
-      // Mengambil teks dari elemen yang diklik (yaitu hashtag)
+      // Sembunyikan Trending-film saat sebuah Trend-info diklik
+      var trendingFilm = document.querySelector('.Trending-film');
+      var popupOverlay = document.getElementById('popupOverlay-Trending');
+      if (trendingFilm.style.display === 'block') {
+          trendingFilm.style.display = 'none';
+          popupOverlay.style.display = 'none';
+      }
+      
+      // Sembunyikan elemen lain yang perlu disembunyikan
+      document.getElementById('posted-comments').style.display = 'none';
+      document.getElementById('search-Msg').style.display = 'none';
+      document.getElementById('comments-demo').style.display = 'none';
+      
+      // Dapatkan hashtag yang dipilih dari Trend-info
       var selectedHashtag = element.querySelector('p:first-child').textContent;
       var temporaryCommentContainer = document.getElementById('Temporary-comment');
       temporaryCommentContainer.innerHTML = '';
 
+      // Filter komentar yang memiliki hashtag yang sama dengan yang dipilih
       var commentsWithSameHashtag = comments.filter(comment => comment.hashtag === selectedHashtag);
 
+      // Tampilkan komentar yang telah difilter di dalam Temporary-comment
       commentsWithSameHashtag.forEach(comment => {
           var commentElement = document.createElement('div');
           commentElement.classList.add('comment-1');
@@ -735,10 +769,11 @@ document.querySelectorAll('.Trend-info').forEach(element => {
           `;
           temporaryCommentContainer.appendChild(commentElement);
 
+          // Tampilkan balasan yang sesuai di bawah komentar
           comment.reply.forEach(reply => {
               var replyElement = document.createElement('div');
               replyElement.classList.add('reply');
-              replyElement.style.display = 'none'; // Menyembunyikan balasan secara default
+              replyElement.style.display = 'none'; 
               replyElement.innerHTML = `
               <div class="posted-reply-sections">
                   <div class="flex-row">
@@ -767,7 +802,6 @@ document.querySelectorAll('.Trend-info').forEach(element => {
       });
   });
 });
-
 
 function toggleRepliesTag(element) {
   var commentElement = element.closest('.comment-1');
@@ -803,67 +837,149 @@ document.getElementById('Search-input').addEventListener('keypress', function(ev
       
       document.getElementById('posted-comments').style.display = 'none';
       document.getElementById('comments-demo').style.display = 'none';
-
+      document.getElementById('search-Msg').style.display = 'none';
+      
       var temporaryCommentContainer = document.getElementById('Temporary-comment');
+      var textContainer = document.getElementById('search-Msg');
       temporaryCommentContainer.innerHTML = '';
+      
+      if (hashtag === '') {
+        document.getElementById('search-Msg').style.display = 'block';
+        textContainer.innerText = "Please enter a hashtag to search.";
+      } else {
+        var filteredComments = comments.filter(comment => comment.hashtag === hashtag);
+        
+        if (filteredComments.length === 0) {
+          document.getElementById('search-Msg').style.display = 'block';
+          textContainer.innerText = "There is no result for \"" + hashtag +"\"";
+        } else {
+          document.getElementById('search-Msg').style.display = 'none';
+              filteredComments.forEach(comment => {
+                  var commentElement = document.createElement('div');
+                  commentElement.classList.add('comment-1');
+                  commentElement.innerHTML = `
+                      <div class="Thread-list">
+                          <img class="Profile-pic" src="Assets/Icon/profilepicture.png">
+                          <div class="Thread-information">
+                              <p id="Thread-name">${comment.name}</p>
+                              <p id="Thread-time">${comment.time}</p>
+                              <p id="Thread-text">${comment.text}</p>
+                              <div class="comment-details">
+                                  <div class="comment-like-section posted-reply-like-counter" onclick="toggleLike(this)">
+                                      <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+                                      <p class="comment-like-count">${comment.likecount}</p>
+                                  </div>
+                                  <div class="comment-reply-section" onclick="toggleRepliesTag(this)">
+                                      <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+                                      <p class="comment-reply-count">${comment.replycount}</p>
+                                  </div>
+                                  <p class="reply-comment">Reply</p>
+                              </div>
+                          </div>
+                      </div>
+                  `;
+                  temporaryCommentContainer.appendChild(commentElement);
 
-      var filteredComments = comments.filter(comment => comment.hashtag === hashtag);
-
-      filteredComments.forEach(comment => {
-        var commentElement = document.createElement('div');
-        commentElement.classList.add('comment-1');
-        commentElement.innerHTML = `
-            <div class="Thread-list">
-                <img class="Profile-pic" src="Assets/Icon/profilepicture.png">
-                <div class="Thread-information">
-                    <p id="Thread-name">${comment.name}</p>
-                    <p id="Thread-time">${comment.time}</p>
-                    <p id="Thread-text">${comment.text}</p>
-                    <div class="comment-details">
-                        <div class="comment-like-section posted-reply-like-counter" onclick="toggleLike(this)">
-                            <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
-                            <p class="comment-like-count">${comment.likecount}</p>
-                        </div>
-                        <div class="comment-reply-section" onclick="toggleRepliesTag(this)">
-                            <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
-                            <p class="comment-reply-count">${comment.replycount}</p>
-                        </div>
-                        <p class="reply-comment">Reply</p>
-                    </div>
-                </div>
-            </div>
-        `;
-        temporaryCommentContainer.appendChild(commentElement);
-
-        comment.reply.forEach(reply => {
-            var replyElement = document.createElement('div');
-            replyElement.classList.add('reply');
-            replyElement.style.display = 'none'; // Menyembunyikan balasan secara default
-            replyElement.innerHTML = `
-            <div class="posted-reply-sections">
-                <div class="flex-row">
-                    <img src="Assets/Icon/profilepicture.png" alt="">
-                    <div class="flex-column">
-                        <p class="comment-author">${reply.name}</p>
-                        <p class="comment-date">${reply.time}</p>
-                        <p class="comment-description">${reply.text}</p>
-                        <div class="comment-details">
-                            <div class="comment-like-section">
-                                <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
-                                <p class="comment-like-count">${reply.likecount}</p>
-                            </div>
-                            <div class="comment-reply-section" onclick="toggleReplies()">
-                                <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
-                                <p class="comment-reply-count">${reply.replycount}</p>
-                            </div>
-                            <p class="reply-comment">Reply</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            `;
-            commentElement.appendChild(replyElement);
-        });
-      });
+                  comment.reply.forEach(reply => {
+                      var replyElement = document.createElement('div');
+                      replyElement.classList.add('reply');
+                      replyElement.style.display = 'none'; // Menyembunyikan balasan secara default
+                      replyElement.innerHTML = `
+                          <div class="posted-reply-sections">
+                              <div class="flex-row">
+                                  <img src="Assets/Icon/profilepicture.png" alt="">
+                                  <div class="flex-column">
+                                      <p class="comment-author">${reply.name}</p>
+                                      <p class="comment-date">${reply.time}</p>
+                                      <p class="comment-description">${reply.text}</p>
+                                      <div class="comment-details">
+                                          <div class="comment-like-section">
+                                              <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+                                              <p class="comment-like-count">${reply.likecount}</p>
+                                          </div>
+                                          <div class="comment-reply-section" onclick="toggleReplies()">
+                                              <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+                                              <p class="comment-reply-count">${reply.replycount}</p>
+                                          </div>
+                                          <p class="reply-comment">Reply</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      `;
+                      commentElement.appendChild(replyElement);
+                  });
+              });
+          }
+      }
   }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Ambil elemen yang akan memunculkan pop-up
+  var trendingThreads = document.querySelectorAll('.trending-Thread');
+  var popupOverlay = document.getElementById('popupOverlay-Trending');
+  var popupContent = document.getElementById('popupContent-Trending');
+  var trendingFilm = document.querySelector('.Trending-film');
+
+  // Tambahkan variabel status pop-up
+  var popupStatus = false;
+
+  // Tambahkan event listener untuk setiap elemen trending-Thread
+  trendingThreads.forEach(function(thread) {
+      thread.addEventListener('click', function() {
+          // Toggle pop-up saat elemen trending-Thread diklik
+          if (!popupStatus) {
+              // Tampilkan pop-up saat elemen trending-Thread diklik untuk pertama kali
+              popupOverlay.style.display = 'block';
+              popupContent.style.display = 'none';
+              trendingFilm.style.display = 'block';
+              popupStatus = true;
+          } else {
+              // Tutup pop-up saat elemen trending-Thread diklik untuk kedua kali
+              popupOverlay.style.display = 'none';
+              popupContent.style.display = 'none';
+              trendingFilm.style.display = 'none';
+              popupStatus = false;
+          }
+
+          // Isi konten pop-up
+          popupContent.innerHTML = `
+              <div class="Trending-film">
+                  <div class="Trending-content">
+                      <p class="Title-trending">#TrendingFilm</p>
+                      <hr>
+                      <div class="Trend-1">
+                          <p id="Number-1">1.</p>
+                          <div class="Trend-info">
+                              <p id="Trendtitle-1">#QueenOfTears</p>
+                              <p id="Trendthreads-1">2435 threads</p>
+                          </div>
+                      </div>
+                      <div class="Trend-1">
+                          <p id="Number-1">2.</p>
+                          <div class="Trend-info">
+                              <p id="Trendtitle-1">#GodzillaXKong</p>
+                              <p id="Trendthreads-1">2019 threads</p>
+                          </div>
+                      </div>
+                      <div class="Trend-1">
+                          <p id="Number-1">3.</p>
+                          <div class="Trend-info">
+                              <p id="Trendtitle-1">#Exhuma</p>
+                              <p id="Trendthreads-1">1499 threads</p>
+                          </div>
+                      </div>
+                      <div class="Trend-1">
+                          <p id="Number-1">4.</p>
+                          <div class="Trend-info">
+                              <p id="Trendtitle-1">#GameOfThrones</p>
+                              <p id="Trendthreads-1">642 threads</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          `;
+      });
+  });
 });

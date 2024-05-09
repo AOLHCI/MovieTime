@@ -351,6 +351,7 @@
         justify-content: center;
         align-items: center;
         font-family: "Lexend", sans-serif;
+        padding-bottom: 30px;
     }
 
     .history-card {
@@ -396,7 +397,7 @@
     .title-section {
         /* border: 1px solid red; */
         font-size: 15px;
-        max-width: 190px;
+        max-width: 150px;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -540,11 +541,12 @@
         
         .MainHistory{
             margin-top: 60px;
+            padding-bottom: 60px;
         }
     
         .history-card {
             width: 600px;
-            height: 160px;
+            height: 135px;
             padding: 8px;
         }
 
@@ -563,7 +565,7 @@
         
         .progress-section {
             font-size: 16px;
-            margin-top: 70px;
+            margin-top: 47px;
         }
         
         .delete-button-section {

@@ -222,9 +222,9 @@
 }
 
 .histPopup{
-    /* margin-top: 245.77px; */
     font-family: "Lexend", sans-serif;
     position: fixed;
+    display: flex;
     top: -100vh;
     left: 0px;
     width: 100%;
@@ -242,9 +242,123 @@
     opacity:0;
     display: none;
     transition: opacity 100ms ease-in-out 200ms;
+} 
+
+.histPopup .histPopUpDesc {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    transform: translate(-50%, -50%);
+    background-color: rgba(53, 57, 65, 1);
+    width: 1020px;
+    border-radius: 15px;
+    height: 165px;
+    transition: all 300ms ease-in-out;
+    opacity: 0;
 }
 
-.dltBtnPops{
+.His-Pop-UpBtn{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-bottom: auto;
+    align-items: center;
+    font-size: 53px;
+    padding-right: 6px;
+    height: 25%;
+    color: #FFFFFF;
+}
+
+.His-Pop-Desc {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    font-size: 24px;
+    align-items: center;
+    height: calc(100% - 50%);
+    color: #FFFFFF;
+}
+
+.histPopBtn{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-top: auto;
+    align-items: center;
+    height: 25%;
+    column-gap: 10px;
+    padding-right: 8px;
+    padding-bottom: 0px;
+    margin-bottom: 5px;
+}
+
+.YesBtn{
+    padding: 7px 24px;
+    border: none;
+    outline: none;
+    font-size: 17px;
+    border-radius: 10px;
+    background-color: rgba(71, 181, 255, 1);
+    color: rgba(38, 40, 43, 1);
+    cursor: pointer;
+}
+
+.CancelBtn{
+    padding: 7px 24px;
+    border: none;
+    outline: none;
+    font-size: 17px;
+    border-radius: 10px;
+    background-color: rgba(38, 40, 43, 1);
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+
+.His-Pop-UpBtn2{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-bottom: auto;
+    align-items: center;
+    font-size: 53px;
+    padding-right: 14px;
+    height: 20%;
+    color: #FFFFFF;
+}
+
+.His-Pop-Desc2{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    font-size: 24px;
+    align-items: center;
+    height: calc(100% - 20%);
+    color: #FFFFFF;
+    padding-bottom: 30px;
+}
+
+
+
+/* .histPopup .histOverlay{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(38, 40, 43, 0.9);
+    opacity:0;
+    display: none;
+    transition: opacity 100ms ease-in-out 200ms;
+} */
+
+/* .dltBtnPops{
     position: absolute;
     font-size: 64px;
     margin-top: 0px;
@@ -305,7 +419,7 @@
     background-color: rgba(38, 40, 43, 1);
     color: rgba(255, 255, 255, 1);
     cursor: pointer;
-}
+} */
 
 .histPopup.active{
     top: 0px;
@@ -429,9 +543,97 @@
         width: 90%;
         margin-top: 15px;
     }
+
+    .histPopup .histPopUpDesc{
+        width: 90%;
+    }
+
+    .His-Pop-UpBtn{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: flex-end;
+        margin-bottom: auto;
+        align-items: center;
+        font-size: 46px;
+        padding-right: 14px;
+        height: 25%;
+    }
     
-    .histPopup{
-        /* margin-top: 245.77px; */
+    .His-Pop-Desc {
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        justify-content: center;
+        font-size: 18px;
+        align-items: center;
+        height: calc(100% - 50%);
+    }
+    
+    .histPopBtn{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: flex-end;
+        margin-top: auto;
+        align-items: center;
+        height: 25%;
+        column-gap: 10px;
+        padding-right: 8px;
+        padding-bottom: 0px;
+        margin-bottom: 3px;
+
+    }
+    
+    .YesBtn{
+        padding: 7px 24px;
+        border: none;
+        outline: none;
+        font-size: 13px;
+        border-radius: 10px;
+        background-color: rgba(71, 181, 255, 1);
+        color: rgba(38, 40, 43, 1);
+        cursor: pointer;
+    }
+    
+    .CancelBtn{
+        padding: 7px 24px;
+        border: none;
+        outline: none;
+        font-size: 13px;
+        border-radius: 10px;
+        background-color: rgba(38, 40, 43, 1);
+        color: rgba(255, 255, 255, 1);
+        cursor: pointer;
+    }
+
+    .His-Pop-UpBtn2{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: flex-end;
+        margin-bottom: auto;
+        align-items: center;
+        font-size: 49px;
+        padding-right: 14px;
+        height: 20%;
+        color: #FFFFFF;
+    }
+    
+    .His-Pop-Desc2{
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        justify-content: center;
+        font-size: 17px;
+        align-items: center;
+        height: calc(100% - 20%);
+        color: #FFFFFF;
+        padding-bottom: 30px;
+    }
+    
+    
+    /* .histPopup{
         font-family: "Lexend", sans-serif;
         position: fixed;
         top: -100vh;
@@ -513,7 +715,7 @@
         background-color: rgba(38, 40, 43, 1);
         color: rgba(255, 255, 255, 1);
         cursor: pointer;
-    }
+    } */
 
     .histPopup.active{
         top: 0px;
@@ -532,7 +734,7 @@
 
 }   
 
-    @media (min-width: 768px) and (max-width: 1026px){
+    @media (min-width: 768px) and (max-width: 1023px){
 
         .WebTitle{
             margin-top: 120px;
@@ -576,10 +778,53 @@
             font-size: 20px;
         }
 
+        .histPopup .histPopUpDesc{
+            width: 90%;
+        }
+
+        .His-Pop-Desc{
+            font-size: ;
+        }
+
+        .His-Pop-Desc {
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            justify-content: center;
+            font-size: 21px;
+            align-items: center;
+            height: calc(100% - 50%);
+        }
+        
+        .His-Pop-UpBtn2{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: flex-end;
+            margin-bottom: auto;
+            align-items: center;
+            font-size: 50px;
+            padding-right: 14px;
+            height: 20%;
+            color: #FFFFFF;
+        }
+        
+        .His-Pop-Desc2{
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            justify-content: center;
+            font-size: 21px;
+            align-items: center;
+            height: calc(100% - 20%);
+            color: #FFFFFF;
+            padding-bottom: 30px;
+        }
+        
+
         /*  */
 
-        .histPopup{
-        /* margin-top: 245.77px; */
+        /* .histPopup{
         font-family: "Lexend", sans-serif;
         position: fixed;
         top: -100vh;
@@ -596,7 +841,7 @@
         width: 100%;
         height: 100%;
         background: rgba(38, 40, 43, 0.9);
-        opacity:0;
+        opacity:1;
         display: none;
         transition: opacity 100ms ease-in-out 200ms;
     }
@@ -623,7 +868,7 @@
         border-radius: 15px;
         height: 200px;
         transition: all 300ms ease-in-out;
-        opacity: 0;
+        opacity: 1;
     }
 
     .histPopDesc{
@@ -665,5 +910,5 @@
         background-color: rgba(38, 40, 43, 1);
         color: rgba(255, 255, 255, 1);
         cursor: pointer;
-    }   
+    }    */
     }

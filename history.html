@@ -157,7 +157,7 @@
                         </div>
                         <p class="delete-button-section lexend" id="open-popup4">×</p>
                     </div>
-                    <div class="progress-section lexend">Watched 41%</div>
+                    <p class="progress-section lexend">Watched 41%</p>
                 </div>
             </div>
             
@@ -174,7 +174,7 @@
                         </div>
                         <p class="delete-button-section lexend" id="open-popup5">×</p>
                     </div>
-                    <div class="progress-section lexend">Completed</div>
+                    <p class="progress-section lexend">Completed</p>
                 </div>
             </div>
             
@@ -191,7 +191,7 @@
                         </div>
                         <p class="delete-button-section lexend" id="open-popup6">×</p>
                     </div>
-                    <div class="progress-section lexend">Watched 55%</div>
+                    <p class="progress-section lexend">Watched 55%</p>
                 </div>
             </div>
             
@@ -208,7 +208,7 @@
                         </div>
                         <p class="delete-button-section lexend" id="open-popup7">×</p>
                     </div>
-                    <div class="progress-section lexend">Watched 41%</div>
+                    <p class="progress-section lexend">Watched 41%</p>
                 </div>
             </div>
             
@@ -225,7 +225,7 @@
                         </div>
                         <p class="delete-button-section lexend" id="open-popup8">×</p>
                     </div>
-                    <div class="progress-section lexend">Completed</div>
+                    <p class="progress-section lexend">Completed</p>
                 </div>
             </div>
             
@@ -242,61 +242,95 @@
                         </div>
                         <p class="delete-button-section lexend" id="open-popup9">×</p>
                     </div>
-                    <div class="progress-section lexend">Watched 41%</div>
+                    <p class="progress-section lexend">Watched 41%</div>
                 </div>
             </div>
         </div>
         
 
         <!-- Buat pop up aja -->
-        <div class="histPopup" id="histPopup1">
-            <div class="histOverlay"></div>
-            <div class="histPopUpDesc">
+        <!-- Popup 1 -->
+       <div class="histPopup" id="histPopup1">
+        <div class="histOverlay"></div>
+        <div class="histPopUpDesc">
+            <div class="His-Pop-UpBtn">
                 <p class="dltBtnPops" style="cursor: pointer;">×</p>
-                <p class="histPopDesc lexend">Are you sure want to remove Five Nights at Freddy's from your history?</p>
-                <div class="histPopBtn">
-                    <button class="YesBtn lexend" onclick="hisShowHide(History1)" id="popUpConfirm1">Yes, remove this title</button>
-                    <button class="CancelBtn lexend">Cancel</button>
-                </div>
+            </div>
+            <div class="His-Pop-Desc">
+                <p class="histPopDesc lexend">Are you sure you want to remove Five Nights at Freddy's from your history?</p>
+            </div>
+            <div class="histPopBtn lexend">
+                <button class="YesBtn lexend" id="popUpConfirm1" onclick="hisShowHide(History1)">
+                    <p class="Yes-Btn-Text">
+                        Yes, remove this title
+                    </p>
+                </button>
+                <button class="CancelBtn lexend">Cancel</button>
             </div>
         </div>
-
-        <div class="histPopup" id="popUpCon1">
-            <div class="histOverlay"></div>
-            <div class="histPopUpDesc">
-                <p class="dltBtnPops" style="cursor: pointer;">×</p>
+    </div>
+    
+    <div class="histPopup" id="popUpCon1">
+        <div class="histOverlay"></div>
+        <div class="histPopUpDesc">
+            <div class="His-Pop-UpBtn2">
+                <p class="dltBtnPops lexend" style="cursor: pointer;">×</p>
+            </div>
+            <div class="His-Pop-Desc2">
                 <p class="histPopDesc lexend">Five Nights at Freddy's has been successfully removed from your history.</p>
-            </div>
-        </div>
-
-        <div class="histPopup" id="histPopup2">
-            <div class="histOverlay"></div>
-            <div class="histPopUpDesc">
-                <p class="dltBtnPops" style="cursor: pointer;">×</p>
-                <p class="histPopDesc lexend">Are you sure want to remove Interstellar from your history?</p>
-                <div class="histPopBtn">
-                    <button class="YesBtn lexend" onclick="hisShowHide(History2)" id="popUpConfirm2">Yes, remove this title</button>
-                    <button class="CancelBtn lexend">Cancel</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="histPopup" id="popUpCon2">
-            <div class="histOverlay"></div>
-            <div class="histPopUpDesc">
-                <p class="dltBtnPops" style="cursor: pointer;">×</p>
-                <p class="histPopDesc lexend">Interstellar has been successfully removed from your history.</p>
             </div>
         </div>
     </div>
 
+        <!-- Popup 2 -->
+    <div class="histPopup" id="histPopup2">
+        <div class="histOverlay"></div>
+        <div class="histPopUpDesc">
+            <div class="His-Pop-UpBtn">
+                <p class="dltBtnPops" style="cursor: pointer;">×</p>
+            </div>
+            <div class="His-Pop-Desc">
+                <p class="histPopDesc lexend">Are you sure you want to remove Interstellar from your history?</p>
+            </div>
+            <div class="histPopBtn lexend">
+                <button class="YesBtn lexend" id="popUpConfirm2" onclick="hisShowHide(History2)">
+                    <p class="Yes-Btn-Text">
+                        Yes, remove this title
+                    </p>
+                </button>
+                <button class="CancelBtn lexend">Cancel</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="histPopup" id="popUpCon2">
+        <div class="histOverlay"></div>
+        <div class="histPopUpDesc">
+            <div class="His-Pop-UpBtn2">
+                <p class="dltBtnPops lexend" style="cursor: pointer;">×</p>
+            </div>
+            <div class="His-Pop-Desc2">
+                <p class="histPopDesc lexend">Interstellar has been successfully removed from your history.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Popup 3 -->
     <div class="histPopup" id="histPopup3">
         <div class="histOverlay"></div>
         <div class="histPopUpDesc">
-            <p class="dltBtnPops" style="cursor: pointer;">×</p>
-            <p class="histPopDesc lexend">Are you sure want to remove Spy × Family Code: White from your history?</p>
-            <div class="histPopBtn">
-                <button class="YesBtn" onclick="hisShowHide2(History3)" id="popUpConfirm3">Yes, remove this title</button>
+            <div class="His-Pop-UpBtn">
+                <p class="dltBtnPops" style="cursor: pointer;">×</p>
+            </div>
+            <div class="His-Pop-Desc">
+                <p class="histPopDesc lexend">Are you sure you want to remove Spy × Family Code: White from your history?</p>
+            </div>
+            <div class="histPopBtn lexend">
+                <button class="YesBtn lexend" id="popUpConfirm3" onclick="hisShowHide2(History3)">
+                    <p class="Yes-Btn-Text">
+                        Yes, remove this title
+                    </p>
+                </button>
                 <button class="CancelBtn lexend">Cancel</button>
             </div>
         </div>
@@ -305,18 +339,31 @@
     <div class="histPopup" id="popUpCon3">
         <div class="histOverlay"></div>
         <div class="histPopUpDesc">
-            <p class="dltBtnPops" style="cursor: pointer;">×</p>
-            <p class="histPopDesc lexend">Spy × Family Code: White has been successfully removed from your history.</p>
+            <div class="His-Pop-UpBtn2">
+                <p class="dltBtnPops lexend" style="cursor: pointer;">×</p>
+            </div>
+            <div class="His-Pop-Desc2">
+                <p class="histPopDesc lexend">Spy × Family Code: White has been successfully removed from your history.</p>
+            </div>
         </div>
     </div>
-
+    
+        <!-- Popup 4 -->
     <div class="histPopup" id="histPopup4">
         <div class="histOverlay"></div>
         <div class="histPopUpDesc">
-            <p class="dltBtnPops" style="cursor: pointer;">×</p>
-            <p class="histPopDesc lexend">Are you sure want to remove 20th Century Girl from your history?</p>
-            <div class="histPopBtn">
-                <button class="YesBtn lexend" onclick="hisShowHide3(History4)" id="popUpConfirm4">Yes, remove this title</button>
+            <div class="His-Pop-UpBtn">
+                <p class="dltBtnPops" style="cursor: pointer;">×</p>
+            </div>
+            <div class="His-Pop-Desc">
+                <p class="histPopDesc lexend">Are you sure you want to remove 20th Century Girl from your history?</p>
+            </div>
+            <div class="histPopBtn lexend">
+                <button class="YesBtn lexend" id="popUpConfirm4" onclick="hisShowHide3(History4)">
+                    <p class="Yes-Btn-Text">
+                        Yes, remove this title
+                    </p>
+                </button>
                 <button class="CancelBtn lexend">Cancel</button>
             </div>
         </div>
@@ -325,18 +372,31 @@
     <div class="histPopup" id="popUpCon4">
         <div class="histOverlay"></div>
         <div class="histPopUpDesc">
-            <p class="dltBtnPops" style="cursor: pointer;">×</p>
-            <p class="histPopDesc lexend">20th Century Girl has been successfully removed from your history.</p>
+            <div class="His-Pop-UpBtn2">
+                <p class="dltBtnPops lexend" style="cursor: pointer;">×</p>
+            </div>
+            <div class="His-Pop-Desc2">
+                <p class="histPopDesc lexend">20th Century Girl has been successfully removed from your history.</p>
+            </div>
         </div>
     </div>
-
+    
+    <!-- Popup 5 -->
     <div class="histPopup" id="histPopup5">
         <div class="histOverlay"></div>
         <div class="histPopUpDesc">
-            <p class="dltBtnPops" style="cursor: pointer;">×</p>
-            <p class="histPopDesc lexend">Are you sure want to remove Wild Card from your history?</p>
-            <div class="histPopBtn">
-                <button class="YesBtn lexend" onclick="hisShowHide3(History5)" id="popUpConfirm5">Yes, remove this title</button>
+            <div class="His-Pop-UpBtn">
+                <p class="dltBtnPops" style="cursor: pointer;">×</p>
+            </div>
+            <div class="His-Pop-Desc">
+                <p class="histPopDesc lexend">Are you sure you want to remove Wild Card from your history?</p>
+            </div>
+            <div class="histPopBtn lexend">
+                <button class="YesBtn lexend" id="popUpConfirm5" onclick="hisShowHide3(History5)">
+                    <p class="Yes-Btn-Text">
+                        Yes, remove this title
+                    </p>
+                </button>
                 <button class="CancelBtn lexend">Cancel</button>
             </div>
         </div>
@@ -345,18 +405,32 @@
     <div class="histPopup" id="popUpCon5">
         <div class="histOverlay"></div>
         <div class="histPopUpDesc">
-            <p class="dltBtnPops" style="cursor: pointer;">×</p>
-            <p class="histPopDesc lexend">Wild Card has been successfully removed from your history.</p>
+            <div class="His-Pop-UpBtn2">
+                <p class="dltBtnPops lexend" style="cursor: pointer;">×</p>
+            </div>
+            <div class="His-Pop-Desc2">
+                <p class="histPopDesc lexend">Wild Card has been successfully removed from your history.</p>
+            </div>
         </div>
     </div>
-
+    
+    
+       <!-- Popup 6 -->
     <div class="histPopup" id="histPopup6">
         <div class="histOverlay"></div>
         <div class="histPopUpDesc">
-            <p class="dltBtnPops" style="cursor: pointer;">×</p>
-            <p class="histPopDesc lexend">Are you sure want to remove Rebel Moon from your history?</p>
-            <div class="histPopBtn">
-                <button class="YesBtn lexend" onclick="hisShowHide3(History6)" id="popUpConfirm6">Yes, remove this title</button>
+            <div class="His-Pop-UpBtn">
+                <p class="dltBtnPops" style="cursor: pointer;">×</p>
+            </div>
+            <div class="His-Pop-Desc">
+                <p class="histPopDesc lexend">Are you sure you want to remove Rebel Moon from your history?</p>
+            </div>
+            <div class="histPopBtn lexend">
+                <button class="YesBtn lexend" id="popUpConfirm6" onclick="hisShowHide3(History6)">
+                    <p class="Yes-Btn-Text">
+                        Yes, remove this title
+                    </p>
+                </button>
                 <button class="CancelBtn lexend">Cancel</button>
             </div>
         </div>
@@ -365,38 +439,64 @@
     <div class="histPopup" id="popUpCon6">
         <div class="histOverlay"></div>
         <div class="histPopUpDesc">
-            <p class="dltBtnPops" style="cursor: pointer;">×</p>
-            <p class="histPopDesc lexend">Rebel Moon has been successfully removed from your history.</p>
-        </div>
-    </div>
-
-    <div class="histPopup" id="histPopup7">
-        <div class="histOverlay"></div>
-        <div class="histPopUpDesc">
-            <p class="dltBtnPops" style="cursor: pointer;">×</p>
-            <p class="histPopDesc lexend">Are you sure want to remove Weathering with You from your history?</p>
-            <div class="histPopBtn">
-                <button class="YesBtn lexend" onclick="hisShowHide3(History7)" id="popUpConfirm7">Yes, remove this title</button>
-                <button class="CancelBtn lexend">Cancel</button>
+            <div class="His-Pop-UpBtn2">
+                <p class="dltBtnPops lexend" style="cursor: pointer;">×</p>
+            </div>
+            <div class="His-Pop-Desc2">
+                <p class="histPopDesc lexend">Rebel Moon has been successfully removed from your history.</p>
             </div>
         </div>
     </div>
     
-    <div class="histPopup" id="popUpCon7">
+    <!-- Popup 7 -->
+    <div class="histPopup" id="histPopup7">
         <div class="histOverlay"></div>
         <div class="histPopUpDesc">
-            <p class="dltBtnPops" style="cursor: pointer;">×</p>
-            <p class="histPopDesc lexend">Weathering with You has been successfully removed from your history.</p>
+            <div class="His-Pop-UpBtn">
+                <p class="dltBtnPops" style="cursor: pointer;">×</p>
+            </div>
+            <div class="His-Pop-Desc">
+                <p class="histPopDesc lexend">Are you sure you want to remove Weathering with You from your history?</p>
+            </div>
+            <div class="histPopBtn lexend">
+                <button class="YesBtn lexend" id="popUpConfirm7" onclick="hisShowHide3(History7)">
+                    <p class="Yes-Btn-Text">
+                        Yes, remove this title
+                    </p>
+                </button>
+                <button class="CancelBtn lexend">Cancel</button>
+            </div>
         </div>
     </div>
 
+    <div class="histPopup" id="popUpCon7">
+        <div class="histOverlay"></div>
+        <div class="histPopUpDesc">
+            <div class="His-Pop-UpBtn2">
+                <p class="dltBtnPops lexend" style="cursor: pointer;">×</p>
+            </div>
+            <div class="His-Pop-Desc2">
+                <p class="histPopDesc lexend">Weathering with You has been successfully removed from your history.</p>
+            </div>
+        </div>
+    </div>
+        
+        <!-- Popup 8 -->
     <div class="histPopup" id="histPopup8">
         <div class="histOverlay"></div>
         <div class="histPopUpDesc">
-            <p class="dltBtnPops" style="cursor: pointer;">×</p>
-            <p class="histPopDesc lexend">Are you sure want to remove A Silent Voice from your history?</p>
+            <div class="His-Pop-UpBtn">
+                <p class="dltBtnPops" style="cursor: pointer;">×</p>
+            </div>
+            <div class="His-Pop-Desc">
+                <p class="histPopDesc lexend">Are you sure you want to remove A Silent Voice from your history?</p>
+            </div>
             <div class="histPopBtn lexend">
-                <button class="YesBtn lexend" onclick="hisShowHide3(History8)" id="popUpConfirm8">Yes, remove this title</button>
+                <button class="YesBtn lexend" id="popUpConfirm8" onclick="hisShowHide3(History8)">
+                    <p class="Yes-Btn-Text">
+                        Yes, remove this title
+                    </p>
+                </button>
                 <button class="CancelBtn lexend">Cancel</button>
             </div>
         </div>
@@ -405,18 +505,31 @@
     <div class="histPopup" id="popUpCon8">
         <div class="histOverlay"></div>
         <div class="histPopUpDesc">
-            <p class="dltBtnPops" style="cursor: pointer;">×</p>
-            <p class="histPopDesc lexend">A Silent Voice has been successfully removed from your history.</p>
+            <div class="His-Pop-UpBtn2">
+                <p class="dltBtnPops lexend" style="cursor: pointer;">×</p>
+            </div>
+            <div class="His-Pop-Desc2">
+                <p class="histPopDesc lexend">A Silent Voice has been successfully removed from your history.</p>
+            </div>
         </div>
     </div>
-
+    
+    <!-- Popup 9 -->
     <div class="histPopup" id="histPopup9">
         <div class="histOverlay"></div>
         <div class="histPopUpDesc">
-            <p class="dltBtnPops" style="cursor: pointer;">×</p>
-            <p class="histPopDesc lexend">Are you sure want to remove Descendants of the Sun from your history?</p>
-            <div class="histPopBtn">
-                <button class="YesBtn lexend" onclick="hisShowHide3(History9)" id="popUpConfirm9">Yes, remove this title</button>
+            <div class="His-Pop-UpBtn">
+                <p class="dltBtnPops" style="cursor: pointer;">×</p>
+            </div>
+            <div class="His-Pop-Desc">
+                <p class="histPopDesc lexend">Are you sure you want to remove Descendants of the Sun from your history?</p>
+            </div>
+            <div class="histPopBtn lexend">
+                <button class="YesBtn lexend" id="popUpConfirm9" onclick="hisShowHide3(History9)">
+                    <p class="Yes-Btn-Text">
+                        Yes, remove this title
+                    </p>
+                </button>
                 <button class="CancelBtn lexend">Cancel</button>
             </div>
         </div>
@@ -425,18 +538,31 @@
     <div class="histPopup" id="popUpCon9">
         <div class="histOverlay"></div>
         <div class="histPopUpDesc">
-            <p class="dltBtnPops" style="cursor: pointer;">×</p>
-            <p class="histPopDesc lexend">Descendants of the Sun has been successfully removed from your history.</p>
+            <div class="His-Pop-UpBtn2">
+                <p class="dltBtnPops lexend" style="cursor: pointer;">×</p>
+            </div>
+            <div class="His-Pop-Desc2">
+                <p class="histPopDesc lexend">Descendants of the Sun has been successfully removed from your history.</p>
+            </div>
         </div>
     </div>
-
+    
+    <!-- Popup 10 -->
     <div class="histPopup" id="histPopup10">
         <div class="histOverlay"></div>
         <div class="histPopUpDesc">
-            <p class="dltBtnPops" style="cursor: pointer;">×</p>
-            <p class="histPopDesc lexend">Are you sure want to remove The Spy Who Loved Me from your history?</p>
-            <div class="histPopBtn">
-                <button class="YesBtn lexend" onclick="hisShowHide2(History10)" id="popUpConfirm10">Yes, remove this title</button>
+            <div class="His-Pop-UpBtn">
+                <p class="dltBtnPops" style="cursor: pointer;">×</p>
+            </div>
+            <div class="His-Pop-Desc">
+                <p class="histPopDesc lexend">Are you sure you want to remove The Spy Who Loved Me from your history?</p>
+            </div>
+            <div class="histPopBtn lexend">
+                <button class="YesBtn lexend" id="popUpConfirm10" onclick="hisShowHide2(History10)">
+                    <p class="Yes-Btn-Text">
+                        Yes, remove this title
+                    </p>
+                </button>
                 <button class="CancelBtn lexend">Cancel</button>
             </div>
         </div>
@@ -445,8 +571,12 @@
     <div class="histPopup" id="popUpCon10">
         <div class="histOverlay"></div>
         <div class="histPopUpDesc">
-            <p class="dltBtnPops" style="cursor: pointer;">×</p>
-            <p class="histPopDesc lexend">The Spy Who Loved Me has been successfully removed from your history.</p>
+            <div class="His-Pop-UpBtn2">
+                <p class="dltBtnPops lexend" style="cursor: pointer;">×</p>
+            </div>
+            <div class="His-Pop-Desc2">
+                <p class="histPopDesc lexend">The Spy Who Loved Me has been successfully removed from your history.</p>
+            </div>
         </div>
     </div>
     <!-- Pop up doang -->

@@ -866,46 +866,57 @@
         },
     ];
 
-
-
-    function createPopup(id){
-        let histpopNode = document.querySelector(id);
-        let histOverlay = histpopNode.querySelector(".histOverlay");
-        let CancelBtn = histpopNode.querySelector(".CancelBtn");
-        let dltBtnPops = histpopNode.querySelector(".dltBtnPops");
-        let openConfirm = histpopNode.querySelector(".YesBtn");
+    function addIconChangingListeners(){
+        const movieCardButtons = document.querySelectorAll('.movie-card-button');
     
-        function openPopup(){
-            histpopNode.classList.add("active");
-            histOverlay.style.display = "block";
-            // histOverlay.style.pointerEvents = "auto";
-        }
+        movieCardButtons.forEach(function(movieCardButton) {
     
-        function closePopup(){
-            histpopNode.classList.remove("active");
-            histOverlay.style.display = "none";
-            // histOverlay.style.pointerEvents = "none";
-        }
-    
-        histOverlay.addEventListener("click", closePopup);
-        CancelBtn.addEventListener("click", closePopup);
-        dltBtnPops.addEventListener("click", closePopup);
-    
-        if (openConfirm) {
-            openConfirm.addEventListener("click", function() {
-                closePopup(); 
-                openCon(); 
+            movieCardButton.addEventListener('click', function() {
+                const cardImg = this.querySelector('img');
+                const cardDesc = this.querySelector('p');
+                
+                if (cardDesc.textContent === "Added to Watchlist") {
+                    cardImg.src = 'Assets/Icon/bookmark.png';
+                    cardDesc.textContent = "Add to Watchlist";
+                    this.classList.add('clicked');
+                    isAdded = false;
+                } else {
+                    cardImg.src = 'Assets/Icon/bookmark (1).png';
+                    cardDesc.textContent = "Added to Watchlist";
+                    this.classList.remove('clicked');
+                    isAdded = true;
+                }
             });
-        }
-    
-        return openPopup;
+        });
     }
 
+    function removeFromWatchlist(containerId, popupId) {
+        var container = document.getElementById(containerId);
+        container.style.display = 'none';
+    
+        var popup = document.getElementById(popupId);
+        popup.style.display = 'block';
+    
+        setTimeout(function () {
+            popup.style.display = 'none';
+        }, 5000);
+    }
+    
+    function cancelRemoval(containerId, popupId) {
+        var container = document.getElementById(containerId);
+        container.style.display = 'block';
+    
+        var popup = document.getElementById(popupId);
+        popup.style.display = 'none';
+    }
+    
     const watchlistMovies = movies.filter(movie => movie.category === "Watchlist");
-    // alert(watchlistMovies.length);
-
-        const movieCardsHTML = watchlistMovies.map(movie => `
-            <div class="movie-card-container">
+    
+    const movieCardsHTML = watchlistMovies.map((movie, index) => {
+        const containerId = `movie-card-container-${index}`;
+        const popupId = `popup-${index}`;
+        return `
+            <div id="${containerId}" class="movie-card-container">
                 <img class="movie-card-poster" src="${movie.mainPoster}" alt="${movie.title}" width="272px" height="170px">
                 <img onclick="goToMovieDetail('${movie.title}')" class="movie-card-play" src="Assets/Icon/PlayButton.png" alt="">
                 <div class="movie-card-rating-section">
@@ -913,22 +924,28 @@
                     <p class="lexend">${movie.rating}</p>
                 </div>
                 <p onclick="goToMovieDetail('${movie.title}')" class="movie-card-title lexend">${movie.title}</p>
-                <div class="movie-card-button">
-
-                    <p class="lexend">Remove from Watchlist</p>
-                   
+                <div class="movie-card-button movie-card-button--watchlist" onclick="removeFromWatchlist('${containerId}', '${popupId}')">
+                    <img src="Assets/Icon/bookmark (1).png" alt=""></img>
+                    <p class="lexend">Added to Watchlist</p>
                 </div>
             </div>
-        `).join('');
-
-        const watchlistMoviesSection = document.querySelector('.watchlist-container');
-        var watchlistHTML = `
-            ${movieCardsHTML}
+            <div class="pop-up-remove" id="${popupId}" style="display: none;">
+                <p class="lexend">
+                    <span class="lexend">
+                        ${movie.title}
+                    </span>
+                    has been removed from Your Watchlist. 
+                    
+                        <button class="lexend" onclick="cancelRemoval('${containerId}', '${popupId}')">Cancel</button>
+                    
+                </p>
+                
+            </div>
         `;
+    }).join('');
+    
+    const watchlistMoviesSection = document.querySelector('.watchlist-container');
+    watchlistMoviesSection.innerHTML = movieCardsHTML;
+    
+    // addIconChangingListeners();
         
-    document.getElementById("lexend")
-
-        watchlistMoviesSection.innerHTML = watchlistHTML;
-        // addIconChangingListeners();
-        // addDraggableListeners();
-        // <img src="Assets/Icon/bookmark.png" alt=""></img> (1)

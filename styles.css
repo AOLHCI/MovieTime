@@ -928,46 +928,6 @@ footer {
 }
 
 /* CATEGORY PAGE */
-.category-title {
-  text-align: center;
-  color: white;
-  text-shadow:0 4px 8px rgba(0, 0, 0, 0.5);
-}
-
-.category-background {
-  background-color: #26282B;
-  margin-top: 8rem;
-}
-
-.category-left.category-row {
-  display: flex;
-  justify-content: left;
-  flex-wrap: wrap;
-  padding-left: 1.2rem;
-  margin-bottom: 1rem;
-}
-
-.category-random-button {
-  background-color: var(--blue);
-  width: 7rem;
-  height: 2.5rem;
-  border-radius: 8px;
-  border: #26282B 2px;
-}
-
-.category-random-button:hover {
-  background-color: rgb(18, 103, 194)
-}
-
-.category-row {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.category-col {
-  margin: 0 auto;
-}
 
 /* SEARCH PAGE */
 

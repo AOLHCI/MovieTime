@@ -82,6 +82,7 @@
     margin-left: 10px;
     transition: all 0.3s ease;
     /* border: 1px solid red; */
+    cursor: pointer;
   }
 
   .pop-up-remove button:hover {
@@ -126,6 +127,7 @@
         display: flex;
         flex-direction: column;
         text-align: center;
+        align-items: center;
         font-size: 15px;
         padding: 0px 10px;
       }
@@ -143,9 +145,9 @@
         padding: 5px 20px;
         margin-left: 0px;
         width: fit-content;
-        position: relative;
-        left: calc(100% - 80px);
-        border: 1px solid red;
+        /* position: relative; */
+        /* left: calc(100% - 80px); */
+        /* border: 1px solid red; */
       }
 
 }   

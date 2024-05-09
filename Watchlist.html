@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Watchlist</title>
+    <title>MovieTime - My Watchlist</title>
+    <link rel="icon" href="Assets/HeaderPhoto/logo.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="Watchlist.css">
     <link rel="stylesheet" href="Header.css">
@@ -39,7 +40,7 @@
                     </ul>
                 </li>
                 <li><a href="history.html">History</a></li>
-                <li><a href="Watchlist.html">Watchlist</a></li>
+                <li><a href="Watchlist.html"><p class="page-is-clicked">Watchlist</p></a></li>
                 <li><a href="community.html">Community</a></li>
             </ul>
         </nav>
@@ -63,254 +64,10 @@
         </div>
 
     </header>
-    <h1 class="WebTitle">Watchlist</h1>
-    <div class="watchlist-container list">
-        <!-- <div class="Watchlist1">
-            <div class="border"></div>
-            <img class="Poster" src="Assets/HistoryPhoto/KungfuPanda3.jpg" alt="" width="299.15px" height="200px" style="border-radius: 10px;">
-            <img class="pButton" src="Assets/Icon/PlayButton.png" alt="" width="55px" height="50px">
-                <div class="Desc1">
-                    
-                </div>
-            <p class="movieTitle1">KUNG FU PANDA 4</p>
-        </div>
-        
-
-        <div class="Watchlist1" style="margin-top: 10px;">
-            <div class="border"></div>
-            <img class="Poster" src="Assets/HistoryPhoto/OnePieceStampede.jpg" alt="" width="299.15px" height="200px" style="border-radius: 10px;">
-            <img class="pButton" src="Assets/Icon/PlayButton.png" alt="" width="55px" height="50px">
-                <div class="Desc1">
-                    
-                </div>
-            <p class="movieTitle1">ONE PIECE STAMPEDE</p>
-        </div>
-        
-
-        <div class="Watchlist1" style="margin-top: 10px;">
-            <div class="border"></div>
-            <img class="Poster" src="Assets/HistoryPhoto/BlackPhanter.jpg" alt="" width="299.15px" height="200px" style="border-radius: 10px;">
-            <img class="pButton" src="Assets/Icon/PlayButton.png" alt="" width="55px" height="50px">
-                <div class="Desc1">
-                    
-                </div>
-            <p class="movieTitle1">Black Panther</p>
-        </div> -->
+    <div class="watchlist-content">
+        <h1 class="WebTitle">My Watchlist</h1>
+        <div class="watchlist-container list">
     </div>
-    <!-- <div class="list1">
-    <div class="Watchlist1" style="margin-top: 10px;">
-            <div class="border"></div>
-            <img class="Poster" src="Assets/HistoryPhoto/CekTokoSebelah.jpg" alt="" width="299.15px" height="200px" style="border-radius: 10px;">
-            <img class="pButton" src="Assets/Icon/PlayButton.png" alt="" width="55px" height="50px">
-                <div class="Desc1">
-                
-                </div>
-            <p class="movieTitle1">Cek Toko Sebelah</p>
-        </div>
-    </div> -->
-
-
-    <div class="histPopup" id="histPopup1">
-        <div class="histOverlay"></div>
-        <div class="histPopUpDesc">
-            <p class="dltBtnPops" style="cursor: pointer;">×</p>
-            <p class="histPopDesc">Are you sure want to remove [Five Nights at Freddy's] from your history?</p>
-            <div class="histPopBtn">
-                <button class="YesBtn" onclick="hisShowHide(History1)" id="popUpConfirm1">Yes, remove this title</button>
-                <button class="CancelBtn">Cancel</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="histPopup" id="popUpCon1">
-        <div class="histOverlay"></div>
-        <div class="histPopUpDesc">
-            <p class="dltBtnPops" style="cursor: pointer;">×</p>
-            <p class="histPopDesc">[Five Nights at Freddy's] has been successfully removed from your history.</p>
-        </div>
-    </div>
-
-    <div class="histPopup" id="histPopup2">
-        <div class="histOverlay"></div>
-        <div class="histPopUpDesc">
-            <p class="dltBtnPops" style="cursor: pointer;">×</p>
-            <p class="histPopDesc">Are you sure want to remove [Interstellar] from your history?</p>
-            <div class="histPopBtn">
-                <button class="YesBtn" onclick="hisShowHide(History2)" id="popUpConfirm2">Yes, remove this title</button>
-                <button class="CancelBtn">Cancel</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="histPopup" id="popUpCon2">
-        <div class="histOverlay"></div>
-        <div class="histPopUpDesc">
-            <p class="dltBtnPops" style="cursor: pointer;">×</p>
-            <p class="histPopDesc">[Interstellar] has been successfully removed from your history.</p>
-        </div>
-    </div>
-</div>
-
-<div class="histPopup" id="histPopup3">
-    <div class="histOverlay"></div>
-    <div class="histPopUpDesc">
-        <p class="dltBtnPops" style="cursor: pointer;">×</p>
-        <p class="histPopDesc">Are you sure want to remove [Spy × Family Code: White] from your history?</p>
-        <div class="histPopBtn">
-            <button class="YesBtn" onclick="hisShowHide2(History3)" id="popUpConfirm3">Yes, remove this title</button>
-            <button class="CancelBtn">Cancel</button>
-        </div>
-    </div>
-</div>
-
-<div class="histPopup" id="popUpCon3">
-    <div class="histOverlay"></div>
-    <div class="histPopUpDesc">
-        <p class="dltBtnPops" style="cursor: pointer;">×</p>
-        <p class="histPopDesc">[Spy × Family Code: White] has been successfully removed from your history.</p>
-    </div>
-</div>
-
-<div class="histPopup" id="histPopup4">
-    <div class="histOverlay"></div>
-    <div class="histPopUpDesc">
-        <p class="dltBtnPops" style="cursor: pointer;">×</p>
-        <p class="histPopDesc">Are you sure want to remove [20th Century Girl] from your history?</p>
-        <div class="histPopBtn">
-            <button class="YesBtn" onclick="hisShowHide3(History4)" id="popUpConfirm4">Yes, remove this title</button>
-            <button class="CancelBtn">Cancel</button>
-        </div>
-    </div>
-</div>
-
-<div class="histPopup" id="popUpCon4">
-    <div class="histOverlay"></div>
-    <div class="histPopUpDesc">
-        <p class="dltBtnPops" style="cursor: pointer;">×</p>
-        <p class="histPopDesc">[20th Century Girl] has been successfully removed from your history.</p>
-    </div>
-</div>
-
-<div class="histPopup" id="histPopup5">
-    <div class="histOverlay"></div>
-    <div class="histPopUpDesc">
-        <p class="dltBtnPops" style="cursor: pointer;">×</p>
-        <p class="histPopDesc">Are you sure want to remove [Wild Card] from your history?</p>
-        <div class="histPopBtn">
-            <button class="YesBtn" onclick="hisShowHide3(History5)" id="popUpConfirm5">Yes, remove this title</button>
-            <button class="CancelBtn">Cancel</button>
-        </div>
-    </div>
-</div>
-
-<div class="histPopup" id="popUpCon5">
-    <div class="histOverlay"></div>
-    <div class="histPopUpDesc">
-        <p class="dltBtnPops" style="cursor: pointer;">×</p>
-        <p class="histPopDesc">[Wild Card] has been successfully removed from your history.</p>
-    </div>
-</div>
-
-<div class="histPopup" id="histPopup6">
-    <div class="histOverlay"></div>
-    <div class="histPopUpDesc">
-        <p class="dltBtnPops" style="cursor: pointer;">×</p>
-        <p class="histPopDesc">Are you sure want to remove [Rebel Moon] from your history?</p>
-        <div class="histPopBtn">
-            <button class="YesBtn" onclick="hisShowHide3(History6)" id="popUpConfirm6">Yes, remove this title</button>
-            <button class="CancelBtn">Cancel</button>
-        </div>
-    </div>
-</div>
-
-<div class="histPopup" id="popUpCon6">
-    <div class="histOverlay"></div>
-    <div class="histPopUpDesc">
-        <p class="dltBtnPops" style="cursor: pointer;">×</p>
-        <p class="histPopDesc">[Rebel Moon] has been successfully removed from your history.</p>
-    </div>
-</div>
-
-<div class="histPopup" id="histPopup7">
-    <div class="histOverlay"></div>
-    <div class="histPopUpDesc">
-        <p class="dltBtnPops" style="cursor: pointer;">×</p>
-        <p class="histPopDesc">Are you sure want to remove [Weathering with You] from your history?</p>
-        <div class="histPopBtn">
-            <button class="YesBtn" onclick="hisShowHide3(History7)" id="popUpConfirm7">Yes, remove this title</button>
-            <button class="CancelBtn">Cancel</button>
-        </div>
-    </div>
-</div>
-
-<div class="histPopup" id="popUpCon7">
-    <div class="histOverlay"></div>
-    <div class="histPopUpDesc">
-        <p class="dltBtnPops" style="cursor: pointer;">×</p>
-        <p class="histPopDesc">[Weathering with You] has been successfully removed from your history.</p>
-    </div>
-</div>
-
-<div class="histPopup" id="histPopup8">
-    <div class="histOverlay"></div>
-    <div class="histPopUpDesc">
-        <p class="dltBtnPops" style="cursor: pointer;">×</p>
-        <p class="histPopDesc">Are you sure want to remove [A Silent Voice] from your history?</p>
-        <div class="histPopBtn">
-            <button class="YesBtn" onclick="hisShowHide3(History8)" id="popUpConfirm8">Yes, remove this title</button>
-            <button class="CancelBtn">Cancel</button>
-        </div>
-    </div>
-</div>
-
-<div class="histPopup" id="popUpCon8">
-    <div class="histOverlay"></div>
-    <div class="histPopUpDesc">
-        <p class="dltBtnPops" style="cursor: pointer;">×</p>
-        <p class="histPopDesc">[A Silent Voice] has been successfully removed from your history.</p>
-    </div>
-</div>
-
-<div class="histPopup" id="histPopup9">
-    <div class="histOverlay"></div>
-    <div class="histPopUpDesc">
-        <p class="dltBtnPops" style="cursor: pointer;">×</p>
-        <p class="histPopDesc">Are you sure want to remove [Descendants of the Sun] from your history?</p>
-        <div class="histPopBtn">
-            <button class="YesBtn" onclick="hisShowHide3(History9)" id="popUpConfirm9">Yes, remove this title</button>
-            <button class="CancelBtn">Cancel</button>
-        </div>
-    </div>
-</div>
-
-<div class="histPopup" id="popUpCon9">
-    <div class="histOverlay"></div>
-    <div class="histPopUpDesc">
-        <p class="dltBtnPops" style="cursor: pointer;">×</p>
-        <p class="histPopDesc">[Descendants of the Sun] has been successfully removed from your history.</p>
-    </div>
-</div>
-
-<div class="histPopup" id="histPopup10">
-    <div class="histOverlay"></div>
-    <div class="histPopUpDesc">
-        <p class="dltBtnPops" style="cursor: pointer;">×</p>
-        <p class="histPopDesc">Are you sure want to remove [The Spy Who Loved Me] from your history?</p>
-        <div class="histPopBtn">
-            <button class="YesBtn" onclick="hisShowHide2(History10)" id="popUpConfirm10">Yes, remove this title</button>
-            <button class="CancelBtn">Cancel</button>
-        </div>
-    </div>
-</div>
-
-<div class="histPopup" id="popUpCon10">
-    <div class="histOverlay"></div>
-    <div class="histPopUpDesc">
-        <p class="dltBtnPops" style="cursor: pointer;">×</p>
-        <p class="histPopDesc">[The Spy Who Loved Me] has been successfully removed from your history.</p>
-    </div>
-</div>
-
 
 </body>
 <script src="JavaScripts/Header.js"></script>

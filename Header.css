@@ -59,6 +59,10 @@ header {
     height: 65px;
 }
 
+.page-is-clicked {
+    color: var(--blue);
+}
+
 .movielogo {
     /* border: 1px solid red; */
     display: flex;
@@ -89,7 +93,7 @@ nav{
     text-decoration: none;
     /* border: 1px solid red; */
 }
- 
+
 .rightnav{
     display: flex;
     align-items: center;

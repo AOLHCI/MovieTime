@@ -48,8 +48,8 @@
 
   .category-left {
     padding-left: 0.5rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
   .category-random-button {
@@ -58,10 +58,14 @@
     height: 2.5rem;
     border-radius: 8px;
     border: #26282B 2px;
+    transition: background-color 0.3s, box-shadow 0.3s;
   }
 
   .category-random-button:hover {
-    background-color: rgb(18, 103, 194)
+    background-color: #353941;
+    color: var(--blue);
+    animation-duration: 0.5s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);;
   }
 
 .category-list {

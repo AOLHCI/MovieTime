@@ -1395,8 +1395,16 @@ a {
     /* border: 1px solid red; */
   }
 
+  .top-detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: baseline;
+    margin-bottom: 20px;
+  }
+
   #movie-title {
-    font-size: 40px;
+    font-size: 36px;
     width: fit-content;
     /* border: 1px solid red;  */
   }

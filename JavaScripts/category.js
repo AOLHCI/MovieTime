@@ -866,6 +866,32 @@ var movies = [
     },
   ];
 
+  function addIconChangingListeners(){
+    const movieCardButtons = document.querySelectorAll('.movie-card-button');
+
+    movieCardButtons.forEach(function(movieCardButton) {
+
+        let isAdded = false;
+
+        movieCardButton.addEventListener('click', function() {
+            const cardImg = this.querySelector('img');
+            const cardDesc = this.querySelector('p');
+            
+            if (isAdded) {
+                cardImg.src = 'Assets/Icon/bookmark.png';
+                cardDesc.textContent = "Add to Watchlist";
+                this.classList.remove('clicked');
+                isAdded = false;
+            } else {
+                cardImg.src = 'Assets/Icon/bookmark (1).png'; // Adjusted for file name
+                cardDesc.textContent = "Added to Watchlist";
+                this.classList.add('clicked');
+                isAdded = true;
+            }
+        });
+    });
+}
+
 function generateMovieMarkup(movie) {
     return `
         <div class="movie-card-container category">
@@ -895,6 +921,7 @@ function renderMovies(movies) {
 
     });
     movieContainer.innerHTML = htmlMarkup;
+    addIconChangingListeners();
 }
 
 document.addEventListener('DOMContentLoaded', function() {

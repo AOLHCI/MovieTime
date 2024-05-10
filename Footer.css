@@ -13,8 +13,8 @@ footer {
 
 
 .social {
-    margin-bottom: 50px;
     scale: 2;
+    margin-bottom: 50px;
     padding: 40px;
 }
 
@@ -35,4 +35,18 @@ footer {
 
 .foot h4 {
     margin: 0;
+}
+
+@media(max-width: 767px){
+    .social{
+        scale: 1;
+        padding: 10px;
+    }
+    .social a{
+        font-size: 20px;
+    }
+
+    .foot{
+        font-size: 10px;
+    }
 }

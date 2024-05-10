@@ -292,39 +292,6 @@ a {
   content: url('Assets/Icon/bookmark\ \(2\).png');
 }
 
-/* Footer */
-footer {
-  background-color: #333;
-  color: #fff;
-  padding: 40px;
-  text-align: center;
-  overflow-x: hidden; /* Add this line to hide horizontal scrollbar */
-}
-
-.social {
-  margin-bottom: 50px;
-  scale: 2;
-  padding: 40px;
-}
-
-.social a {
-  color: #fff;
-  margin: 5px;
-  text-decoration: none;
-  border-radius: 6px;
-  padding: 5px;
-  font-size: 24px;
-  transition: 0.4s;
-}
-
-.social a:hover {
-  background: rgba(250, 250, 250, 0.1); /* Lower opacity with rgba */
-}
-
-.foot h4 {
-  margin: 0;
-}
-
 
 /* WATCH PAGE */
 

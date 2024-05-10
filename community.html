@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="community.css">
     <link rel="stylesheet" href="Header.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel = "stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -16,6 +15,7 @@
     <link rel="icon" href="Assets/HeaderPhoto/logo.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="Footer.css">
+    <link rel="stylesheet" href="community.css">
 </head>
 <body>
     <header id="community-header">
@@ -307,14 +307,15 @@
             <p class="lexend" id="Thread-name">${comment.name}</p>
             <p class="lexend" id="Thread-time">${comment.time}</p>
             <p class="lexend" id="Thread-text">${comment.text}</p>
+            <p class="lexend" id="Thread-tags" onclick="filterCommentsByHashtag(this)">${comment.hashtag}</p>
             <div class="comment-details">
                 <div class="comment-like-section posted-reply-like-counter">
                     <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
-                    <p class="lexend" class="comment-like-count">${comment.likecount}</p>
+                    <p class="comment-like-count">${comment.likecount}</p>
                 </div>
                 <div class="comment-reply-section" onclick="toggleRepliesTag(this)">
                     <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
-                    <p class="lexend" class="comment-reply-count">${comment.replycount}</p>
+                    <p class="comment-reply-count">${comment.replycount}</p>
                 </div>
                 <div class="reply-butts">
                     <p class="lexend" class="reply-comment" onclick="toggleReplyInput(this)">Reply</p>
@@ -346,35 +347,57 @@
     postedComments.insertBefore(commentElement, postedComments.firstChild);
 
     comment.reply.forEach(reply => {
-        var replyElement = document.createElement('div');
-        replyElement.classList.add('reply');
-        replyElement.style.display = 'none';
-        replyElement.innerHTML = `
+    var replyElement = document.createElement('div');
+    replyElement.classList.add('reply');
+    replyElement.style.display = 'none';
+    replyElement.innerHTML = `
         <div class="posted-reply-sections">
-                  <div class="flex-row">
-                      <img src="Assets/Icon/profilepicture.png" alt="">
-                      <div class="flex-column">
-                          <p class="comment-author">${reply.name}</p>
-                          <p class="comment-date">${reply.time}</p>
-                          <p class="comment-description">${reply.text}</p>
-                          <div class="comment-details">
-                              <div class="comment-like-section">
-                                  <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
-                                  <p class="lexend" class="comment-like-count">${reply.likecount}</p>
-                              </div>
-                              <div class="comment-reply-section">
-                                  <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
-                                  <p class="lexend" class="comment-reply-count">${reply.replycount}</p>
-                              </div>
-                              <div class="reply-butts">
-                                <p class="reply-comment">Reply</p>
-                                </div>
-                          </div>
-                      </div>
-                  </div>
-              
-        `;
-        commentElement.appendChild(replyElement);
+            <div class="flex-row">
+                <img src="Assets/Icon/profilepicture.png" alt="">
+                <div class="flex-column">
+                    <p class="comment-author">${reply.name}</p>
+                    <p class="comment-date">${reply.time}</p>
+                    <p class="comment-description">${reply.text}</p>
+                    <div class="comment-details">
+                        <div class="comment-like-section">
+                            <img src="Assets/Icon/like.png" class="comment-like-icon" alt="" data-liked="false">
+                            <p class="comment-like-count">${reply.likecount}</p>
+                        </div>
+                        <div class="comment-reply-section">
+                            <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+                            <p class="comment-reply-count">${reply.replycount}</p>
+                        </div>
+                        <div class="reply-butts">
+                            <p class="reply-comment">Reply</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    commentElement.appendChild(replyElement);
+
+    // Menambahkan event listener untuk setiap comment-like-section pada reply
+    var replyLikeSection = replyElement.querySelector('.comment-like-section');
+    replyLikeSection.addEventListener('click', function() {
+        var likeIcon = this.querySelector('.comment-like-icon');
+        var likeCount = this.querySelector('.comment-like-count');
+
+        var liked = JSON.parse(likeIcon.getAttribute('data-liked'));
+
+        if (!liked) {
+            likeCount.textContent = parseInt(likeCount.textContent) + 1;
+            likeIcon.src = 'Assets/Icon/like (1).png';
+            likeCount.style.color = '#47B5FF'; 
+        } else {
+            likeCount.textContent = parseInt(likeCount.textContent) - 1;
+            likeIcon.src = 'Assets/Icon/like.png'; 
+            likeCount.style.color = '#FFFFFF'; 
+        }
+
+        likeIcon.setAttribute('data-liked', !liked);
+        });
     });
 
     var likeSection = commentElement.querySelector('.comment-like-section');

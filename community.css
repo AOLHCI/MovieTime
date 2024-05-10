@@ -245,7 +245,7 @@ hr{
     padding-top: 15px;
     padding-bottom: 15px;
     margin: 0px 0px 0px 80px; 
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
@@ -254,6 +254,7 @@ hr{
   .reply-comment-section img, .posted-reply-section img, .posted-reply-sections img{
     width: 45px;
     height: 45px; 
+    margin-bottom: 5px;
     filter: drop-shadow(0px 0px 10px #1f1f1f);
   }
   
@@ -269,7 +270,7 @@ hr{
     padding: 18px 20px;
     margin-top: 0px;
     min-height: 80px;
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
   
@@ -507,7 +508,7 @@ hr{
     font-size: 16px;
     justify-content: center;
     margin: 0.938rem;
-    padding: 0px 1.875rem 0px 0px;
+    padding: 0 0.8rem 0px 0.8rem;
     /* padding-left: 0;
     margin-left: 0; */
     /* border: 1px solid red; */
@@ -581,6 +582,11 @@ hr{
     display: none;
     flex-direction: row;
     /* border: 1px solid red; */
+}
+
+.posted-reply-sections .comment-details{
+    margin: 0;
+    padding-left: 20px;
 }
 
 .posted-reply-sections{
@@ -657,12 +663,19 @@ hr{
 #Thread-time, .comment-date{
     opacity: 0.6;
     margin-bottom: 0;
+    font-size: 12px;
 }
 
 #Thread-text{
-    margin: 1.25rem 0px 1.25rem 0.625rem;
+    margin: 1rem 0px 1rem 0.625rem;
     text-align: justify;
     font-size: 1rem;
+}
+
+#Thread-tags{
+    font-size: 1rem;
+    color: var(--blue);
+    margin-bottom: 10px;
 }
 
 .comment-like-section, .comment-reply-section{
@@ -683,11 +696,16 @@ hr{
 
 #reply-img, #thread-img{
     margin-bottom: 1rem;
+    margin-left: 0.625rem;
 }
 
 .comment-details img{
     width: 1.125rem;
     height: 1.125rem;
+}
+
+#Thread-tags:hover{
+    cursor: pointer;
 }
 
 #imagePreviewContainer, #imagePreviewContainer-popup{
@@ -820,6 +838,10 @@ hr{
         display: none; /* Mulai tersembunyi */
     }
 
+    #Thread-time, .comment-date{
+        font-size: 10px;
+    }
+
     .reply-comment{
         font-size: 14px;
     }
@@ -845,7 +867,11 @@ hr{
     }
 
     .Title-trending{
-        margin-right: 60px;
+        margin-right: 45px;
+    }
+
+    .comment-details{
+        margin-left: 10px;
     }
 
     #Close-trending{
@@ -919,6 +945,14 @@ hr{
         margin: 0px 0px 0px 50px; 
       }
       
+    #reply-img, #thread-img{
+        margin-bottom: 1rem;
+        width: 100%;
+        max-width: 100px;
+        height: auto;
+        margin-left: 0.5rem;
+    }
+
       .reply-comment-section img, .posted-reply-section img, .posted-reply-sections img{
         width: 35px;
         height: 35px; 
@@ -966,8 +1000,12 @@ hr{
         margin-bottom: 10px;
     }
     
-    .Thread-information p, .comment-details p{
+    .Thread-information p{
         margin: 0px 0px 0rem 0.5rem;
+    }
+    
+    .comment-details p{
+        margin: 0;
     }
 
     .posted-reply-section{
@@ -978,7 +1016,11 @@ hr{
     }
 
     #Thread-text{
-        margin: 1rem 0px 1rem 0.5rem;
+        margin: 10px 0px 10px 0.5rem;
+        font-size: 14px;
+    }
+
+    #Thread-tags{
         font-size: 14px;
     }
 
@@ -988,10 +1030,6 @@ hr{
 
     .Thread-list .comment-details{
         margin-left: 0.5rem;
-    }
-    
-    #reply-img, #thread-img{
-        margin-bottom: 1rem;
     }
     
     .comment-description{
@@ -1020,6 +1058,18 @@ hr{
 }
 
 @media (min-width: 768px) and (max-width: 1023px){
+    #Thread-time, .comment-date{
+        font-size: 10px;
+    }
+    
+    .comment-details {
+        margin: 0;
+    }
+
+    .posted-reply-sections .comment-details{
+        padding-left: 20px;
+    }
+
     .Create-thread p{
         font-size: 14px;
         margin: 0;
@@ -1029,6 +1079,14 @@ hr{
     .Create-thread img{
         width: 25px;
         height: auto;
+    }
+
+    #reply-img, #thread-img{
+        margin-bottom: 1rem;
+        width: 100%;
+        max-width: 100px;
+        height: auto;
+        margin-left: 0.5rem;
     }
 
     .Create-thread{
@@ -1064,7 +1122,7 @@ hr{
     .Trend-1{
         font-size: 14px;
         margin: 15px;
-        padding: 0px 1.875rem 0px 0px;
+        padding: 0 0.8rem 0px 0.8rem;
     }
 
     .posted-comment-section .reply-butts{
@@ -1158,8 +1216,12 @@ hr{
         font-size: 14px;
     }
     
-    .Thread-information p, .comment-details p{
+    .Thread-information p{
         margin: 0px 0px 0rem 0.5rem;
+    }
+
+    .comment-details p{
+        margin: 0;
     }
 
     .posted-reply-sections{
@@ -1171,7 +1233,11 @@ hr{
     }
 
     #Thread-text{
-        margin: 1rem 0px 1rem 0.5rem;
+        margin: 10px 0px 10px 0.5rem;
+        font-size: 14px;
+    }
+
+    #Thread-tags{
         font-size: 14px;
     }
 

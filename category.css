@@ -34,20 +34,22 @@
     text-decoration: none;
   }  
 
-.category-title {
+.category-title h2 {
     text-align: center;
     color: white;
     text-shadow:0 4px 8px rgba(0, 0, 0, 0.5);
+    font-size: 1.9rem;
   }
 
   .category-background {
     background-color: #26282B;
-    margin-top: 8rem;
+    margin-top: 7rem;
   }
 
   .category-left {
-    margin-left: 2.8rem;
-    margin-bottom: 1rem;
+    padding-left: 0.5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
   .category-random-button {
@@ -62,14 +64,42 @@
     background-color: rgb(18, 103, 194)
   }
 
-  .category-list {
+.category-list {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 1rem;
+    gap: 1.2rem;
+    width: 71.875rem;
+    max-width: 100rem;
+    justify-content: flex-start;
+    margin: 0 auto;
 }
 
 .category-content {
+    display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.category-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media screen and (min-width: 0px) and (max-width: 767px) {
+  .category-list {
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto;
+    margin: 0 auto;
+}
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .category-list {
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto auto;
+    margin: 0 auto;
+}
 }

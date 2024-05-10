@@ -54,18 +54,20 @@
 
   .category-random-button {
     background-color: var(--blue);
-    width: 7rem;
-    height: 2.5rem;
-    border-radius: 8px;
-    border: #26282B 2px;
-    transition: background-color 0.3s, box-shadow 0.3s;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   }
 
   .category-random-button:hover {
     background-color: #353941;
     color: var(--blue);
     animation-duration: 0.5s;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   }
 
 .category-list {
@@ -96,7 +98,29 @@
     width: 100%;
     grid-template-columns: auto;
     margin: 0 auto;
-}
+  }
+
+  .category-left {
+    /* border: 1px solid red; */
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .category-random-button {
+    font-size: 15px;
+  }
+
+  .category-background {
+    margin-top: 90px;
+  }
+
+  .category-title h2 {
+    font-size: 22px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {

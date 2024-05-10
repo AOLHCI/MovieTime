@@ -790,10 +790,10 @@ document.querySelectorAll('.Trend-info').forEach(element => {
                           <p class="comment-date">${reply.time}</p>
                           <p class="comment-description">${reply.text}</p>
                           <div class="comment-details">
-                              <div class="comment-like-section">
-                                  <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
-                                  <p class="comment-like-count">${reply.likecount}</p>
-                              </div>
+                            <div class="comment-like-section" onclick="toggleLikeReply(this)">
+                              <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+                              <p class="comment-like-count">${reply.likecount}</p>
+                            </div> 
                               <div class="comment-reply-section" onclick="toggleReplies()">
                                   <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
                                   <p class="comment-reply-count">${reply.replycount}</p>
@@ -866,10 +866,10 @@ function filterCommentsByHashtag(element) {
                       <p class="comment-date">${reply.time}</p>
                       <p class="comment-description">${reply.text}</p>
                       <div class="comment-details">
-                          <div class="comment-like-section">
-                              <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
-                              <p class="comment-like-count">${reply.likecount}</p>
-                          </div>
+                          <div class="comment-like-section" onclick="toggleLikeReply(this)">
+                            <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+                            <p class="comment-like-count">${reply.likecount}</p>
+                          </div>                  
                           <div class="comment-reply-section" onclick="toggleReplies()">
                               <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
                               <p class="comment-reply-count">${reply.replycount}</p>
@@ -885,6 +885,24 @@ function filterCommentsByHashtag(element) {
   });
 }
 
+function toggleLikeReply(likeSection) {
+  var likeIcon = likeSection.querySelector('.comment-like-icon');
+  var likeCount = likeSection.querySelector('.comment-like-count');
+
+  var liked = JSON.parse(likeIcon.getAttribute('data-liked'));
+
+  if (!liked) {
+      likeCount.textContent = parseInt(likeCount.textContent) + 1;
+      likeIcon.src = 'Assets/Icon/like (1).png';
+      likeCount.style.color = '#47B5FF'; // Ubah warna menjadi biru
+  } else {
+      likeCount.textContent = parseInt(likeCount.textContent) - 1;
+      likeIcon.src = 'Assets/Icon/like.png';
+      likeCount.style.color = '#FFFFFF'; // Ubah warna menjadi putih
+  }
+
+  likeIcon.setAttribute('data-liked', !liked);
+}
 
 function toggleRepliesTag(element) {
   var commentElement = element.closest('.comment-1');

@@ -119,6 +119,7 @@ document.querySelector("#popUpConfirm9").addEventListener("click", popup9s);
 
 var countData = 0;
 var empty = 0;
+var EmptyText = document.getElementById('Empty-Texts');
 
 const hisShowHide = function(block) {
     let SubJudul1 = document.getElementById('SubJudul1');
@@ -132,6 +133,12 @@ const hisShowHide = function(block) {
     if(countData == 2){
         SubJudul1.remove();
         countData = 0;
+    }
+
+    if (empty == 10) {
+        if (EmptyText) {
+            EmptyText.style.display = 'block';
+        }
     }
 }
 
@@ -148,6 +155,12 @@ const hisShowHide2 = function(block) {
         SubJudul2.remove();
         countData = 0;
     }
+    
+    if (empty == 10) {
+        if (EmptyText) {
+            EmptyText.style.display = 'block';
+        }
+    }
 }
 
 const hisShowHide3 = function(block) {
@@ -162,5 +175,10 @@ const hisShowHide3 = function(block) {
     if(countData == 6){
         SubJudul3.remove();
         countData = 0;
+    }
+    if (empty == 10) {
+        if (EmptyText) {
+            EmptyText.style.display = 'block';
+        }
     }
 }

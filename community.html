@@ -14,10 +14,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Marko+One&display=swap" rel="stylesheet">
     <title>MovieTime - Community</title>
     <link rel="icon" href="Assets/HeaderPhoto/logo.png">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="Footer.css">
 </head>
 <body>
-    <header>
+    <header id="community-header">
         <a href="home.html" class="movielogo"> 
             <img class="logomovie" src="Assets/HeaderPhoto/logo.png">
             <h2>MovieTime</h2>
@@ -41,7 +42,7 @@
                 </li>
                 <li><a href="history.html">History</a></li>
                 <li><a href="Watchlist.html">Watchlist</a></li>
-                <li><a href="community.html"><p class="lexend" class="page-is-clicked">Community</p></a></li>
+                <li><a href="community.html"><p class="page-is-clicked">Community</p></a></li>
             </ul>
         </nav>
 
@@ -63,10 +64,11 @@
             <div class="bx bx-menu" id="icon"></div>
         </div>
     </header>
+    
     <div class="community-top">
         <div class="SearchBar">
             <img id="SearchIcon" class="SearchIcon" src="Assets/HeaderPhoto/search.png">
-            <input type="text" name="Search-input" class="Searchs-input" id="Search-input" placeholder="Search...">
+            <input type="text" name="Search-input" class="Searchs-input" id="Search-input" placeholder="Search thread...">
         </div>
         <div class="Create-thread" onclick="popUpCreate()">
             <p>Create Thread</p>
@@ -82,7 +84,7 @@
                 <div class="Post-thread" id="Post-thread">
                     <img class="Profile-pic" src="Assets/Icon/profilepicture.png">
                     <div class="Input-area">
-                        <textarea id="autoresizing" name="" placeholder="Type something..." class="comment-text" oninput="toggleButton()"></textarea>
+                        <textarea id="autoresizing" name="" placeholder="Type something..." class="comment-text lexend" oninput="toggleButton()"></textarea>
                         <div class="flex-column">
                             <div id="imagePreviewContainer"></div>
                             <div class="row-input">
@@ -90,7 +92,7 @@
                                     <img id="imageSelector" class="Image-Input" src="Assets/Icon/image.png" onclick="imageUpload()">
                                 </div>
                                 <div class="Post-button">
-                                    <button id="post-button" class="Thread-btn" onclick="postComment()" disabled>Post</button>
+                                    <button id="post-button" class="Thread-btn lexend" onclick="postComment()" disabled>Post</button>
                                 </div>
                             </div>
                         </div>

@@ -646,7 +646,7 @@ function postCommentpopup() {
   setTimeout(function() {
     popupdone.style.display = 'none';
     popupdoneContent.classList.remove('active');
-  }, 500);
+  }, 2000);
 }
 
 var comments = [

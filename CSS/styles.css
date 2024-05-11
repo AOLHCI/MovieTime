@@ -289,7 +289,7 @@ a {
 }
 
 .movie-card-button:hover img {
-  content: url('Assets/Icon/bookmark\ \(2\).png');
+  content: url('../Assets/Icon/bookmark\ \(2\).png');
 }
 
 
@@ -509,7 +509,7 @@ a {
 }
 
 .stars .rated {
-  content: url('Assets/Icon/star\ \(3\).png');
+  content: url('../Assets/Icon/star\ \(3\).png');
 }
 
 .rating-section p {
@@ -785,7 +785,7 @@ a {
 }
 
 .comment-like-section:hover .comment-like-icon {
-  content: url('Assets/Icon/like\ \(1\).png');
+  content: url('../Assets/Icon/like\ \(1\).png');
 }
 
 .comment-like-section:hover p {
@@ -793,7 +793,7 @@ a {
 }
 
 .comment-reply-section:hover .comment-reply-icon {
-  content: url('Assets/Icon/comment\ \(1\).png');
+  content: url('../Assets/Icon/comment\ \(1\).png');
 }
 
 .comment-reply-section:hover p {

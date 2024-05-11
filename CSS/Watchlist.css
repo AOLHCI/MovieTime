@@ -38,7 +38,7 @@
 }
 
 .movie-card-button--watchlist:hover img {
-    content: url('Assets/Icon/bookmark\ \(1\).png');
+    content: url('../Assets/Icon/bookmark\ \(1\).png');
 }
 
   .pop-up-remove {

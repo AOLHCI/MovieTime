@@ -701,7 +701,7 @@ var movies = [
   {
   posterURL: "https://upload.wikimedia.org/wikipedia/en/d/d6/Five_Nights_At_Freddy%27s_poster.jpeg",
   mainPoster: "https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2023/05/17/03-fnf-dm-mobile-banner-1080x745-km-f01-0516231-64643a789a42a-1-384134179.png",
-    title: "Five Nights at Freddy's",
+    title: "Five Nights at Freddys",
     rating: 5.5,
     year: 2023,
     duration: "1h 49m",
@@ -1325,11 +1325,10 @@ replyParagraph.addEventListener('click', toggleReplyContainer);
 cancelButton.addEventListener('click', toggleReplyContainer);
 
 function replyComment() {
-    var replyCountElements = document.querySelectorAll('.comment-reply-count');
-    replyCountElements.forEach(replyCountElement => {
-        var currentCount = parseInt(replyCountElement.textContent);
-        replyCountElement.textContent = currentCount + 1;
-    });
+    var replyCountElement = document.querySelector('.comment-reply-count');
+    var currentCount = parseInt(replyCountElement.textContent);
+    replyCountElement.textContent = currentCount + 1;
+    
 
     if(toggleReplyStatus === 1){
       toggleReplies();

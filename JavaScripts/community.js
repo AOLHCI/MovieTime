@@ -986,6 +986,8 @@ document.querySelectorAll('.Trend-info').forEach(element => {
       var temporaryCommentContainer = document.getElementById('Temporary-comment');
       temporaryCommentContainer.innerHTML = '';
 
+      document.getElementById('Search-input').value = selectedHashtag;
+
       // Filter komentar yang memiliki hashtag yang sama dengan yang dipilih
       var commentsWithSameHashtag = comments.filter(comment => comment.hashtag === selectedHashtag);
 
@@ -1024,7 +1026,7 @@ document.querySelectorAll('.Trend-info').forEach(element => {
               replyElement.innerHTML = `
               <div class="posted-reply-sections">
                   <div class="flex-row">
-                      <img src="Assets/Icon/profilepicture.png" alt="">
+                      <img src="Assets/Icon/profilepicture.png" alt="" class="pp-comment">
                       <div class="flex-column">
                           <p class="comment-author">${reply.name}</p>
                           <p class="comment-date">${reply.time}</p>
@@ -1064,6 +1066,8 @@ function filterCommentsByHashtag(element) {
   // Kosongkan Temporary-comment
   var temporaryCommentContainer = document.getElementById('Temporary-comment');
   temporaryCommentContainer.innerHTML = '';
+
+  document.getElementById('Search-input').value = selectedHashtag;
 
   // Tampilkan komentar yang telah difilter di dalam Temporary-comment
   commentsWithSameHashtag.forEach(comment => {

@@ -147,9 +147,15 @@ hr{
     align-items: center;
     margin-right: 20px;
     margin-top: 0.5rem;
+    transition: all 0.3s ease;
 }
 
 .Create-thread:hover {
+    background-color: var(--blue);
+    cursor: pointer;
+}
+
+.trending-Thread:hover {
     background-color: var(--blue);
     cursor: pointer;
 }
@@ -163,13 +169,13 @@ hr{
 .community-thread{
     flex-grow: 1;
     background-color: #353941;
-    height: auto;
+    height: fit-content;
     border-radius: 10px;
     display: flex;
     align-items: start;
     margin: 0.625rem 1.25rem 1.25rem 3.75rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    /* border: 1px solid red; */
+    /* border: 1px solid red;   */
 }
 
 #hr-thread {
@@ -192,6 +198,7 @@ hr{
     width: auto;
     height: 40px;
     display: inline-block;
+    /* border: 1px solid red; */
     filter: drop-shadow(0px 0px 10px #1f1f1f);
 }
 
@@ -199,13 +206,14 @@ hr{
     display: flex;
     width: calc(100% - 50px);
     flex-wrap: wrap;
-    margin: 0px 0.313rem 0.625rem 0.75rem;
+    margin: 0px 0rem 0.625rem 0.75rem;
     background-color: rgba(38, 40, 43, 1);
     border-radius: 10px;
     justify-content: space-between;
     align-items: flex-end;
     position: relative;
     padding-bottom: 0.5rem;
+    /* border: 1px solid red; */
 }
 
 .Input-area .flex-row{
@@ -229,6 +237,7 @@ hr{
     color: #aaa;
     /* position: absolute;
     top: 13px; */
+    /* border: 1px solid red; */
 }
 
 .comment-text:focus, .comment-text-popup:focus{
@@ -277,8 +286,9 @@ hr{
   .reply-comment-section textarea::placeholder {
     position: absolute;
     top: 18px;
-    color: var(--white);
+    color: #aaa;
     opacity: 1;
+    /* border: 1px solid red; */
   }
 
   .flex-column p{
@@ -290,7 +300,9 @@ hr{
 
   .reply-comment-section .flex-column{
     width: 100%;
+    padding-left: 0;
     padding-right: 1rem;
+    /* border: 1px solid red; */
   }
 
   .lexend {
@@ -338,12 +350,12 @@ hr{
   
   #reply-button {
     width: 80px;
-    font-size: 18px;
-    padding: 5px 0px;
-    border-radius: 8px;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 6px;
     border: 0;
-    background-color: #26282B;
-    color: var(--white);
+    background-color: var(--blue);
+    color: var(--black);
     /* margin-left: calc(100% - 80px); */
     margin-top: 8px;
     transition: all 0.2s ease;
@@ -353,15 +365,16 @@ hr{
   }
   
   #reply-button:hover {
-    background-color: var(--blue);
+    background-color: var(--black);
+    color: var(--blue);
     cursor: pointer;
   }
   
   #cancel-button {
     width: 100px;
-    font-size: 18px;
+    font-size: 16px;
     padding: 5px 0px;
-    border-radius: 8px;
+    border-radius: 6px;
     border: 0;
     background-color: #26282B;
     color: var(--white);
@@ -390,6 +403,7 @@ hr{
 
 .Images{
     align-content: center;
+    /* border: 1px solid red; */
 }
 
 .Image-Input{
@@ -400,7 +414,7 @@ hr{
 }
 
 .Images:hover img{
-    filter: invert(38%) sepia(98%) saturate(4215%) hue-rotate(200deg) brightness(103%) contrast(106%);
+    filter: invert(38%) sepia(98%) saturate(4215%) hue-rotate(200deg) brightness(123%) contrast(106%);
     cursor: pointer;
 }
 
@@ -446,6 +460,7 @@ hr{
 }
 
 .comment-description{
+    margin-top: 0.75rem;
     margin-bottom: 1rem;
 }
 
@@ -482,6 +497,7 @@ hr{
 
 .Trending-content{
     width: 100%;
+    /* border: 1px solid red; */
 }
 
 .Title-trending{
@@ -663,24 +679,35 @@ hr{
 #Thread-time, .comment-date{
     opacity: 0.6;
     margin-bottom: 0;
-    font-size: 12px;
+    font-size: 15px;
 }
 
 #Thread-text{
-    margin: 1rem 0px 1rem 0.625rem;
-    text-align: justify;
+    margin: 0.75rem 0px 0.5rem 0.625rem;
+    text-align: left;
     font-size: 1rem;
 }
 
 #Thread-tags{
     font-size: 1rem;
     color: var(--blue);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    /* border: 1px solid red; */
 }
 
 .comment-like-section, .comment-reply-section{
     display: flex;
     flex-direction: row;
+}
+
+.comment-details {
+    /* border: 1px solid red; */
+    font-size: 15px;
+}
+
+.comment-details img {
+    width: 18px;
+    height: 18px;
 }
 
 .comment-details{
@@ -810,6 +837,65 @@ hr{
     display: none; 
 }
 
+.comment-like-count, .comment-reply-count, .reply-comment {
+    font-size: 15px;
+    /* border: 1px solid red; */
+}
+
+.reply-comment {
+    /* border: 1px solid red; */
+    padding-bottom: 4px;
+}
+
+.comment-details {
+    margin-left: 0;
+    padding-left: 10px;
+    /* border: 1px solid red; */
+    gap: 30px;
+}
+
+.comment-author, .comment-date, .comment-description, .comment-details {
+    margin-left: 0;
+    padding-left: 10px;
+    /* border: 1px solid red; */
+}
+
+.posted-reply-sections .comment-author {
+    /* border: 1px solid red; */
+    margin-bottom: 0px;
+}
+
+.comment-like-section {
+    /* border: 1px solid blue; */
+    margin-left: -10px;
+    padding-left: -10px;
+}
+
+.posted-reply-sections .flex-row img, .reply-comment-section .flex-row img{
+    width: 40px;
+    height: 40px;
+    /* border: 1px solid red; */
+}
+
+.posted-reply-sections .comment-like-section img, .posted-reply-sections .comment-reply-section img {
+    width: 18px;
+    height: 18px;
+    /* border: 1px solid red; */
+}
+
+.posted-reply-sections .flex-column {
+    margin-left: 0;
+    padding-left: 0;
+    /* border: 1px solid red; */
+}
+
+.reply-buttons .Images img{
+    /* border: 1px solid red; */
+    margin-bottom: 2px;
+    width: 25px;
+    height: 25px;
+}
+
 @media screen and (max-width: 767px){
     .popup-Title{
         font-size: 14px;
@@ -839,7 +925,7 @@ hr{
     }
 
     #Thread-time, .comment-date{
-        font-size: 10px;
+        font-size: 13px;
     }
 
     .reply-comment{
@@ -849,25 +935,31 @@ hr{
     .Trending-film {
         display: none; /* Awalnya disembunyikan */
         position: fixed;
-        top: 50%;
+        top: 420px;
         left: 50%;
         transform: translate(-50%, -50%);
         background-color: var(--grey);
         padding: 15px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        max-width: 70%;
+        max-width: 100%;
         overflow-y: auto;
         z-index: 1000;
         margin: 0;
+        /* margin-top: 60px; */
+        /* border: 1px solid red; */
+        /* overflow: scroll; */
     }
 
     .Trending-content .flex-row{
         justify-content: end;
+        /* border: 1px solid red; */
     }
 
     .Title-trending{
         margin-right: 45px;
+        margin-top: 5px;
+        /* border: 1px solid red; */
     }
 
     .comment-details{
@@ -875,16 +967,56 @@ hr{
     }
 
     #Close-trending{
-        width: 15px;
+        width: 20px;
         margin-bottom: 40px;
-        margin-right: -5px;
+        margin-top: 20px;
+        margin-right: -2px;
         position: absolute;
+        /* border: 1px solid red; */
     }
 
     #Cross-Trending{
         filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7440%) hue-rotate(43deg) brightness(97%) contrast(93%);
         width: 100px;
         height: fit-content;
+    }
+    
+    /* .Trending-content{
+        width: 100%;
+        border: 1px solid red;
+    } */
+/*     
+    .Title-trending{
+        text-align: center;
+        color: var(--blue);
+        font-size: 20px;
+        font-family: "Lexend", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        margin: 0;
+        margin-top: 15px;
+        margin-bottom: 5px;
+    }
+    
+    .Trending-film hr{
+        margin: 0.5rem;
+        border-color: var(--blue);
+    } */
+    
+    .Trend-1{
+        margin: 0.5rem 0.938rem;
+        /* border: 1px solid red; */
+    }
+    
+    .Trend-1 p{
+        font-size: 15px;
+        /* border: 1px solid red; */
+    }
+    
+    #Trendthreads-1{
+        font-size: 14px;
+        /* border: 1px solid red; */
     }
 
     .trending-Thread{
@@ -1055,11 +1187,105 @@ hr{
         padding: 2rem;
         font-size: 14px;
     }
+
+    .comment-like-count, .comment-reply-count, .reply-comment {
+        font-size: 13px;
+        /* border: 1px solid red; */
+    }
+    
+    .reply-comment {
+        /* border: 1px solid red; */
+        font-size: 13px;
+        padding-bottom: 4px;
+    }
+    
+    .comment-details {
+        margin-left: 0;
+        padding-left: 10px;
+        /* border: 1px solid red; */
+        gap: 25px;
+    }
+    
+    .comment-author, .comment-date, .comment-description, .comment-details {
+        margin-left: 0;
+        padding-left: 10px;
+        /* border: 1px solid red; */
+    }
+    
+    .posted-reply-sections .comment-author {
+        /* border: 1px solid red; */
+        margin-bottom: 0px;
+    }
+    
+    .comment-like-section {
+        /* border: 1px solid blue; */
+        margin-left: -10px;
+        padding-left: -10px;
+    }
+    
+    .posted-reply-sections .flex-row img, .reply-comment-section .flex-row img{
+        width: 35px;
+        height: 35px;
+        /* border: 1px solid red; */
+    }
+    
+    .posted-reply-sections .comment-like-section img, .posted-reply-sections .comment-reply-section img {
+        width: 15px;
+        height: 15px;
+        /* border: 1px solid red; */
+    }
+
+    .reply-comment-section textarea {
+        font-size: 14px;
+    }
+    .reply-comment-section textarea::placeholder {
+        position: absolute;
+        top: 10px;
+        color: var(--white);
+        opacity: 1;
+        /* border: 1px solid red; */
+    }
+
+    .Thread-list .Thread-information .comment-details .comment-like-section img, .Thread-list .Thread-information .comment-details .comment-reply-section img {
+        width: 15px;
+        height: 15px;
+        /* border: 1px solid red; */
+    }
+
+    .Thread-list .Thread-information .comment-details .reply-butts {
+        /* border: 1px solid red; */
+        font-size: 13px;
+        margin-bottom: 2px;
+    }
+
+    .Post-thread .Input-area .flex-column .row-input .Images img {
+        width: 25px;
+        height: 25px;
+        /* border: 1px solid red; */
+    }
+
+    #post-button {
+        font-size: 15px;
+        /* border: 1px solid red; */
+        padding: 5px 15px;
+    }
+
+    .comment-text, .comment-text-popup{
+        margin: 0.6rem;
+        font-size: 15px;
+    }
+    
+    .comment-text::placeholder {
+        color: #aaa;
+        position: absolute;
+        top: 2px;
+        /* border: 1px solid red; */
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1023px){
     #Thread-time, .comment-date{
-        font-size: 10px;
+        font-size: 14px;
     }
     
     .comment-details {
@@ -1109,10 +1335,12 @@ hr{
     .Trending-film{
         margin: 0.5rem 30px 0px 0px;
         max-width: 180px;
+        /* border: 1px solid red; */
     }
     
     .Title-trending{
         font-size: 1rem;
+        /* border: 1px solid red; */
     }
     
     .Trending-film hr{
@@ -1122,11 +1350,12 @@ hr{
     .Trend-1{
         font-size: 14px;
         margin: 15px;
-        padding: 0 0.8rem 0px 0.3rem;
+        padding: 0 0.8rem 0px 0rem;
+        /* border: 1px solid red; */
     }
 
     .posted-comment-section .reply-butts{
-        font-size: 14px;
+        font-size: 13px;
     }
     
     .Trend-1 div{
@@ -1275,5 +1504,77 @@ hr{
     .search-Msg{
         padding: 2rem;
         font-size: 14px;
+    }
+
+    .comment-like-count, .comment-reply-count, .reply-comment {
+        font-size: 13px;
+        /* border: 1px solid red; */
+    }
+    
+    .reply-comment {
+        /* border: 1px solid red; */
+        font-size: 13px;
+        padding-bottom: 6px;
+    }
+    
+    .comment-details {
+        margin-left: 0;
+        padding-left: 10px;
+        /* border: 1px solid red; */
+        gap: 30px;
+    }
+    
+    .comment-author, .comment-date, .comment-description, .comment-details {
+        margin-left: 0;
+        padding-left: 10px;
+        /* border: 1px solid red; */
+    }
+    
+    .posted-reply-sections .comment-author {
+        /* border: 1px solid red; */
+        margin-bottom: 0px;
+    }
+    
+    .comment-like-section {
+        /* border: 1px solid blue; */
+        margin-left: -10px;
+        padding-left: -10px;
+    }
+    
+    .posted-reply-sections .flex-row img, .reply-comment-section .flex-row img{
+        width: 35px;
+        height: 35px;
+        /* border: 1px solid red; */
+    }
+    
+    .posted-reply-sections .comment-like-section img, .posted-reply-sections .comment-reply-section img {
+        width: 15px;
+        height: 15px;
+        /* border: 1px solid red; */
+    }
+
+    .reply-comment-section textarea::placeholder {
+        position: absolute;
+        top: 10px;
+        color: var(--white);
+        opacity: 1;
+        /* border: 1px solid red; */
+    }
+
+    .Thread-list .Thread-information .comment-details .comment-like-section img, .Thread-list .Thread-information .comment-details .comment-reply-section img {
+        width: 15px;
+        height: 15px;
+        /* border: 1px solid red; */
+    }
+
+    .Thread-list .Thread-information .comment-details .reply-butts {
+        /* border: 1px solid red; */
+        font-size: 13px;
+    }
+
+    .Post-thread .Input-area .flex-column .row-input .Images img {
+        width: 25px;
+        height: 25px;
+        /* border: 1px solid red; */
     }
 }

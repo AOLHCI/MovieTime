@@ -961,7 +961,7 @@ var comments = [
       time: '18:20 - 26 June 2024',
       text: 'The Wonka movie has so much potential for creativity!',
       likecount: 52,
-      replycount: 3,
+      replycount: 0,
       reply: [],
       hashtag: '#Wonka'
   }

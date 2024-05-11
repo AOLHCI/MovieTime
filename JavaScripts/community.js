@@ -802,7 +802,7 @@ var comments = [
               time: '14:45 - 31 May 2024',
               text: 'One of the best Marvel movies in recent years!',
               likecount: 9,
-              replycount: 1,
+              replycount: 0,
               reply: [],
               hashtag: '#ShangChi'
           },
@@ -820,7 +820,7 @@ var comments = [
               time: '12:48 - 2 June 2024',
               text: 'I\'m already planning to rewatch it!',
               likecount: 10,
-              replycount: 1,
+              replycount: 0,
               reply: [],
               hashtag: '#ShangChi'
           }
@@ -878,7 +878,7 @@ var comments = [
       time: '08:45 - 15 June 2024',
       text: 'Madame Web\'s lore is so rich!',
       likecount: 40,
-      replycount: 5,
+      replycount: 4,
       reply: [
           {
               name: 'Emma',
@@ -924,7 +924,7 @@ var comments = [
       time: '07:45 - 24 June 2024',
       text: 'The Wonka movie is going to be a cinematic treat!',
       likecount: 55,
-      replycount: 6,
+      replycount: 3,
       reply: [
           {
               name: 'Mason',

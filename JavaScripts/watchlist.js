@@ -1053,21 +1053,27 @@
 //     randomButton.addEventListener('click', playRandomFromWatchlist);
 // });
 
-// // Fungsi untuk membuat popup
-// function createPopup(id){
-//     let popupNode = document.querySelector(id);
-//     let overlay = popupNode.querySelector(".overlay");
-//     let closeBtn = popupNode.querySelector(".close-btn")
-//     function openPopup(){
-//         popupNode.classList.add("active");
-//     }
-//     function closePopup(){
-//         popupNode.classList.remove("active")
-//     }
-//     overlay.addEventListener("click", closePopup);
-//     closeBtn.addEventListener("click", closePopup);
-//     return openPopup;
-// }
+// Fungsi untuk membuat popup
+
+    // Bernard Buka
+function createPopup(id){
+    let popupNode = document.querySelector(id);
+    let overlay = popupNode.querySelector(".overlay");
+    let closeBtn = popupNode.querySelector(".close-btn")
+    function openPopup(){
+        popupNode.classList.add("active");
+    }
+    function closePopup(){
+        popupNode.classList.remove("active")
+    }
+    overlay.addEventListener("click", closePopup);
+    closeBtn.addEventListener("click", closePopup);
+    return openPopup;
+}
+
+let popup1 = createPopup("#popup")
+document.querySelector("#pop-up").addEventListener("click", popup1);
+    // Sampe sini
 
 // // Event listener untuk tombol popup
 // document.addEventListener('DOMContentLoaded', function() {

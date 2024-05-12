@@ -935,23 +935,23 @@
     //     randomButton.addEventListener('click', redirectRandom);
     //   });
 
-    // function playRandomFromWatchlist() {
-    //     const watchlistMovies = movies.filter(movie => movie.category === "Watchlist");
+    function playRandomFromWatchlist() {
+        const watchlistMovies = movies.filter(movie => movie.category === "Watchlist");
     
-    //     if (watchlistMovies.length === 0) {
-    //         console.error("No movies available in the watchlist.");
-    //         return;
-    //     }
+        if (watchlistMovies.length === 0) {
+            console.error("No movies available in the watchlist.");
+            return;
+        }
     
-    //     const randIndex = Math.floor(Math.random() * watchlistMovies.length);
-    //     const title = encodeURIComponent(watchlistMovies[randIndex].title);
-    //     window.location.href = 'watch.html?title=' + title;
-    // }
+        const randIndex = Math.floor(Math.random() * watchlistMovies.length);
+        const title = encodeURIComponent(watchlistMovies[randIndex].title);
+        window.location.href = 'watch.html?title=' + title;
+    }
     
-    // document.addEventListener('DOMContentLoaded', function() {
-    //     const randomButton = document.querySelector(".category-random-button");
-    //     randomButton.addEventListener('click', playRandomFromWatchlist);
-    // });
+    document.addEventListener('DOMContentLoaded', function() {
+        const randomButton = document.querySelector(".category-random-button");
+        randomButton.addEventListener('click', playRandomFromWatchlist);
+    });
     
     
     const watchlistMovies = movies.filter(movie => movie.category === "Watchlist");
@@ -1034,46 +1034,46 @@
     // document.querySelector("#open-popup").addEventListener("click",popup);
 
 // Fungsi untuk memainkan film acak dari daftar pantauan
-function playRandomFromWatchlist() {
-    const watchlistMovies = movies.filter(movie => movie.category === "Watchlist");
+// function playRandomFromWatchlist() {
+//     const watchlistMovies = movies.filter(movie => movie.category === "Watchlist");
 
-    if (watchlistMovies.length === 0) {
-        console.error("Tidak ada film yang tersedia di daftar pantauan.");
-        return;
-    }
+//     if (watchlistMovies.length === 0) {
+//         console.error("Tidak ada film yang tersedia di daftar pantauan.");
+//         return;
+//     }
 
-    const randIndex = Math.floor(Math.random() * watchlistMovies.length);
-    const title = encodeURIComponent(watchlistMovies[randIndex].title);
-    window.location.href = 'watch.html?title=' + title;
-}
+//     const randIndex = Math.floor(Math.random() * watchlistMovies.length);
+//     const title = encodeURIComponent(watchlistMovies[randIndex].title);
+//     window.location.href = 'watch.html?title=' + title;
+// }
 
-// Event listener untuk tombol acak
-document.addEventListener('DOMContentLoaded', function() {
-    const randomButton = document.querySelector(".category-random-button");
-    randomButton.addEventListener('click', playRandomFromWatchlist);
-});
+// // Event listener untuk tombol acak
+// document.addEventListener('DOMContentLoaded', function() {
+//     const randomButton = document.querySelector(".category-random-button");
+//     randomButton.addEventListener('click', playRandomFromWatchlist);
+// });
 
-// Fungsi untuk membuat popup
-function createPopup(id){
-    let popupNode = document.querySelector(id);
-    let overlay = popupNode.querySelector(".overlay");
-    let closeBtn = popupNode.querySelector(".close-btn")
-    function openPopup(){
-        popupNode.classList.add("active");
-    }
-    function closePopup(){
-        popupNode.classList.remove("active")
-    }
-    overlay.addEventListener("click", closePopup);
-    closeBtn.addEventListener("click", closePopup);
-    return openPopup;
-}
+// // Fungsi untuk membuat popup
+// function createPopup(id){
+//     let popupNode = document.querySelector(id);
+//     let overlay = popupNode.querySelector(".overlay");
+//     let closeBtn = popupNode.querySelector(".close-btn")
+//     function openPopup(){
+//         popupNode.classList.add("active");
+//     }
+//     function closePopup(){
+//         popupNode.classList.remove("active")
+//     }
+//     overlay.addEventListener("click", closePopup);
+//     closeBtn.addEventListener("click", closePopup);
+//     return openPopup;
+// }
 
-// Event listener untuk tombol popup
-document.addEventListener('DOMContentLoaded', function() {
-    const openPopupButton = document.querySelector("#open-popup");
-    openPopupButton.addEventListener('click', createPopup("#popup"));
-});
+// // Event listener untuk tombol popup
+// document.addEventListener('DOMContentLoaded', function() {
+//     const openPopupButton = document.querySelector("#open-popup");
+//     openPopupButton.addEventListener('click', createPopup("#popup"));
+// });
 
     
     const watchlistMoviesSection = document.querySelector('.watchlist-container');

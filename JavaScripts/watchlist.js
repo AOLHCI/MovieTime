@@ -987,6 +987,32 @@
             </div>
         `;
     }).join('');
+
+
+    function clearAllWatchlist() {
+        
+        const confirmation = confirm("Are you sure you want to clear all movies from your watchlist?");
+        if (!confirmation) {
+            return; 
+        }
+    
+        
+        var watchlistContainer = document.querySelector('.watchlist-container');
+        watchlistContainer.innerHTML = '';
+        watchlistMovies = [];
+    
+        
+        const popups = document.querySelectorAll('.pop-up-remove');
+        popups.forEach(popup => popup.style.display = 'none');
+    }
+    
+  
+    document.addEventListener('DOMContentLoaded', function() {
+        const clearAllButton = document.querySelector('.clear-all-movie');
+        clearAllButton.addEventListener('click', clearAllWatchlist);
+    });
+
+
     
     const watchlistMoviesSection = document.querySelector('.watchlist-container');
     watchlistMoviesSection.innerHTML = movieCardsHTML;

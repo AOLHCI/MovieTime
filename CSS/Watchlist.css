@@ -13,6 +13,14 @@
     align-items: center;
 }
 
+.watchlist-content2 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .WebTitle{
     text-align: center;
     margin-top: 140px;
@@ -111,6 +119,31 @@
     background-color: var(--grey);
     color: var(--blue);
   }
+
+  .clear {
+    margin-top: 10px;
+    /* width: -5000px; */
+    width: 100%; /* Menggunakan lebar 100% agar tombol tersebut dapat dilihat */
+    display: flex;
+    justify-content: center; /* Membuat tombol berada di tengah */
+}
+
+.clear-all-movie {
+    background-color: var(--blue);
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    border: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.clear-all-movie:hover {
+    background-color: var(--grey);
+    color: var(--blue);
+}
+
 
 
 @media screen and (min-width: 0px) and (max-width: 767px){

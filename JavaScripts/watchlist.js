@@ -935,23 +935,23 @@
     //     randomButton.addEventListener('click', redirectRandom);
     //   });
 
-    function playRandomFromWatchlist() {
-        const watchlistMovies = movies.filter(movie => movie.category === "Watchlist");
+    // function playRandomFromWatchlist() {
+    //     const watchlistMovies = movies.filter(movie => movie.category === "Watchlist");
     
-        if (watchlistMovies.length === 0) {
-            console.error("No movies available in the watchlist.");
-            return;
-        }
+    //     if (watchlistMovies.length === 0) {
+    //         console.error("No movies available in the watchlist.");
+    //         return;
+    //     }
     
-        const randIndex = Math.floor(Math.random() * watchlistMovies.length);
-        const title = encodeURIComponent(watchlistMovies[randIndex].title);
-        window.location.href = 'watch.html?title=' + title;
-    }
+    //     const randIndex = Math.floor(Math.random() * watchlistMovies.length);
+    //     const title = encodeURIComponent(watchlistMovies[randIndex].title);
+    //     window.location.href = 'watch.html?title=' + title;
+    // }
     
-    document.addEventListener('DOMContentLoaded', function() {
-        const randomButton = document.querySelector(".category-random-button");
-        randomButton.addEventListener('click', playRandomFromWatchlist);
-    });
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     const randomButton = document.querySelector(".category-random-button");
+    //     randomButton.addEventListener('click', playRandomFromWatchlist);
+    // });
     
     
     const watchlistMovies = movies.filter(movie => movie.category === "Watchlist");
@@ -961,16 +961,20 @@
         const popupId = `popup-${index}`;
         return `
             <div id="${containerId}" class="movie-card-container">
+            
                 <img class="movie-card-poster" src="${movie.mainPoster}" alt="${movie.title}" width="272px" height="170px">
-                <img onclick="goToMovieDetail('${movie.title}')" class="movie-card-play" src="Assets/Icon/PlayButton.png" alt="">
                 <div class="movie-card-rating-section">
                     <img src="Assets/Icon/star (1).png" alt="">
                     <p class="lexend">${movie.rating}</p>
-                </div>
+                </div>  
+                <img onclick="goToMovieDetail('${movie.title}')" class="movie-card-play" src="Assets/Icon/PlayButton.png" alt="">
+                
                 <p onclick="goToMovieDetail('${movie.title}')" class="movie-card-title lexend">${movie.title}</p>
                 <div class="movie-card-button movie-card-button--watchlist" onclick="removeFromWatchlist('${containerId}', '${popupId}')">
-                    <img src="Assets/Icon/bookmark (1).png" alt=""></img>
+                  
+                <img src="Assets/Icon/bookmark (1).png" alt=""></img>
                     <p class="lexend">Added to Watchlist</p>
+                    
                 </div>
             </div>
             <div class="pop-up-remove" id="${popupId}" style="display: none;">
@@ -979,20 +983,6 @@
                         ${movie.title}
                     </span>
                     has been removed from Your Watchlist. 
-                    
-                        <button class="lexend" onclick="cancelRemoval('${containerId}', '${popupId}')">Cancel</button>
-                    
-                </p>
-                
-            </div>
-
-            </div>
-            <div class="pop-up-remove" id="${popupId}" style="display: none;">
-                <p class="lexend">
-                    <span class="lexend">
-                        ${movie.title}
-                    </span>
-                    All watchlists have been successfully deleted 
                     
                         <button class="lexend" onclick="cancelRemoval('${containerId}', '${popupId}')">Cancel</button>
                     
@@ -1026,6 +1016,65 @@
     //     clearAllButton.addEventListener('click', clearAllWatchlist);
     // });
 
+    // function createPopup(id){
+    //     let popupNode = document.querySelector(id);
+    //     let overlay = popupNode.querySelector(".overlay");
+    //     let closeBtn = popupNode.querySelector(".close-btn")
+    //     function openPopup(){
+    //         popupNode.classList.add("active");
+    //     }
+    //     function closePopup(){
+    //         popupNode.classList.remove("active")
+    //     }
+    //     overlay.addEventListener("click", closePopup);
+    //     closeBtn.addEventListener("click", closePopup);
+    //     return openPopup;
+    // }
+
+    // let popup = createPopup("#popup");
+    // document.querySelector("#open-popup").addEventListener("click",popup);
+
+// Fungsi untuk memainkan film acak dari daftar pantauan
+function playRandomFromWatchlist() {
+    const watchlistMovies = movies.filter(movie => movie.category === "Watchlist");
+
+    if (watchlistMovies.length === 0) {
+        console.error("Tidak ada film yang tersedia di daftar pantauan.");
+        return;
+    }
+
+    const randIndex = Math.floor(Math.random() * watchlistMovies.length);
+    const title = encodeURIComponent(watchlistMovies[randIndex].title);
+    window.location.href = 'watch.html?title=' + title;
+}
+
+// Event listener untuk tombol acak
+document.addEventListener('DOMContentLoaded', function() {
+    const randomButton = document.querySelector(".category-random-button");
+    randomButton.addEventListener('click', playRandomFromWatchlist);
+});
+
+// Fungsi untuk membuat popup
+function createPopup(id){
+    let popupNode = document.querySelector(id);
+    let overlay = popupNode.querySelector(".overlay");
+    let closeBtn = popupNode.querySelector(".close-btn")
+    function openPopup(){
+        popupNode.classList.add("active");
+    }
+    function closePopup(){
+        popupNode.classList.remove("active")
+    }
+    overlay.addEventListener("click", closePopup);
+    closeBtn.addEventListener("click", closePopup);
+    return openPopup;
+}
+
+// Event listener untuk tombol popup
+document.addEventListener('DOMContentLoaded', function() {
+    const openPopupButton = document.querySelector("#open-popup");
+    openPopupButton.addEventListener('click', createPopup("#popup"));
+});
 
     
     const watchlistMoviesSection = document.querySelector('.watchlist-container');

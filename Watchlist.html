@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="CSS/styles.css">
     <link rel="stylesheet" href="CSS/Watchlist.css">
     <link rel="stylesheet" href="CSS/Header.css">
+    <link rel="stylesheet" href="CSS/history.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         <link rel = "stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
         <link rel = "stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -70,7 +71,7 @@
         <div class="category-left">
             <button class="category-random-button lexend">Watch Random</button>
             <!-- ini bernard -->
-            <button class="popup" id="pop-up">Clear All</button>
+            <button class="Clear-All-Pop lexend" id="open-popup1">Clear All</button>
             <!-- sampe sini -->
         </div>
         <div class="watchlist-container list">
@@ -78,13 +79,46 @@
             
     </div>
 
+    <!-- Bernard -->
+    <div class="histPopup" id="histPopup1">
+        <div class="histOverlay"></div>
+        <div class="histPopUpDesc">
+            <div class="His-Pop-UpBtn">
+                <p class="dltBtnPops" style="cursor: pointer;">×</p>
+            </div>
+            <div class="His-Pop-Desc">
+                <p class="histPopDesc lexend">Are you sure want to clear all your watchlist?</p>
+            </div>
+            <div class="histPopBtn lexend">
+                <button class="YesBtn lexend" id="popUpConfirm1" onclick="hisShowHide(History1)">
+                    <p class="Yes-Btn-Text lexend">
+                        Yes, clear all
+                    </p>
+                </button>
+                <button class="CancelBtn lexend">Cancel</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="histPopup" id="popUpCon1">
+        <div class="histOverlay"></div>
+        <div class="histPopUpDesc">
+            <div class="His-Pop-UpBtn2">
+                <p class="dltBtnPops lexend" style="cursor: pointer;">×</p>
+            </div>
+            <div class="His-Pop-Desc2">
+                <p class="histPopDesc lexend">All your watchlist have been cleared. Start adding a new one!</p>
+            </div>
+        </div>
+    </div>
+    <!-- Bernard -->
+
     <!-- <div class="clear">
         <button class="clear-all-movie lexend">Clear All</button>
     </div> -->
 
     
-    <!-- Bernard buka -->
-    <div class="popup" id="popup">
+    <!-- <div class="popup" id="popup">
           <div class="overlay"></div>
           <div class="popup-content">
             <h2>This is Popup</h2>
@@ -94,8 +128,7 @@
                 <button class="submit-btn">submit</button>
             </div>
           </div>  
-    </div>
-        <!-- sampe sini -->
+    </div> -->
 
     <!-- <div class="Center">
         <button id="open-popup">Open popup</button>
@@ -144,6 +177,7 @@
 </body>
 <script src="JavaScripts/Header.js"></script>
 <script src="JavaScripts/watchlist.js"></script>
+<script src="JavaScripts/history.js"></script>
 <script>
     function goToMovieDetail(title) {
     window.location.href = 'watch.html?title=' + encodeURIComponent(title);

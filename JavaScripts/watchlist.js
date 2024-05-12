@@ -992,6 +992,68 @@
     }).join('');
 
 
+    // Bernard
+    function createPopup(id){
+        let histpopNode = document.querySelector(id);
+        let histOverlay = histpopNode.querySelector(".histOverlay");
+        let CancelBtn = histpopNode.querySelector(".CancelBtn");
+        let dltBtnPops = histpopNode.querySelector(".dltBtnPops");
+        let openConfirm = histpopNode.querySelector(".YesBtn");
+    
+        function openPopup(){
+            histpopNode.classList.add("active");
+            histOverlay.style.display = "block";
+            // histOverlay.style.pointerEvents = "auto";
+        }
+    
+        function closePopup(){
+            histpopNode.classList.remove("active");
+            histOverlay.style.display = "none";
+            // histOverlay.style.pointerEvents = "none";
+        }
+    
+        histOverlay.addEventListener("click", closePopup);
+        CancelBtn.addEventListener("click", closePopup);
+        dltBtnPops.addEventListener("click", closePopup);
+    
+        if (openConfirm) {
+            openConfirm.addEventListener("click", function() {
+                closePopup(); 
+                openCon(); 
+            });
+        }
+    
+        return openPopup;
+    }
+
+    let popup1 = createPopup("#histPopup1");
+    document.querySelector("#open-popup1").addEventListener("click", popup1);
+
+    function createValidate(id){
+        let confirmpopNode = document.querySelector(id);
+        let confirmOverlay = confirmpopNode.querySelector(".histOverlay");
+        let dltBtnPops = confirmpopNode.querySelector(".dltBtnPops");
+    
+        function popConfirm(){
+            confirmpopNode.classList.add("active");
+            confirmOverlay.style.display = "block";
+        }
+    
+        function closeConfirm(){
+            confirmpopNode.classList.remove("active");
+            confirmOverlay.style.display = "none";
+        }
+    
+        confirmOverlay.addEventListener("click", closeConfirm); 
+        dltBtnPops.addEventListener("click", closeConfirm);
+    
+        return popConfirm;
+    }
+
+    let popup1s = createValidate("#popUpCon1"); 
+    document.querySelector("#popUpConfirm1").addEventListener("click", popup1s);
+    // Bernard
+
     // function clearAllWatchlist() {
         
     //     const confirmation = confirm("Are you sure you want to clear all movies from your watchlist?");
@@ -1055,25 +1117,20 @@
 
 // Fungsi untuk membuat popup
 
-    // Bernard Buka
-function createPopup(id){
-    let popupNode = document.querySelector(id);
-    let overlay = popupNode.querySelector(".overlay");
-    let closeBtn = popupNode.querySelector(".close-btn")
-    function openPopup(){
-        popupNode.classList.add("active");
-    }
-    function closePopup(){
-        popupNode.classList.remove("active")
-    }
-    overlay.addEventListener("click", closePopup);
-    closeBtn.addEventListener("click", closePopup);
-    return openPopup;
-}
-
-let popup1 = createPopup("#popup")
-document.querySelector("#pop-up").addEventListener("click", popup1);
-    // Sampe sini
+// function createPopup(id){
+//     let popupNode = document.querySelector(id);
+//     let overlay = popupNode.querySelector(".overlay");
+//     let closeBtn = popupNode.querySelector(".close-btn")
+//     function openPopup(){
+//         popupNode.classList.add("active");
+//     }
+//     function closePopup(){
+//         popupNode.classList.remove("active")
+//     }
+//     overlay.addEventListener("click", closePopup);
+//     closeBtn.addEventListener("click", closePopup);
+//     return openPopup;
+// }
 
 // // Event listener untuk tombol popup
 // document.addEventListener('DOMContentLoaded', function() {

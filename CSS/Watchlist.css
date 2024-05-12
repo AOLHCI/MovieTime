@@ -99,10 +99,33 @@
     background-color: var(--black);
   }
 
-  .category-left {
+  /* .category-left {
     margin-top: 10px;
     width: 1125px;
-    /* border: 1px solid red; */
+    border: 1px solid red;
+  } */
+
+  /* Bernard */
+  .category-left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 1125px;
+    justify-content: end;
+  }
+
+  .Clear-All-Pop{
+    background-color: #353941;
+    height: 30px;
+    border-radius: 10px;
+    padding: 6px 21px;
+    font-size: 14px;
+    border: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    color: white;
+
   }
 
   .category-random-button {
@@ -114,7 +137,10 @@
     transition: all 0.2s ease;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     cursor: pointer;
+    margin-right: auto; 
   }
+  /* Bernard tambahi margin-right : auto */
+
 
   .category-random-button:hover {
     background-color: var(--grey);

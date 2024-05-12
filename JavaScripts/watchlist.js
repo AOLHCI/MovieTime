@@ -985,32 +985,46 @@
                 </p>
                 
             </div>
+
+            </div>
+            <div class="pop-up-remove" id="${popupId}" style="display: none;">
+                <p class="lexend">
+                    <span class="lexend">
+                        ${movie.title}
+                    </span>
+                    All watchlists have been successfully deleted 
+                    
+                        <button class="lexend" onclick="cancelRemoval('${containerId}', '${popupId}')">Cancel</button>
+                    
+                </p>
+                
+            </div>
         `;
     }).join('');
 
 
-    function clearAllWatchlist() {
+    // function clearAllWatchlist() {
         
-        const confirmation = confirm("Are you sure you want to clear all movies from your watchlist?");
-        if (!confirmation) {
-            return; 
-        }
+    //     const confirmation = confirm("Are you sure you want to clear all movies from your watchlist?");
+    //     if (!confirmation) {
+    //         return; 
+    //     }
     
         
-        var watchlistContainer = document.querySelector('.watchlist-container');
-        watchlistContainer.innerHTML = '';
-        watchlistMovies = [];
+    //     var watchlistContainer = document.querySelector('.watchlist-container');
+    //     watchlistContainer.innerHTML = '';
+    //     watchlistMovies = [];
     
         
-        const popups = document.querySelectorAll('.pop-up-remove');
-        popups.forEach(popup => popup.style.display = 'none');
-    }
+    //     const popups = document.querySelectorAll('.pop-up-remove');
+    //     popups.forEach(popup => popup.style.display = 'none');
+    // }
     
   
-    document.addEventListener('DOMContentLoaded', function() {
-        const clearAllButton = document.querySelector('.clear-all-movie');
-        clearAllButton.addEventListener('click', clearAllWatchlist);
-    });
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     const clearAllButton = document.querySelector('.clear-all-movie');
+    //     clearAllButton.addEventListener('click', clearAllWatchlist);
+    // });
 
 
     

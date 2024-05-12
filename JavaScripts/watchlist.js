@@ -963,12 +963,11 @@
             <div id="${containerId}" class="movie-card-container">
             
                 <img class="movie-card-poster" src="${movie.mainPoster}" alt="${movie.title}" width="272px" height="170px">
+                <img onclick="goToMovieDetail('${movie.title}')" class="movie-card-play" src="Assets/Icon/PlayButton.png" alt="">
                 <div class="movie-card-rating-section">
                     <img src="Assets/Icon/star (1).png" alt="">
                     <p class="lexend">${movie.rating}</p>
-                </div>  
-                <img onclick="goToMovieDetail('${movie.title}')" class="movie-card-play" src="Assets/Icon/PlayButton.png" alt="">
-                
+                </div> 
                 <p onclick="goToMovieDetail('${movie.title}')" class="movie-card-title lexend">${movie.title}</p>
                 <div class="movie-card-button movie-card-button--watchlist" onclick="removeFromWatchlist('${containerId}', '${popupId}')">
                   

@@ -1033,15 +1033,23 @@
         let confirmpopNode = document.querySelector(id);
         let confirmOverlay = confirmpopNode.querySelector(".histOverlay");
         let dltBtnPops = confirmpopNode.querySelector(".dltBtnPops");
-    
+
         function popConfirm(){
             confirmpopNode.classList.add("active");
             confirmOverlay.style.display = "block";
+            document.querySelector('.category-random-button').style.display = 'none';
+            document.querySelector('.Clear-All-Pop').style.display = 'none';
+            document.querySelector('.watchlist-container').style.display = 'none';
+            document.querySelector('.no-watchlist-container').style.display = 'block';
         }
     
         function closeConfirm(){
             confirmpopNode.classList.remove("active");
             confirmOverlay.style.display = "none";
+            document.querySelector('.category-random-button').style.display = 'none';
+            document.querySelector('.Clear-All-Pop').style.display = 'none';
+            document.querySelector('.watchlist-container').style.display = 'none';
+            document.querySelector('.no-watchlist-container').style.display = 'block';
         }
     
         confirmOverlay.addEventListener("click", closeConfirm); 

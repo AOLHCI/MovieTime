@@ -116,16 +116,21 @@
 
   .Clear-All-Pop{
     background-color: #353941;
-    height: 30px;
+    /* height: 30px; */
     border-radius: 10px;
-    padding: 6px 21px;
-    font-size: 14px;
+    padding: 10px 21px;
+    font-size: 16px;
     border: none;
     transition: all 0.2s ease;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     cursor: pointer;
     color: white;
 
+  }
+
+  .Clear-All-Pop:hover {
+    background-color: red;
+    color: var(--black);
   }
 
   .category-random-button {
@@ -145,6 +150,16 @@
   .category-random-button:hover {
     background-color: var(--grey);
     color: var(--blue);
+  }
+
+  .no-watchlist-container {
+    display: none;
+    padding: 180px 0px;
+  }
+
+  .no-watchlist-container p {
+    color: var(--white);
+    font-size: 18px;
   }
 
   /* * {
@@ -170,7 +185,7 @@
     left: 0px;
     width: 100%;
     height: 100%;
-    /* transition: top 0ms ease-in-out 300ms; */
+    transition: top 0ms ease-in-out 300ms;
   }
   
   .popup .overlay{
@@ -316,13 +331,28 @@
       .category-left {
         margin-top: 30px;
         display: flex;
-        width: 100%;
+        width: 90%;
         justify-content: center;
         /* border: 1px solid red; */
       }
 
       .category-random-button {
         font-size: 15px;
+      }
+
+      .Clear-All-Pop {
+        font-size: 15px;
+      }
+
+      .no-watchlist-container {
+        display: none;
+        padding: 25vh 30px;
+      }
+    
+      .no-watchlist-container p {
+        text-align: center;
+        color: var(--white);
+        font-size: 16px;
       }
 }   
 
@@ -351,6 +381,16 @@
       .category-left {
         margin-top: 30px;
         width: 65%;
+      }
+    
+      .no-watchlist-container {
+        display: none;
+        padding: 30vh 0px;
+      }
+    
+      .no-watchlist-container p {
+        color: var(--white);
+        font-size: 18px;
       }
 }
   

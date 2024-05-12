@@ -46,10 +46,12 @@ window.addEventListener('scroll', function() {
   
     //Munculin logout
     profileIcon.addEventListener('click', function () {
-        dropdownMenu.classList.toggle('show');
+        
         menu.classList.toggle('bx-x');
         navbar.classList.toggle('nyala');
         dropdown.classList.remove('active'); 
+        dropdownMenu.classList.toggle('show');
+    
         setTimeout(function() {
             dropdownMenu.classList.toggle('opacity-transition');
         }, 1);

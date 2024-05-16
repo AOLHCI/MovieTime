@@ -1351,7 +1351,7 @@ replyParagraph.addEventListener('click', toggleReplyContainer);
 cancelButton.addEventListener('click', toggleReplyContainer);
 
 function replyComment() {
-    var replyCountElement = document.querySelector('.comment-reply-count');
+    var replyCountElement = document.querySelector('.ferlie-comment');
     var currentCount = parseInt(replyCountElement.textContent);
     replyCountElement.textContent = currentCount + 1;
     

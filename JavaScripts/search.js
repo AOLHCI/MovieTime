@@ -924,6 +924,25 @@ function addDraggableListeners() {
   });
 }
 
+function addToWatchlist(title) {
+  let watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
+  const movieIndex = watchlist.findIndex(movie => movie.title === title);
+  const movie = movies.find(movie => movie.title === title);
+
+  if (movieIndex === -1 && movie) {
+      watchlist.push(movie);
+      localStorage.setItem('watchlist', JSON.stringify(watchlist));
+      // alert(`${title} has been added to your watchlist!`);
+  } else if (movieIndex !== -1) {
+      // Remove the movie from the watchlist
+      watchlist.splice(movieIndex, 1);
+      localStorage.setItem('watchlist', JSON.stringify(watchlist));
+      // alert(`${title} has been removed from your watchlist!`);
+  } else {
+      // alert(`${title} is not found in the movie database!`);
+  }
+}
+
 function searchMovieByInput(input){
 
     const searchText = input.toLowerCase();
@@ -943,7 +962,7 @@ function searchMovieByInput(input){
                     <p class="lexend">${movie.rating}</p>
                 </div>
                 <p onclick="goToMovieDetail('${movie.title}')" class="movie-card-title lexend">${movie.title}</p>
-                <div class="movie-card-button">
+                <div class="movie-card-button" onclick="addToWatchlist('${movie.title}')">
                     <img src="Assets/Icon/bookmark.png" alt="">
                     <p class="lexend">Add to Watchlist</p>
                 </div>

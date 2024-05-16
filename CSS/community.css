@@ -541,6 +541,7 @@ hr{
     filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7440%) hue-rotate(43deg) brightness(97%) contrast(93%);
     width: 20px;
     height: fit-content;
+    cursor: pointer;
     display: none;
 }
 

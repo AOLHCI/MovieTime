@@ -1327,6 +1327,10 @@ hr{
 }
 
 @media (min-width: 768px) and (max-width: 1023px){
+    #Trending-film{
+        display: block;
+    }
+
     #Thread-time, .comment-date{
         font-size: 14px;
     }

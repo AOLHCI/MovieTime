@@ -973,7 +973,7 @@ document.querySelectorAll('.Trend-info').forEach(element => {
       var trendingFilm = document.querySelector('.Trending-film');
       var popupOverlay = document.getElementById('popupOverlay-Trending');
       if (trendingFilm.style.display === 'block') {
-          trendingFilm.style.display = 'none';
+          trendingFilm.style.display = null;
           popupOverlay.style.display = 'none';
       }
       
@@ -1363,14 +1363,14 @@ document.addEventListener('DOMContentLoaded', function() {
   popupOverlay.addEventListener('click', (event) => {
     if (event.target === popupOverlay) {
       popupOverlay.style.display = 'none';
-      trendingFilm.style.display = 'none';
+      trendingFilm.style.display = null;
       popupStatus = false;
     }
   });
 
   images.addEventListener('click', (event) => {
       popupOverlay.style.display = 'none';
-      trendingFilm.style.display = 'none';
+      trendingFilm.style.display = null;
       popupStatus = false;
   });
 
@@ -1386,7 +1386,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
               // Tutup pop-up saat elemen trending-Thread diklik untuk kedua kali
               popupOverlay.style.display = 'none';
-              trendingFilm.style.display = 'none';
+              trendingFilm.style.display = null;
               popupStatus = false;
           }
 

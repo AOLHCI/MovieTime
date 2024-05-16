@@ -1385,8 +1385,8 @@ document.addEventListener('DOMContentLoaded', function() {
               popupStatus = true;
             } else {
               // Tutup pop-up saat elemen trending-Thread diklik untuk kedua kali
-              images.style.display = 'none';
               popupOverlay.style.display = 'none';
+              trendingFilm.style.display = 'none';
               popupStatus = false;
           }
 

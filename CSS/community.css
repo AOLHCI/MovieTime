@@ -985,6 +985,7 @@ hr{
         margin-top: 20px;
         margin-right: -2px;
         position: absolute;
+        display: block;
         /* border: 1px solid red; */
     }
 
@@ -1328,6 +1329,10 @@ hr{
 @media (min-width: 768px) and (max-width: 1023px){
     #Thread-time, .comment-date{
         font-size: 14px;
+    }
+
+    #Close-trending{
+        display: none;
     }
     
     .comment-details {

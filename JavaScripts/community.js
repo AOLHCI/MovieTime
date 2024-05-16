@@ -1364,7 +1364,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (event.target === popupOverlay) {
       popupOverlay.style.display = 'none';
       trendingFilm.style.display = 'none';
-      images.style.display = 'none';
       popupStatus = false;
     }
   });
@@ -1372,7 +1371,6 @@ document.addEventListener('DOMContentLoaded', function() {
   images.addEventListener('click', (event) => {
       popupOverlay.style.display = 'none';
       trendingFilm.style.display = 'none';
-      images.style.display = 'none';
       popupStatus = false;
   });
 
@@ -1384,13 +1382,11 @@ document.addEventListener('DOMContentLoaded', function() {
               // Tampilkan pop-up saat elemen trending-Thread diklik untuk pertama kali
               popupOverlay.style.display = 'block';
               trendingFilm.style.display = 'block';
-              images.style.display = 'block';
               popupStatus = true;
             } else {
               // Tutup pop-up saat elemen trending-Thread diklik untuk kedua kali
               images.style.display = 'none';
               popupOverlay.style.display = 'none';
-              trendingFilm.style.display = 'none';
               popupStatus = false;
           }
 

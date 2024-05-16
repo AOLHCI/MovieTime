@@ -1002,6 +1002,7 @@ document.querySelectorAll('.Trend-info').forEach(element => {
                       <p id="Thread-name">${comment.name}</p>
                       <p id="Thread-time">${comment.time}</p>
                       <p id="Thread-text">${comment.text}</p>
+                      <p class="lexend" id="Thread-tags" onclick="filterCommentsByHashtag(this)">${comment.hashtag}</p>
                       <div class="comment-details">
                           <div class="comment-like-section posted-reply-like-counter" onclick="toggleLike(this)">
                               <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
@@ -1080,6 +1081,7 @@ function filterCommentsByHashtag(element) {
                   <p id="Thread-name">${comment.name}</p>
                   <p id="Thread-time">${comment.time}</p>
                   <p id="Thread-text">${comment.text}</p>
+                  <p class="lexend" id="Thread-tags" onclick="filterCommentsByHashtag(this)">${comment.hashtag}</p>
                   <div class="comment-details">
                       <div class="comment-like-section posted-reply-like-counter" onclick="toggleLike(this)">
                           <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
@@ -1211,6 +1213,7 @@ document.getElementById('Search-input').addEventListener('keypress', function(ev
                               <p id="Thread-name">${comment.name}</p>
                               <p id="Thread-time">${comment.time}</p>
                               <p id="Thread-text">${comment.text}</p>
+                              <p class="lexend" id="Thread-tags" onclick="filterCommentsByHashtag(this)">${comment.hashtag}</p>
                               <div class="comment-details">
                                   <div class="comment-like-section posted-reply-like-counter" onclick="toggleLike(this)">
                                       <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
@@ -1295,6 +1298,7 @@ document.getElementById('SearchIcon').addEventListener('click', function() {
                               <p id="Thread-name">${comment.name}</p>
                               <p id="Thread-time">${comment.time}</p>
                               <p id="Thread-text">${comment.text}</p>
+                              <p class="lexend" id="Thread-tags" onclick="filterCommentsByHashtag(this)">${comment.hashtag}</p>
                               <div class="comment-details">
                                   <div class="comment-like-section posted-reply-like-counter" onclick="toggleLike(this)">
                                       <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">

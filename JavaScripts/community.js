@@ -1014,14 +1014,15 @@ document.querySelectorAll('.Trend-info').forEach(element => {
       document.getElementById('search-Msg').style.display = 'none';
       
       // Dapatkan hashtag yang dipilih dari Trend-info
-      var selectedHashtag = element.querySelector('p:first-child').textContent.toLowerCase(); // Mengubah nilai hashtag menjadi huruf kecil
+      var selectedHashtags = element.querySelector('p:first-child').textContent; // Mengubah nilai hashtag menjadi huruf kecil
+      var selectedHashtag = selectedHashtags.toLowerCase();
       var temporaryCommentContainer = document.getElementById('Temporary-comment');
       temporaryCommentContainer.innerHTML = '';
 
       
       // Filter komentar yang memiliki hashtag yang sama dengan yang dipilih
+      document.getElementById('Search-input').value = selectedHashtags;
       var commentsWithSameHashtag = comments.filter(comment => comment.hashtag.toLowerCase() === selectedHashtag); // Mengubah comment.hashtag menjadi huruf kecil
-      document.getElementById('Search-input').value = comment.hashtag;
 
       // Tampilkan komentar yang telah difilter di dalam Temporary-comment
       commentsWithSameHashtag.forEach(comment => {
@@ -1113,12 +1114,12 @@ document.querySelectorAll('.Trend-info').forEach(element => {
 });
 
 function filterCommentsByHashtag(element) {
-  var hashtag = element.textContent.toLowerCase(); // Mengubah nilai hashtag menjadi huruf kecil
+  var hashtag = element.textContent; // Mengubah nilai hashtag menjadi huruf kecil
   document.getElementById('posted-comments').style.display = 'none';
   document.getElementById('search-Msg').style.display = 'none';
 
   // Dapatkan hashtag yang dipilih dari Thread-tags
-  var selectedHashtag = hashtag;
+  var selectedHashtag = hashtag.toLowerCase();
 
   // Dapatkan komentar yang memiliki hashtag yang sama dengan yang dipilih
   var commentsWithSameHashtag = comments.filter(comment => comment.hashtag.toLowerCase() === selectedHashtag); // Mengubah comment.hashtag menjadi huruf kecil
@@ -1127,7 +1128,7 @@ function filterCommentsByHashtag(element) {
   var temporaryCommentContainer = document.getElementById('Temporary-comment');
   temporaryCommentContainer.innerHTML = '';
 
-  document.getElementById('Search-input').value = comment.hashtag;
+  document.getElementById('Search-input').value = hashtag;
 
   // Tampilkan komentar yang telah difilter di dalam Temporary-comment
   commentsWithSameHashtag.forEach(comment => {

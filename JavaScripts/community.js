@@ -575,7 +575,8 @@ function postComment() {
       likecount: 0,
       replycount: 0,
       reply: [],
-      hashtag: commentHashtag
+      hashtag: commentHashtag,
+      img: imagePreview,
   };
 
   comments.push(newComment);
@@ -972,7 +973,8 @@ function postCommentpopup() {
     likecount: 0,
     replycount: 0,
     reply: [],
-    hashtag: commentHashtag
+    hashtag: commentHashtag,
+    img: imagePreview,
   };
 
   // Push the new comment object to the comments array
@@ -1033,6 +1035,7 @@ document.querySelectorAll('.Trend-info').forEach(element => {
                       <p id="Thread-time">${comment.time}</p>
                       <p id="Thread-text">${comment.text}</p>
                       <p class="lexend" id="Thread-tags" onclick="filterCommentsByHashtag(this)">${comment.hashtag}</p>
+                      <img src="${comment.img}" id="thread-img" style="max-width:150px; height=auto;">
                       <div class="comment-details">
                           <div class="comment-like-section posted-reply-like-counter" onclick="toggleLike(this)">
                               <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
@@ -1104,28 +1107,55 @@ function filterCommentsByHashtag(element) {
   commentsWithSameHashtag.forEach(comment => {
       var commentElement = document.createElement('div');
       commentElement.classList.add('comment-1');
-      commentElement.innerHTML = `
-          <div class="Thread-list">
-              <img class="Profile-pic" src="Assets/Icon/profilepicture.png">
-              <div class="Thread-information">
-                  <p id="Thread-name">${comment.name}</p>
-                  <p id="Thread-time">${comment.time}</p>
-                  <p id="Thread-text">${comment.text}</p>
-                  <p class="lexend" id="Thread-tags" onclick="filterCommentsByHashtag(this)">${comment.hashtag}</p>
-                  <div class="comment-details">
-                      <div class="comment-like-section posted-reply-like-counter" onclick="toggleLike(this)">
-                          <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
-                          <p class="comment-like-count">${comment.likecount}</p>
-                      </div>
-                      <div class="comment-reply-section" onclick="toggleRepliesTag(this)">
-                          <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
-                          <p class="comment-reply-count">${comment.replycount}</p>
-                      </div>
-                      <p class="reply-comment">Reply</p>
-                  </div>
-              </div>
-          </div>
-      `;
+      if(comment.img){
+        commentElement.innerHTML = `
+            <div class="Thread-list">
+                <img class="Profile-pic" src="Assets/Icon/profilepicture.png">
+                <div class="Thread-information">
+                    <p id="Thread-name">${comment.name}</p>
+                    <p id="Thread-time">${comment.time}</p>
+                    <p id="Thread-text">${comment.text}</p>
+                    <p class="lexend" id="Thread-tags" onclick="filterCommentsByHashtag(this)">${comment.hashtag}</p>
+                    <img src="${comment.img}" id="thread-img" style="max-width:150px; height=auto;">
+                    <div class="comment-details">
+                        <div class="comment-like-section posted-reply-like-counter" onclick="toggleLike(this)">
+                            <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+                            <p class="comment-like-count">${comment.likecount}</p>
+                        </div>
+                        <div class="comment-reply-section" onclick="toggleRepliesTag(this)">
+                            <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+                            <p class="comment-reply-count">${comment.replycount}</p>
+                        </div>
+                        <p class="reply-comment">Reply</p>
+                    </div>
+                </div>
+            </div>
+        `;
+      }
+      else{
+        commentElement.innerHTML = `
+            <div class="Thread-list">
+                <img class="Profile-pic" src="Assets/Icon/profilepicture.png">
+                <div class="Thread-information">
+                    <p id="Thread-name">${comment.name}</p>
+                    <p id="Thread-time">${comment.time}</p>
+                    <p id="Thread-text">${comment.text}</p>
+                    <p class="lexend" id="Thread-tags" onclick="filterCommentsByHashtag(this)">${comment.hashtag}</p>
+                    <div class="comment-details">
+                        <div class="comment-like-section posted-reply-like-counter" onclick="toggleLike(this)">
+                            <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+                            <p class="comment-like-count">${comment.likecount}</p>
+                        </div>
+                        <div class="comment-reply-section" onclick="toggleRepliesTag(this)">
+                            <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+                            <p class="comment-reply-count">${comment.replycount}</p>
+                        </div>
+                        <p class="reply-comment">Reply</p>
+                    </div>
+                </div>
+            </div>
+        `;
+      }
       temporaryCommentContainer.appendChild(commentElement);
 
       // Tampilkan balasan yang sesuai di bawah komentar
@@ -1236,30 +1266,59 @@ document.getElementById('Search-input').addEventListener('keypress', function(ev
               filteredComments.forEach(comment => {
                   var commentElement = document.createElement('div');
                   commentElement.classList.add('comment-1');
-                  commentElement.innerHTML = `
-                      <div class="Thread-list">
-                          <img class="Profile-pic" src="Assets/Icon/profilepicture.png">
-                          <div class="Thread-information">
-                              <p id="Thread-name">${comment.name}</p>
-                              <p id="Thread-time">${comment.time}</p>
-                              <p id="Thread-text">${comment.text}</p>
-                              <p class="lexend" id="Thread-tags" onclick="filterCommentsByHashtag(this)">${comment.hashtag}</p>
-                              <div class="comment-details">
-                                  <div class="comment-like-section posted-reply-like-counter" onclick="toggleLike(this)">
-                                      <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
-                                      <p class="comment-like-count">${comment.likecount}</p>
-                                  </div>
-                                  <div class="comment-reply-section" onclick="toggleRepliesTag(this)">
-                                      <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
-                                      <p class="comment-reply-count">${comment.replycount}</p>
-                                  </div>
-                                  <div class="reply-butts">
-                                    <p class="reply-comment">Reply</p>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  `;
+                  if(comment.img){
+                    commentElement.innerHTML = `
+                        <div class="Thread-list">
+                            <img class="Profile-pic" src="Assets/Icon/profilepicture.png">
+                            <div class="Thread-information">
+                                <p id="Thread-name">${comment.name}</p>
+                                <p id="Thread-time">${comment.time}</p>
+                                <p id="Thread-text">${comment.text}</p>
+                                <p class="lexend" id="Thread-tags" onclick="filterCommentsByHashtag(this)">${comment.hashtag}</p>
+                                <img src="${comment.img}" id="thread-img" style="max-width:150px; height=auto;">
+                                <div class="comment-details">
+                                    <div class="comment-like-section posted-reply-like-counter" onclick="toggleLike(this)">
+                                        <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+                                        <p class="comment-like-count">${comment.likecount}</p>
+                                    </div>
+                                    <div class="comment-reply-section" onclick="toggleRepliesTag(this)">
+                                        <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+                                        <p class="comment-reply-count">${comment.replycount}</p>
+                                    </div>
+                                    <div class="reply-butts">
+                                      <p class="reply-comment">Reply</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                  }
+                  else{
+                    commentElement.innerHTML = `
+                        <div class="Thread-list">
+                            <img class="Profile-pic" src="Assets/Icon/profilepicture.png">
+                            <div class="Thread-information">
+                                <p id="Thread-name">${comment.name}</p>
+                                <p id="Thread-time">${comment.time}</p>
+                                <p id="Thread-text">${comment.text}</p>
+                                <p class="lexend" id="Thread-tags" onclick="filterCommentsByHashtag(this)">${comment.hashtag}</p>
+                                <div class="comment-details">
+                                    <div class="comment-like-section posted-reply-like-counter" onclick="toggleLike(this)">
+                                        <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+                                        <p class="comment-like-count">${comment.likecount}</p>
+                                    </div>
+                                    <div class="comment-reply-section" onclick="toggleRepliesTag(this)">
+                                        <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+                                        <p class="comment-reply-count">${comment.replycount}</p>
+                                    </div>
+                                    <div class="reply-butts">
+                                      <p class="reply-comment">Reply</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                  }
                   temporaryCommentContainer.appendChild(commentElement);
 
                   comment.reply.forEach(reply => {
@@ -1321,7 +1380,35 @@ document.getElementById('SearchIcon').addEventListener('click', function() {
           filteredComments.forEach(comment => {
               var commentElement = document.createElement('div');
               commentElement.classList.add('comment-1');
-              commentElement.innerHTML = `
+              if(comment.img){
+                commentElement.innerHTML = `
+                    <div class="Thread-list">
+                        <img class="Profile-pic" src="Assets/Icon/profilepicture.png">
+                        <div class="Thread-information">
+                            <p id="Thread-name">${comment.name}</p>
+                            <p id="Thread-time">${comment.time}</p>
+                            <p id="Thread-text">${comment.text}</p>
+                            <p class="lexend" id="Thread-tags" onclick="filterCommentsByHashtag(this)">${comment.hashtag}</p>
+                            <img src="${comment.img}" id="thread-img" style="max-width:150px; height=auto;">
+                            <div class="comment-details">
+                                <div class="comment-like-section posted-reply-like-counter" onclick="toggleLike(this)">
+                                    <img src="Assets/Icon/like.png" class="comment-like-icon" alt="">
+                                    <p class="comment-like-count">${comment.likecount}</p>
+                                </div>
+                                <div class="comment-reply-section" onclick="toggleRepliesTag(this)">
+                                    <img src="Assets/Icon/comment.png" class="comment-reply-icon" alt="">
+                                    <p class="comment-reply-count">${comment.replycount}</p>
+                                </div>
+                                <div class="reply-butts">
+                                  <p class="reply-comment">Reply</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+              }
+              else{
+                commentElement.innerHTML = `
                   <div class="Thread-list">
                       <img class="Profile-pic" src="Assets/Icon/profilepicture.png">
                       <div class="Thread-information">
@@ -1344,7 +1431,8 @@ document.getElementById('SearchIcon').addEventListener('click', function() {
                           </div>
                       </div>
                   </div>
-              `;
+                `;
+              }
               temporaryCommentContainer.appendChild(commentElement);
 
               comment.reply.forEach(reply => {

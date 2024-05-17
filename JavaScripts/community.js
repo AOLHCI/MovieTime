@@ -1018,10 +1018,10 @@ document.querySelectorAll('.Trend-info').forEach(element => {
       var temporaryCommentContainer = document.getElementById('Temporary-comment');
       temporaryCommentContainer.innerHTML = '';
 
-      document.getElementById('Search-input').value = selectedHashtag;
-
+      
       // Filter komentar yang memiliki hashtag yang sama dengan yang dipilih
       var commentsWithSameHashtag = comments.filter(comment => comment.hashtag.toLowerCase() === selectedHashtag); // Mengubah comment.hashtag menjadi huruf kecil
+      document.getElementById('Search-input').value = comment.hashtag;
 
       // Tampilkan komentar yang telah difilter di dalam Temporary-comment
       commentsWithSameHashtag.forEach(comment => {
@@ -1127,7 +1127,7 @@ function filterCommentsByHashtag(element) {
   var temporaryCommentContainer = document.getElementById('Temporary-comment');
   temporaryCommentContainer.innerHTML = '';
 
-  document.getElementById('Search-input').value = selectedHashtag;
+  document.getElementById('Search-input').value = comment.hashtag;
 
   // Tampilkan komentar yang telah difilter di dalam Temporary-comment
   commentsWithSameHashtag.forEach(comment => {

@@ -1012,14 +1012,14 @@ document.querySelectorAll('.Trend-info').forEach(element => {
       document.getElementById('search-Msg').style.display = 'none';
       
       // Dapatkan hashtag yang dipilih dari Trend-info
-      var selectedHashtag = element.querySelector('p:first-child').textContent;
+      var selectedHashtag = element.querySelector('p:first-child').textContent.toLowerCase(); // Mengubah nilai hashtag menjadi huruf kecil
       var temporaryCommentContainer = document.getElementById('Temporary-comment');
       temporaryCommentContainer.innerHTML = '';
 
       document.getElementById('Search-input').value = selectedHashtag;
 
       // Filter komentar yang memiliki hashtag yang sama dengan yang dipilih
-      var commentsWithSameHashtag = comments.filter(comment => comment.hashtag === selectedHashtag);
+      var commentsWithSameHashtag = comments.filter(comment => comment.hashtag.toLowerCase() === selectedHashtag); // Mengubah comment.hashtag menjadi huruf kecil
 
       // Tampilkan komentar yang telah difilter di dalam Temporary-comment
       commentsWithSameHashtag.forEach(comment => {
@@ -1084,7 +1084,7 @@ document.querySelectorAll('.Trend-info').forEach(element => {
 });
 
 function filterCommentsByHashtag(element) {
-  var hashtag = element.textContent;
+  var hashtag = element.textContent.toLowerCase(); // Mengubah nilai hashtag menjadi huruf kecil
   document.getElementById('posted-comments').style.display = 'none';
   document.getElementById('search-Msg').style.display = 'none';
 
@@ -1092,7 +1092,7 @@ function filterCommentsByHashtag(element) {
   var selectedHashtag = hashtag;
 
   // Dapatkan komentar yang memiliki hashtag yang sama dengan yang dipilih
-  var commentsWithSameHashtag = comments.filter(comment => comment.hashtag === selectedHashtag);
+  var commentsWithSameHashtag = comments.filter(comment => comment.hashtag.toLowerCase() === selectedHashtag); // Mengubah comment.hashtag menjadi huruf kecil
 
   // Kosongkan Temporary-comment
   var temporaryCommentContainer = document.getElementById('Temporary-comment');

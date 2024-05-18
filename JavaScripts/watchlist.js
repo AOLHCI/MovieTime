@@ -914,6 +914,12 @@ function cancelRemoval(containerId, popupId) {
 
     var popup = document.getElementById(popupId);
     popup.style.display = 'none';
+
+    const watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
+    const movieTitle = container.querySelector('.movie-card-title').innerText;
+    const restoredMovie = movies.find(movie => movie.title === movieTitle);
+    const updatedWatchlist = [...watchlist, restoredMovie];
+    localStorage.setItem('watchlist', JSON.stringify(updatedWatchlist));
 }
 
 // function redirectRandom() {
@@ -942,8 +948,8 @@ function cancelRemoval(containerId, popupId) {
 //   });
 
 function playRandomFromWatchlist() {
-    const watchlistMovies = movies.filter(movie => movie.category === "Watchlist");
-
+    // const watchlistMovies = movies.filter(movie => movie.category === "Watchlist");
+    let watchlistMovies = JSON.parse(localStorage.getItem('watchlist')) || [];
     if (watchlistMovies.length === 0) {
         console.error("No movies available in the watchlist.");
         return;
@@ -997,11 +1003,16 @@ document.addEventListener('DOMContentLoaded', function() {
 // }).join('');
 
 document.addEventListener('DOMContentLoaded', function() {
-    const filteredMovies  = movies.filter(movie => movie.category === "Watchlist");
-    const localStorageWatchlist  = JSON.parse(localStorage.getItem('watchlist')) || [];
-    const combinedWatchlist = localStorageWatchlist.concat(filteredMovies);
 
-    const movieCardsHTML = combinedWatchlist.map((movie, index) => {
+    let combinedWatchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
+
+    combinedWatchlist = combinedWatchlist.filter((movie, index, self) =>
+        index === self.findIndex((m) => m.title === movie.title)
+    );
+
+    // alert(combinedWatchlist.length);
+
+    const movieCardsHTML = combinedWatchlist.reverse().map((movie, index) => {
         const containerId = `movie-card-container-${index}`;
         const popupId = `popup-${index}`;
         return `

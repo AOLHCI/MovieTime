@@ -866,31 +866,60 @@ var movies = [
     },
   ];
 
-  function addIconChangingListeners(){
+  function addIconChangingListeners() {
     const movieCardButtons = document.querySelectorAll('.movie-card-button');
-
+  
     movieCardButtons.forEach(function(movieCardButton) {
-
-        let isAdded = false;
-
+        const title = movieCardButton.parentElement.querySelector('.movie-card-title').textContent;
+  
+        // Check if the movie is in the watchlist
+        const watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
+        const isAdded = watchlist.some(movie => movie.title === title);
+  
+        // Update icon based on watchlist status
+        const cardImg = movieCardButton.querySelector('img');
+        const cardDesc = movieCardButton.querySelector('p');
+        if (isAdded) {
+            cardImg.src = 'Assets/Icon/bookmark (1).png'; // Adjusted for file name
+            cardDesc.textContent = "Added to Watchlist";
+            movieCardButton.classList.add('clicked');
+        } else {
+            cardImg.src = 'Assets/Icon/bookmark.png';
+            cardDesc.textContent = "Add to Watchlist";
+            movieCardButton.classList.remove('clicked');
+        }
+  
         movieCardButton.addEventListener('click', function() {
-            const cardImg = this.querySelector('img');
-            const cardDesc = this.querySelector('p');
-            
-            if (isAdded) {
-                cardImg.src = 'Assets/Icon/bookmark.png';
-                cardDesc.textContent = "Add to Watchlist";
-                this.classList.remove('clicked');
-                isAdded = false;
+            const isAdded = movieCardButton.classList.contains('clicked');
+            const watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
+            if (!isAdded) {
+                // alert("1");
+                const movieIndex = watchlist.findIndex(movie => movie.title === title);
+                if (movieIndex === -1) {
+                    const movie = movies.find(movie => movie.title === title);
+                    if (movie) {
+                        watchlist.unshift(movie);
+                        localStorage.setItem('watchlist', JSON.stringify(watchlist));
+                        cardImg.src = 'Assets/Icon/bookmark (1).png';
+                        cardDesc.textContent = "Added to Watchlist";
+                        movieCardButton.classList.add('clicked');
+                    }
+                }
             } else {
-                cardImg.src = 'Assets/Icon/bookmark (1).png'; // Adjusted for file name
-                cardDesc.textContent = "Added to Watchlist";
-                this.classList.add('clicked');
-                isAdded = true;
+                // alert("2");
+                const movieIndex = watchlist.findIndex(movie => movie.title === title);
+                if (movieIndex !== -1) {
+                    watchlist.splice(movieIndex, 1);
+                    localStorage.setItem('watchlist', JSON.stringify(watchlist));
+                    cardImg.src = 'Assets/Icon/bookmark.png';
+                    cardDesc.textContent = "Add to Watchlist";
+                    movieCardButton.classList.remove('clicked');
+                }
             }
+            window.location.reload();
         });
     });
-}
+  }
 
 function addDraggableListeners() {
   var containers = document.querySelectorAll('.searched-movie-container');

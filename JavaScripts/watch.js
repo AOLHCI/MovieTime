@@ -872,30 +872,59 @@ var movies = [
   },
 ];
 
-  function addIconChangingListeners(){
-    const movieCardButtons = document.querySelectorAll('.movie-card-button');
+function addIconChangingListeners() {
+  const movieCardButtons = document.querySelectorAll('.movie-card-button');
 
-    movieCardButtons.forEach(function(movieCardButton) {
+  movieCardButtons.forEach(function(movieCardButton) {
+      const title = movieCardButton.parentElement.querySelector('.movie-card-title').textContent;
 
-        let isAdded = false;
+      // Check if the movie is in the watchlist
+      const watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
+      const isAdded = watchlist.some(movie => movie.title === title);
 
-        movieCardButton.addEventListener('click', function() {
-            const cardImg = this.querySelector('img');
-            const cardDesc = this.querySelector('p');
-            
-            if (isAdded) {
-                cardImg.src = 'Assets/Icon/bookmark.png';
-                cardDesc.textContent = "Add to Watchlist";
-                this.classList.remove('clicked');
-                isAdded = false;
-            } else {
-                cardImg.src = 'Assets/Icon/bookmark (1).png'; // Adjusted for file name
-                cardDesc.textContent = "Added to Watchlist";
-                this.classList.add('clicked');
-                isAdded = true;
-            }
-        });
-    });
+      // Update icon based on watchlist status
+      const cardImg = movieCardButton.querySelector('img');
+      const cardDesc = movieCardButton.querySelector('p');
+      if (isAdded) {
+          cardImg.src = 'Assets/Icon/bookmark (1).png'; // Adjusted for file name
+          cardDesc.textContent = "Added to Watchlist";
+          movieCardButton.classList.add('clicked');
+      } else {
+          cardImg.src = 'Assets/Icon/bookmark.png';
+          cardDesc.textContent = "Add to Watchlist";
+          movieCardButton.classList.remove('clicked');
+      }
+
+      movieCardButton.addEventListener('click', function() {
+          const isAdded = movieCardButton.classList.contains('clicked');
+          const watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
+          if (!isAdded) {
+              // alert("1");
+              const movieIndex = watchlist.findIndex(movie => movie.title === title);
+              if (movieIndex === -1) {
+                  const movie = movies.find(movie => movie.title === title);
+                  if (movie) {
+                      watchlist.unshift(movie);
+                      localStorage.setItem('watchlist', JSON.stringify(watchlist));
+                      cardImg.src = 'Assets/Icon/bookmark (1).png';
+                      cardDesc.textContent = "Added to Watchlist";
+                      movieCardButton.classList.add('clicked');
+                  }
+              }
+          } else {
+              // alert("2");
+              const movieIndex = watchlist.findIndex(movie => movie.title === title);
+              if (movieIndex !== -1) {
+                  watchlist.splice(movieIndex, 1);
+                  localStorage.setItem('watchlist', JSON.stringify(watchlist));
+                  cardImg.src = 'Assets/Icon/bookmark.png';
+                  cardDesc.textContent = "Add to Watchlist";
+                  movieCardButton.classList.remove('clicked');
+              }
+          }
+          window.location.reload();
+      });
+  });
 }
 
 function addDraggableTotalEpisode() {
@@ -1074,23 +1103,58 @@ const urlParams = new URLSearchParams(window.location.search);
 const selectedMovieTitle = urlParams.get('title');
 showMovieDetailByTitle(selectedMovieTitle);
 
+
+
 const addButton = document.getElementById('add-button');
-let isBookmarked = false;
+// alert(addButton);
+const title = addButton.parentElement.querySelector('#movie-title').textContent;
+// alert(title);
+// Check if the movie is in the watchlist
+const watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
+const isAdded = watchlist.some(movie => movie.title === title);
+
+// Update icon based on watchlist status
+const cardImg = addButton.querySelector('img');
+const cardDesc = addButton.querySelector('p');
+if (isAdded) {
+    cardImg.src = 'Assets/Icon/bookmark (1).png'; // Adjusted for file name
+    cardDesc.textContent = "Added to Watchlist";
+    addButton.classList.add('clicked');
+} else {
+    cardImg.src = 'Assets/Icon/bookmark.png';
+    cardDesc.textContent = "Add to Watchlist";
+    addButton.classList.remove('clicked');
+}
 
 addButton.addEventListener('click', function() {
-    const img = this.querySelector('img');
-    const desc = this.querySelector('p');
-    if (isBookmarked) {
-        img.src = 'Assets/Icon/bookmark.png';
-        desc.textContent = "Add to Watchlist";
-        this.classList.remove('clicked');
-        isBookmarked = false;
+    // alert("p");
+    const isAdded = addButton.classList.contains('clicked');
+    const watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
+    if (!isAdded) {
+        // alert("1");
+        const movieIndex = watchlist.findIndex(movie => movie.title === title);
+        if (movieIndex === -1) {
+            const movie = movies.find(movie => movie.title === title);
+            if (movie) {
+                watchlist.unshift(movie);
+                localStorage.setItem('watchlist', JSON.stringify(watchlist));
+                cardImg.src = 'Assets/Icon/bookmark (1).png';
+                cardDesc.textContent = "Added to Watchlist";
+                addButton.classList.add('clicked');
+            }
+        }
     } else {
-        img.src = 'Assets/Icon/bookmark\ \(1\).png';
-        desc.textContent = "Added to Watchlist";
-        this.classList.add('clicked');
-        isBookmarked = true;
+        // alert("2");
+        const movieIndex = watchlist.findIndex(movie => movie.title === title);
+        if (movieIndex !== -1) {
+            watchlist.splice(movieIndex, 1);
+            localStorage.setItem('watchlist', JSON.stringify(watchlist));
+            cardImg.src = 'Assets/Icon/bookmark.png';
+            cardDesc.textContent = "Add to Watchlist";
+            addButton.classList.remove('clicked');
+        }
     }
+    window.location.reload();
 });
 
 const stars = document.querySelectorAll('.stars img');

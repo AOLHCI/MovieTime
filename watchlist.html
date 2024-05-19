@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieTime - My Watchlist</title>
+    <link rel="icon" href="Assets/HeaderPhoto/logo.png">
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/Watchlist.css">
+    <link rel="stylesheet" href="CSS/Header.css">
+    <link rel="stylesheet" href="CSS/history.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel = "stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+        <link rel = "stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="stylesheet" href="CSS/Footer.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Marko+One&display=swap" rel="stylesheet">
+</head>
+<body class="MainBackground">
+    <header>
+        <a href="home.html" class="movielogo"> 
+            <img class="logomovie" src="Assets/HeaderPhoto/logo.png">
+            <h2>MovieTime</h2>
+        </a>
+        <nav>
+            <ul class="navigation">
+                <li class="top"><a href="home.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Category</a>
+                    <ul class="dropdown-content">
+                        <a href="category.html?genre=Action">Action</a>
+                        <a href="category.html?genre=Adventure">Adventure</a>
+                        <a href="category.html?genre=Animation">Animation</a>
+                        <a href="category.html?genre=Comedy">Comedy</a>
+                        <a href="category.html?genre=Drama">Drama</a>
+                        <a href="category.html?genre=Fantasy">Fantasy</a>
+                        <a href="category.html?genre=Horror">Horror</a>
+                        <a href="category.html?genre=Romance">Romance</a>
+                        <a href="category.html?genre=Thriller">Thriller</a>
+                    </ul>
+                </li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="watchlist.html"><p class="page-is-clicked">Watchlist</p></a></li>
+                <li><a href="community.html">Community</a></li>
+            </ul>
+        </nav>
+
+        <div class="rightnav">
+            <div class="search">
+                <form>
+                    <input type="text" placeholder="Search..." id="searchInput">
+                </form>
+                <img src="Assets/HeaderPhoto/search.png" id="searchButton" onclick="goToSearch()">
+            </div>
+
+            <div class="profile dropdown">
+                <img src="Assets/HeaderPhoto/profileicon.png" class="profil" id="profileIcon">
+                <div class="dropdown-profile" id="dropdownMenu">
+                    <a href="login.html" id="logoutLink"><img src="Assets/HeaderPhoto/logout.png" id="logoutIcon"><span class="logout-text">Logout</span></a>
+                </div>
+            </div>          
+            
+            <div class="bx bx-menu" id="icon"></div>
+        </div>
+
+    </header>
+    <div class="watchlist-content">
+        <h1 class="WebTitle">My Watchlist</h1>
+        <div class="category-left">
+            <button class="category-random-button lexend">Watch Random</button>
+            <!-- ini bernard -->
+            <button class="Clear-All-Pop lexend" id="open-popup1">Clear All</button>
+            <!-- sampe sini -->
+        </div>
+        <div class="no-watchlist-container">
+            <p class="lexend">Your watchlist is empty!</p>
+            <!-- (Start adding your favorite movies to watch later.) mending kasih ini ga? -->
+        </div>
+        <div class="watchlist-container list">
+    </div>
+            
+    </div>
+
+    <!-- Bernard -->
+    <div class="histPopup" id="histPopup1">
+        <div class="histOverlay"></div>
+        <div class="histPopUpDesc">
+            <div class="His-Pop-UpBtn">
+                <p class="dltBtnPops" style="cursor: pointer;">×</p>
+            </div>
+            <div class="His-Pop-Desc">
+                <p class="histPopDesc lexend">Are you sure want to clear all your watchlist?</p>
+            </div>
+            <div class="histPopBtn lexend">
+                <button class="YesBtn lexend" id="popUpConfirm1" onclick="hisShowHide(History1)">
+                    <p class="Yes-Btn-Text lexend">
+                        Yes, clear all
+                    </p>
+                </button>
+                <button class="CancelBtn lexend">Cancel</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="histPopup" id="popUpCon1">
+        <div class="histOverlay"></div>
+        <div class="histPopUpDesc">
+            <div class="His-Pop-UpBtn2">
+                <p class="dltBtnPops lexend" style="cursor: pointer;">×</p>
+            </div>
+            <div class="His-Pop-Desc2">
+                <p class="histPopDesc lexend">All your watchlist have been cleared. Start adding a new one!</p>
+            </div>
+        </div>
+    </div>
+    <!-- Bernard -->
+
+    <!-- <div class="clear">
+        <button class="clear-all-movie lexend">Clear All</button>
+    </div> -->
+
+    
+    <!-- <div class="popup" id="popup">
+          <div class="overlay"></div>
+          <div class="popup-content">
+            <h2>This is Popup</h2>
+            <p>Are you sure you want to clear all movies from your watchlist?</p>
+            <div class="controls">
+                <button class="close-btn">close</button>
+                <button class="submit-btn">submit</button>
+            </div>
+          </div>  
+    </div> -->
+
+    <!-- <div class="Center">
+        <button id="open-popup">Open popup</button>
+    </div> -->
+        <!-- <button class="clear-all-movie lexend" onclick="clearAllWatchlist()">Clear All</button>
+        </div>
+        <div class="watchlist-container list">
+    </div>
+    <div class="controls">
+        <button class="cloose-btn">cancel</button>
+        <button class="submit btn">agree</button>
+    </div>
+            
+    </div> -->
+    
+
+    <footer>
+
+        <div class="social">
+            <div class="social-wrapper">
+                <a target="_blank" href="https://www.instagram.com/movietime.id"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="social-wrapper">
+                <a target="_blank" href="https://www.discord.com/movietime.id"><i class="fab fa-discord"></i></a>
+            </div>
+            <div class="social-wrapper">
+                <a target="_blank" href="https://www.youtube.com/movietime.id"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="social-wrapper">
+                <a target="_blank" href="https://www.twitter.com/movietime.id"><i class="fab fa-twitter"></i></a>
+            </div>
+            <div class="social-wrapper">
+                <a target="_blank" href="https://www.facebook.com/movietime.id"><i class="fab fa-facebook"></i></a>
+            </div>
+            
+        </div>
+        
+        <div class="foot">
+            <p>© 2024 MovieTime. All Rights Reserved.</p>
+        </div>
+
+    </footer>
+
+</body>
+<script src="JavaScripts/Header.js"></script>
+<script src="JavaScripts/watchlist.js"></script>
+<script src="JavaScripts/history.js"></script>
+<script>
+    function goToMovieDetail(title) {
+    window.location.href = 'watch.html?title=' + encodeURIComponent(title);
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedMovieTitle = urlParams.get('title');
+    showMovieDetailByTitle(selectedMovieTitle);
+</script>
+<script>
+    function goToSearch() {
+        const searchText = document.getElementById('searchInput').value;
+        if(searchText.length > 0){
+                window.location.href = 'search.html?search=' + encodeURIComponent(searchText);
+                document.getElementById('searchInput').value = "";
+        }
+    }   
+
+    function handleKeyPress(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            goToSearch();
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('keypress', handleKeyPress);
+    });
+</script>
+</html>

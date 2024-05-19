@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="CSS/Login.css">
+  <link rel="stylesheet" href="CSS/Header.css">
+  <link rel="stylesheet" href="CSS/styles.css">
+  <title>MovieTime - Login</title>
+  <link rel="icon" href="Assets/HeaderPhoto/logo.png">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  
+</head>
+
+<body>
+  
+  <div class="wrapper">
+    <div class="form-wrapper sign-in">
+
+      <form id="loginForm" action="" onsubmit="return validateForm()">
+        <h2 class="lexend">Login</h2>
+    
+        <div class="input-group">
+            <input type="text" >
+            <label for="" class="lexend">Username</label>
+            <i class="bx bxs-user"></i>
+        </div>
+    
+        <div class="input-group">
+            <input id="passwordInput" type="password" >
+            <label for="" class="lexend">Password</label>
+            <i id="showPasswordIcon" class='bx bxs-hide'></i>
+            <i id="hidePasswordIcon" class='bx bx-show' style="display: none;"></i>
+        </div>
+    
+        <div class="remember">
+            <label for="" class="lexend"><input type="checkbox" required> Remember me</label>
+        </div>
+        
+        <button type="submit" class="btn lexend">Login</button>
+    
+        <div class="signUp-link">
+            <p class="lexend">Don't have an account? <a href="register.html" class="signUpBtn-link lexend"><b class="lexend">Register Here</b></a> </p>
+        </div>
+    </form>    
+
+    </div>
+  </div>  
+
+
+  <script src="/JavaScripts/Login.js"></script>
+</body>
+
+</html>

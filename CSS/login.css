@@ -20,7 +20,7 @@ body {
     align-items: center;
     min-height: 100vh;
     background-repeat: no-repeat;
-    background-image: url(/Assets/HeaderPhoto/backgroundlogin.png);
+    background-image: url('../Assets/HeaderPhoto/backgroundlogin.png');
     background-size: cover;
 }
 

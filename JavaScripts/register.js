@@ -104,3 +104,4 @@ document.addEventListener('DOMContentLoaded', function() {
         inputGroup.classList.remove('error');
     }
 });
+

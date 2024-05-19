@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieTime - Home</title>
+    <link rel="icon" href="Assets/HeaderPhoto/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel = "stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel = "stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marko+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/Header.css">
+    <link rel="stylesheet" href="CSS/Footer.css">
+</head>
+<body>
+
+    <header>
+        <a href="home.html" class="movielogo"> 
+            <img class="logomovie" src="Assets/HeaderPhoto/logo.png">
+            <h2>MovieTime</h2>
+        </a>
+        <nav>
+            <ul class="navigation">
+                <li class="top"><a href="home.html"><p class="page-is-clicked">Home</p></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Category</a>
+                    <ul class="dropdown-content">
+                        <a href="category.html?genre=Action">Action</a>
+                        <a href="category.html?genre=Adventure">Adventure</a>
+                        <a href="category.html?genre=Animation">Animation</a>
+                        <a href="category.html?genre=Comedy">Comedy</a>
+                        <a href="category.html?genre=Drama">Drama</a>
+                        <a href="category.html?genre=Fantasy">Fantasy</a>
+                        <a href="category.html?genre=Horror">Horror</a>
+                        <a href="category.html?genre=Romance">Romance</a>
+                        <a href="category.html?genre=Thriller">Thriller</a>
+                    </ul>
+                </li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="watchlist.html">Watchlist</a></li>
+                <li><a href="community.html">Community</a></li>
+            </ul>
+        </nav>
+
+        <div class="rightnav">
+            <div class="search">
+                <form>
+                    <input type="text" placeholder="Search..." id="searchInput">
+                </form>
+                <img src="Assets/HeaderPhoto/search.png" id="searchButton" onclick="goToSearch()">
+            </div>
+
+            <div class="profile dropdown">
+                <img src="Assets/HeaderPhoto/profileicon.png" class="profil" id="profileIcon">
+                <div class="dropdown-profile" id="dropdownMenu">
+                    <a href="login.html" id="logoutLink"><img src="Assets/HeaderPhoto/logout.png" id="logoutIcon"><span class="logout-text">Logout</span></a>
+                </div>
+            </div>          
+            
+            <div class="bx bx-menu" id="icon"></div>
+        </div>
+
+    </header>
+    
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide" onclick="goToMovieDetail('The Dark Knight')">
+                <img src="Assets/Slider/the-dark-knight.jpg" alt="">
+            </div>
+            <div class="slide" onclick="goToMovieDetail('1917')">
+                <img src="Assets/Slider/1917.jpg" alt="">
+            </div>
+            <div class="slide" onclick="goToMovieDetail('Spider-Man: No Way Home')">
+                <img src="Assets/Slider/spiderman-no-way-home.webp" alt="">
+            </div>
+            <div class="slide" onclick="goToMovieDetail('Uncharted')">
+                <img src="Assets/Slider/uncharted.jpg" alt="">
+            </div>
+            <div class="slide" onclick="goToMovieDetail('The Conjuring')">
+                <img src="Assets/Slider/the-conjuring.jpg" alt="">
+            </div>
+        </div>
+        <div class="arrow left-arrow">&#10094;</div>
+        <div class="arrow right-arrow">&#10095;</div>
+    </div>
+    <div class="dots-container">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+    <div class="all-movies-section"></div>
+    <!-- All Movie Card generated using JavaScript -->
+    
+    <footer>
+
+        <div class="social">
+            <div class="social-wrapper">
+                <a target="_blank" href="https://www.instagram.com/movietime.id"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="social-wrapper">
+                <a target="_blank" href="https://www.discord.com/movietime.id"><i class="fab fa-discord"></i></a>
+            </div>
+            <div class="social-wrapper">
+                <a target="_blank" href="https://www.youtube.com/movietime.id"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="social-wrapper">
+                <a target="_blank" href="https://www.twitter.com/movietime.id"><i class="fab fa-twitter"></i></a>
+            </div>
+            <div class="social-wrapper">
+                <a target="_blank" href="https://www.facebook.com/movietime.id"><i class="fab fa-facebook"></i></a>
+            </div>
+            
+        </div>
+        
+        <div class="foot">
+            <p>© 2024 MovieTime. All Rights Reserved.</p>
+        </div>
+
+    </footer>
+    
+    <script>
+        function goToSearch() {
+            const searchText = document.getElementById('searchInput').value;
+            if(searchText.length > 0){
+                window.location.href = 'search.html?search=' + encodeURIComponent(searchText);
+                document.getElementById('searchInput').value = "";
+            }
+        }   
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                goToSearch();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('keypress', handleKeyPress);
+        });
+    </script>
+    <script src="JavaScripts/home.js"></script>
+    <script src="JavaScripts/watch.js"></script>
+    <script src="JavaScripts/Header.js"></script>
+    <script src="JavaScripts/category.js"></script>
+    <!-- <script src="JavaScripts/search.js"></script> -->
+
+
+    <script>
+        function goToMovieDetail(title) {
+        window.location.href = 'watch.html?title=' + encodeURIComponent(title);
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedMovieTitle = urlParams.get('title');
+        showMovieDetailByTitle(selectedMovieTitle);
+    </script>
+
+</body>
+</html>

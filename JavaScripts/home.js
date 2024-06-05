@@ -126,6 +126,7 @@ function addDraggableListeners() {
         var scrollLeft;
 
         container.addEventListener('mousedown', function(event) {
+            event.preventDefault();
             isDown = true;
             startX = event.pageX - container.offsetLeft;
             scrollLeft = container.scrollLeft;
